@@ -1002,6 +1002,21 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 114261346934086582, guid: b38520b73080a4ffdae5992bb4550601,
+        type: 2}
+      propertyPath: shootPeriod
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114261346934086582, guid: b38520b73080a4ffdae5992bb4550601,
+        type: 2}
+      propertyPath: period
+      value: 0.002
+      objectReference: {fileID: 0}
+    - target: {fileID: 114261346934086582, guid: b38520b73080a4ffdae5992bb4550601,
+        type: 2}
+      propertyPath: spinSpeed
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b38520b73080a4ffdae5992bb4550601, type: 2}
   m_IsPrefabParent: 0
