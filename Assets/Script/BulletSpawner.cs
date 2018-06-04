@@ -70,8 +70,8 @@ public class BulletSpawner : MonoBehaviour {
 		yield return new WaitForSeconds(0.5f);
 		StartCoroutine(shooting);
 		currentSpinSpeed = spinSpeed;
-		// yield return new WaitForSeconds(timer);
-		while (spinRound > 0) yield return null;
+		yield return new WaitForSeconds(timer);
+		// while (spinRound > 0) yield return null;
 		StopCoroutine(shooting);
 		currentSpinSpeed = 0;
 		yield return new WaitForSeconds(0.5f);
