@@ -10,6 +10,10 @@ public class playerScript : MonoBehaviour {
 	public float frequency;
 	public GameObject pbullet;
 	public Vector3 direction;
+	public GameObject bound;
+	public float BoundsOffset;
+	public Vector3 mx_bound;
+	public Vector3 mn_bound;
 	public static readonly Vector3 UP = new Vector3(0,1,0);
 	public static readonly Vector3 DOWN = new Vector3(0,-1,0);
 	public static readonly Vector3 RIGHT = new Vector3(1,0,0);
@@ -22,11 +26,13 @@ public class playerScript : MonoBehaviour {
 	void Start () {
 		currentSpeed = speed;
 		fire = conShoot(frequency);
+		mx_bound = bound.GetComponent<Collider>().bounds.max;
+		mn_bound = bound.GetComponent<Collider>().bounds.min;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-            // GetComponent<Transform>().position += new Vector3(currentSpeed*Time.deltaTime*Input.GetAxis("Horizontal"),currentSpeed*Time.deltaTime*Input.GetAxis("Vertical"),0);
+            GetComponent<Transform>().position += new Vector3(currentSpeed*Time.deltaTime*Input.GetAxis("Horizontal"),currentSpeed*Time.deltaTime*Input.GetAxis("Vertical"),0);
 			GetComponent<Transform>().position += (direction.normalized)*Time.deltaTime*currentSpeed;
 			if (Input.GetButtonDown("slow")) {
 				currentSpeed = slowSpeed;
@@ -42,10 +48,10 @@ public class playerScript : MonoBehaviour {
 				StopCoroutine(fire);
 
 			} 
-			if (GetComponent<Transform>().position.x < -8.8f) GetComponent<Transform>().position = new Vector3(-8.8f, GetComponent<Transform>().position.y, 0);
-			if (GetComponent<Transform>().position.x > 8.8f) GetComponent<Transform>().position = new Vector3(8.8f, GetComponent<Transform>().position.y, 0);
-			if (GetComponent<Transform>().position.y < -4.8f) GetComponent<Transform>().position = new Vector3(GetComponent<Transform>().position.x, -4.8f, 0);
-			if (GetComponent<Transform>().position.y > 4.8f) GetComponent<Transform>().position = new Vector3(GetComponent<Transform>().position.x, 4.8f, 0);
+			if (GetComponent<Transform>().position.x <= mn_bound.x+BoundsOffset) GetComponent<Transform>().position = new Vector3(mn_bound.x+BoundsOffset, GetComponent<Transform>().position.y, 0);
+			if (GetComponent<Transform>().position.x >= mx_bound.x-BoundsOffset) GetComponent<Transform>().position = new Vector3(mx_bound.x-BoundsOffset, GetComponent<Transform>().position.y, 0);
+			if (GetComponent<Transform>().position.y <= mn_bound.y+BoundsOffset) GetComponent<Transform>().position = new Vector3(GetComponent<Transform>().position.x,mn_bound.y+BoundsOffset, 0);
+			if (GetComponent<Transform>().position.y >= mx_bound.y-BoundsOffset) GetComponent<Transform>().position = new Vector3(GetComponent<Transform>().position.x,mx_bound.y-BoundsOffset, 0);
 	}
 
 	// void OnTriggerEnter(Collider other)

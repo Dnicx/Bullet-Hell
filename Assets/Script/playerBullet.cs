@@ -5,6 +5,7 @@ using UnityEngine;
 public class playerBullet : MonoBehaviour {
 
 	public float speed = 0;
+	public float damage = 1.0f;
 
 	// Use this for initialization
 	void Start () {
@@ -24,7 +25,8 @@ public class playerBullet : MonoBehaviour {
     }
 	void OnTriggerEnter(Collider other) {
 		if (other.gameObject.tag == "Enemy") {
-			Destroy(other.gameObject);
+			other.GetComponent<BulletSpawner>().Damaged(damage);
+			// Destroy(other.gameObject);
 		}
 	}
 }

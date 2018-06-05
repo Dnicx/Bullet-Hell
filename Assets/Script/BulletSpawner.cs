@@ -14,6 +14,8 @@ public class BulletSpawner : MonoBehaviour {
 	public Vector3 shootPosition;
 	public Vector3 leavePosition;
 	public float shootPeriod;
+	public float spawnOffset;
+	public float HP;
 
 
 	private IEnumerator shooting;
@@ -33,12 +35,14 @@ public class BulletSpawner : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		GetComponent<Transform>().Rotate(0,0,currentSpinSpeed);
+		// GetComponent<Transform>().Rotate(0,0,currentSpinSpeed);
+		transform.Rotate(0,0,currentSpinSpeed);
 		spinRound -= currentSpinSpeed/360;
 		if (temp > 0) {
 			temp -= Time.deltaTime*moveSpeed;
 			if (temp < 0) temp = 0;
-			transform.position = Vector3.Lerp(startPosition, shootPosition, 1-temp);
+			// transform.position = Vector3.Lerp(startPosition, shootPosition, 1-temp);
+			GetComponent<Transform>().position = Vector3.Lerp(startPosition, shootPosition, 1-temp);
 		} 
 		if (temp == 0) {
 			temp = -1;
@@ -46,6 +50,13 @@ public class BulletSpawner : MonoBehaviour {
 			StartCoroutine(shootTimer(shootPeriod));
 		}
 
+		if (HP <= 0) {
+			Destroy(instance);
+		}
+	}
+
+	public void Damaged(float take) {
+		HP -= take;
 	}
 
 	IEnumerator MoveOut() {
@@ -53,7 +64,8 @@ public class BulletSpawner : MonoBehaviour {
 		while (temp < -1) {
 			temp += Time.deltaTime*moveSpeed;
 			if (temp > -1) temp = -1;
-			transform.position = Vector3.Lerp(shootPosition, leavePosition, 2+temp);
+			// transform.position = Vector3.Lerp(shootPosition, leavePosition, 2+temp);
+			GetComponent<Transform>().position = Vector3.Lerp(shootPosition, leavePosition, 2+temp);
 			yield return null;
 		} 
 		Destroy(instance);
@@ -62,7 +74,8 @@ public class BulletSpawner : MonoBehaviour {
 	IEnumerator conShoot(float timer) {
 		while(true) {
 			yield return new WaitForSeconds(timer);
-			Instantiate(bullet, this.GetComponent<Transform>().position, GetComponent<Transform>().rotation);
+			// Instantiate(bullet, this.GetComponent<Transform>().position, GetComponent<Transform>().rotation);
+			Instantiate(bullet, transform.position, transform.rotation);
 		}
 	}
 
