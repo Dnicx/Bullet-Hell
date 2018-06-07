@@ -48,6 +48,14 @@ public class playerScript : MonoBehaviour {
 				StopCoroutine(fire);
 
 			} 
+			if (Input.GetButtonDown("slowmo")) {
+				Time.timeScale = 0.4f;
+			} 
+			if (Input.GetButtonUp("slowmo")) {
+				Time.timeScale = 1.0f;
+			} 
+
+
 			if (GetComponent<Transform>().position.x <= mn_bound.x+BoundsOffset) GetComponent<Transform>().position = new Vector3(mn_bound.x+BoundsOffset, GetComponent<Transform>().position.y, 0);
 			if (GetComponent<Transform>().position.x >= mx_bound.x-BoundsOffset) GetComponent<Transform>().position = new Vector3(mx_bound.x-BoundsOffset, GetComponent<Transform>().position.y, 0);
 			if (GetComponent<Transform>().position.y <= mn_bound.y+BoundsOffset) GetComponent<Transform>().position = new Vector3(GetComponent<Transform>().position.x,mn_bound.y+BoundsOffset, 0);

@@ -7,7 +7,6 @@ public class BulletSpawner : MonoBehaviour {
 	public GameObject bullet;
 	public float period;
 	public float spinSpeed;
-	public float spinRound;
 	private float currentSpinSpeed;
 	public float moveSpeed;
 	public Vector3 startPosition;	
@@ -16,6 +15,7 @@ public class BulletSpawner : MonoBehaviour {
 	public float shootPeriod;
 	public float spawnOffset;
 	public float HP;
+	public float moveInOffset;
 
 
 	private IEnumerator shooting;
@@ -36,14 +36,9 @@ public class BulletSpawner : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		// GetComponent<Transform>().Rotate(0,0,currentSpinSpeed);
-		transform.Rotate(0,0,currentSpinSpeed);
-		spinRound -= currentSpinSpeed/360;
-		if (temp > 0) {
-			temp -= Time.deltaTime*moveSpeed;
-			if (temp < 0) temp = 0;
-			// transform.position = Vector3.Lerp(startPosition, shootPosition, 1-temp);
-			GetComponent<Transform>().position = Vector3.Lerp(startPosition, shootPosition, 1-temp);
-		} 
+		transform.Rotate(0,0,currentSpinSpeed*Time.deltaTime*60);
+		// transform.Rotate(0,0,currentSpinSpeed);
+		StartCoroutine(MoveIn());
 		if (temp == 0) {
 			temp = -1;
 			Debug.Log("NOW");
@@ -57,6 +52,16 @@ public class BulletSpawner : MonoBehaviour {
 
 	public void Damaged(float take) {
 		HP -= take;
+	}
+
+	IEnumerator MoveIn() {
+		yield return new WaitForSeconds(moveInOffset);
+		if (temp > 0) {
+			temp -= Time.deltaTime*moveSpeed;
+			if (temp < 0) temp = 0;
+			// transform.position = Vector3.Lerp(startPosition, shootPosition, 1-temp);
+			GetComponent<Transform>().position = Vector3.Lerp(startPosition, shootPosition, 1-temp);
+		} 
 	}
 
 	IEnumerator MoveOut() {
@@ -84,7 +89,6 @@ public class BulletSpawner : MonoBehaviour {
 		StartCoroutine(shooting);
 		currentSpinSpeed = spinSpeed;
 		yield return new WaitForSeconds(timer);
-		// while (spinRound > 0) yield return null;
 		StopCoroutine(shooting);
 		currentSpinSpeed = 0;
 		yield return new WaitForSeconds(0.5f);
