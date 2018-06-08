@@ -50,6 +50,23 @@ public class BulletSpawner : MonoBehaviour {
 		}
 	}
 
+	public void setValues(float[] param) {
+		period = param[0];
+		spinSpeed = param[1];
+		moveSpeed = param[2];
+		startPosition.x = param[3];
+		startPosition.y = param[4];
+		shootPosition.x = param[5];
+		shootPosition.y = param[6];
+		leavePosition.x = param[7];
+		leavePosition.y = param[8];
+		shootPeriod = param[9];
+		spawnOffset = param[10];
+		HP = param[11];
+		moveInOffset = param[12];
+
+	}
+
 	public void Damaged(float take) {
 		HP -= take;
 	}
