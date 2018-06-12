@@ -50,10 +50,12 @@ public class playerScript : MonoBehaviour {
 
 			} 
 			if (Input.GetButtonDown("slowmo")) {
-				Time.timeScale = 5.0f;
+				Time.timeScale = 2.0f;
+				Time.fixedDeltaTime = 0.00835f;
 			} 
 			if (Input.GetButtonUp("slowmo")) {
 				Time.timeScale = 1.0f;
+				Time.fixedDeltaTime = 0.0167f;
 			} 
 
 

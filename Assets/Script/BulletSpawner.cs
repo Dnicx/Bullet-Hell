@@ -25,7 +25,7 @@ public class BulletSpawner : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		shooting = (conShoot(period));
+		// shooting = (conShoot(period));
 		currentSpinSpeed = 0;
 		// StartCoroutine(shootTimer(shootPeriod));
 		temp = 1;
@@ -35,8 +35,21 @@ public class BulletSpawner : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		
+	}
+
+	public float fireTimer = 0;
+	void FixedUpdate() {
+		if (fireTimer < period) {
+			fireTimer++;
+		}
+		else {
+			fireTimer = 0;
+			Instantiate(bullet, transform.position, transform.rotation);
+		}
+
 		// GetComponent<Transform>().Rotate(0,0,currentSpinSpeed);
-		transform.Rotate(0,0,currentSpinSpeed*Time.deltaTime*60);
+		transform.Rotate(0,0,currentSpinSpeed);
 		// transform.Rotate(0,0,currentSpinSpeed);
 		StartCoroutine(MoveIn());
 		if (temp == 0) {
@@ -94,19 +107,18 @@ public class BulletSpawner : MonoBehaviour {
 	}
 
 	IEnumerator conShoot(float timer) {
-		while(true) {
+		// while(true) {
 			yield return new WaitForSeconds(timer);
-			// Instantiate(bullet, this.GetComponent<Transform>().position, GetComponent<Transform>().rotation);
 			Instantiate(bullet, transform.position, transform.rotation);
-		}
+		// }
 	}
 
 	IEnumerator shootTimer(float timer) {
 		yield return new WaitForSeconds(0.5f);
-		StartCoroutine(shooting);
+		// StartCoroutine(shooting);
 		currentSpinSpeed = spinSpeed;
 		yield return new WaitForSeconds(timer);
-		StopCoroutine(shooting);
+		// StopCoroutine(shooting);
 		currentSpinSpeed = 0;
 		yield return new WaitForSeconds(0.5f);
 		StartCoroutine(MoveOut());
