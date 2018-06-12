@@ -17,7 +17,7 @@ public class playerAI : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		//playerCharacter.GetComponent<playerScript>().goUp();
 		if (playerCharacter == null) return;
 		// if (rTrigger.GetComponent<playerTrigger>().warn) playerCharacter.GetComponent<playerScript>().goLeft();

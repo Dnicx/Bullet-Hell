@@ -31,7 +31,7 @@ public class playerScript : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
             // GetComponent<Transform>().position += new Vector3(currentSpeed*Time.deltaTime*Input.GetAxis("Horizontal"),currentSpeed*Time.deltaTime*Input.GetAxis("Vertical"),0);
 			GetComponent<Transform>().position += new Vector3(currentSpeed*Input.GetAxis("Horizontal")/60,currentSpeed*Input.GetAxis("Vertical")/60,0);
 			GetComponent<Transform>().position += (direction.normalized)*Time.deltaTime*currentSpeed;

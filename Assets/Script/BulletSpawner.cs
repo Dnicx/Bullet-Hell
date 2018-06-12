@@ -5,7 +5,7 @@ using UnityEngine;
 public class BulletSpawner : MonoBehaviour {
 
 	public GameObject bullet;
-	public float period;
+	[Range(0.001f, 1000.0f)] public float rate;
 	public float spinSpeed;
 	private float currentSpinSpeed;
 	public float moveSpeed;
@@ -40,8 +40,8 @@ public class BulletSpawner : MonoBehaviour {
 
 	public float fireTimer = 0;
 	void FixedUpdate() {
-		if (fireTimer < period) {
-			fireTimer++;
+		if (fireTimer < 1/rate) {
+			fireTimer+=0.001f;
 		}
 		else {
 			fireTimer = 0;
@@ -64,7 +64,7 @@ public class BulletSpawner : MonoBehaviour {
 	}
 
 	public void setValues(float[] param) {
-		period = param[0];
+		rate = param[0];
 		spinSpeed = param[1];
 		moveSpeed = param[2];
 		startPosition.x = param[3];
