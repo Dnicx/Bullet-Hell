@@ -12,27 +12,40 @@ public class playerAI : MonoBehaviour {
 	public GameObject lfTrigger;
 	public GameObject Observe;
 
+	private observeRange observeProp;
+	private playerScript playerCont;
+
 	// Use this for initialization
 	void Start () {
+		observeProp = Observe.GetComponent<observeRange>();
+		playerCont = playerCharacter.GetComponent<playerScript>();
 	}
 	
 	// Update is called once per frame
 	//FIRST PLAYER MODEL
 	void FixedUpdate () {
+		simulateAI(5);
 		AvoidantAI();
+		
 	}
 
+	
 	void AvoidantAI() {
 		if (playerCharacter == null) return;
-		playerCharacter.GetComponent<playerScript>().pressShift();
-		playerCharacter.GetComponent<playerScript>().direction = Observe.GetComponent<observeRange>().weight;
-		if (Observe.GetComponent<observeRange>().weight == Vector3.zero) 
-			playerCharacter.GetComponent<playerScript>().direction = -playerCharacter.GetComponent<Transform>().position;
-		Observe.GetComponent<observeRange>().clear();
+		playerCont.pressShift();
+		playerCont.direction = observeProp.weight;
+		if (observeProp.weight == Vector3.zero) 
+			playerCont.direction = -playerCharacter.GetComponent<Transform>().position;
+		observeProp.clear();
 	}
 
-	void simulateAI() {
-		
+	void simulateAI(int iteration) {
+		if (playerCharacter == null) return;
+		for (int i = iteration; i>0; i--) {
+			foreach (GameObject bullet in observeProp.bullets) {
+				
+			}
+		}
 	}
 
 }
