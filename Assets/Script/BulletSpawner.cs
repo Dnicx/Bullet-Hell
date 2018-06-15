@@ -54,7 +54,6 @@ public class BulletSpawner : MonoBehaviour {
 		StartCoroutine(MoveIn());
 		if (temp == 0) {
 			temp = -1;
-			Debug.Log("NOW");
 			StartCoroutine(shootTimer(shootPeriod));
 		}
 
@@ -87,7 +86,7 @@ public class BulletSpawner : MonoBehaviour {
 	IEnumerator MoveIn() {
 		yield return new WaitForSeconds(moveInOffset);
 		if (temp > 0) {
-			temp -= Time.deltaTime*moveSpeed;
+			temp -= Time.deltaTime*moveSpeed*Time.timeScale;
 			if (temp < 0) temp = 0;
 			// transform.position = Vector3.Lerp(startPosition, shootPosition, 1-temp);
 			GetComponent<Transform>().position = Vector3.Lerp(startPosition, shootPosition, 1-temp);
@@ -97,7 +96,7 @@ public class BulletSpawner : MonoBehaviour {
 	IEnumerator MoveOut() {
 		temp = -2;
 		while (temp < -1) {
-			temp += Time.deltaTime*moveSpeed;
+			temp += Time.deltaTime*moveSpeed*Time.timeScale	;
 			if (temp > -1) temp = -1;
 			// transform.position = Vector3.Lerp(shootPosition, leavePosition, 2+temp);
 			GetComponent<Transform>().position = Vector3.Lerp(shootPosition, leavePosition, 2+temp);

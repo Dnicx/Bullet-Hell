@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Entities;
 
 public class playerBullet : MonoBehaviour {
 
@@ -9,7 +10,7 @@ public class playerBullet : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		GetComponent<Rigidbody>().velocity = transform.up * speed;
+		// GetComponent<Rigidbody>().velocity = transform.up * speed;
 	}
 	
 	// Update is called once per frame
@@ -26,7 +27,28 @@ public class playerBullet : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 		if (other.gameObject.tag == "Enemy") {
 			other.GetComponent<BulletSpawner>().Damaged(damage);
-			// Destroy(other.gameObject);
 		}
 	}
+
+}
+
+class pMover : ComponentSystem {
+	
+	struct Components
+	{
+		public playerBullet bull;
+		public Transform transform;
+	}
+
+	protected override void OnUpdate() {
+		
+		float deltatime = Time.deltaTime;
+		
+		foreach (var e in GetEntities<Components>()) {
+				
+			e.transform.position += e.transform.up * e.bull.speed * deltatime;
+		}
+	
+	}
+
 }

@@ -29,12 +29,8 @@ public class playerScript : MonoBehaviour {
 		mx_bound = bound.GetComponent<Collider>().bounds.max;
 		mn_bound = bound.GetComponent<Collider>().bounds.min;
 	}
-	
-	// Update is called once per frame
-	void FixedUpdate () {
-            // GetComponent<Transform>().position += new Vector3(currentSpeed*Time.deltaTime*Input.GetAxis("Horizontal"),currentSpeed*Time.deltaTime*Input.GetAxis("Vertical"),0);
-			GetComponent<Transform>().position += new Vector3(currentSpeed*Input.GetAxis("Horizontal")/60,currentSpeed*Input.GetAxis("Vertical")/60,0);
-			GetComponent<Transform>().position += (direction.normalized)*Time.deltaTime*currentSpeed;
+
+	void Update() {
 			if (Input.GetButtonDown("slow")) {
 				currentSpeed = slowSpeed;
 			}
@@ -50,13 +46,21 @@ public class playerScript : MonoBehaviour {
 
 			} 
 			if (Input.GetButtonDown("slowmo")) {
-				Time.timeScale = 2.0f;
-				Time.fixedDeltaTime = 0.00835f;
+				Time.timeScale = 0.5f;
+				Time.fixedDeltaTime = 0.0334f;
 			} 
 			if (Input.GetButtonUp("slowmo")) {
 				Time.timeScale = 1.0f;
 				Time.fixedDeltaTime = 0.0167f;
 			} 
+	}
+	
+	// Update is called once per frame
+	void FixedUpdate () {
+            // GetComponent<Transform>().position += new Vector3(currentSpeed*Time.deltaTime*Input.GetAxis("Horizontal"),currentSpeed*Time.deltaTime*Input.GetAxis("Vertical"),0);
+			GetComponent<Transform>().position += new Vector3(currentSpeed*Input.GetAxis("Horizontal")/60,currentSpeed*Input.GetAxis("Vertical")/60,0);
+			GetComponent<Transform>().position += (direction.normalized)*Time.fixedDeltaTime*currentSpeed;
+			
 
 
 			if (GetComponent<Transform>().position.x <= mn_bound.x+BoundsOffset) GetComponent<Transform>().position = new Vector3(mn_bound.x+BoundsOffset, GetComponent<Transform>().position.y, 0);
@@ -75,25 +79,25 @@ public class playerScript : MonoBehaviour {
 	//         Destroy(this.gameObject);
     // }
 
-	public void pressShift() {
+	public void PressShift() {
 		currentSpeed = slowSpeed;
 	}
-	public void liftShift() {
+	public void LiftShift() {
 		currentSpeed = speed;
 	}
-	public void stop() {
+	public void Stop() {
 		direction = new Vector3(0,0,0);
 	}
-	public void goUp() {
+	public void GoUp() {
 		direction = UP;
 	}
-	public void goDown() {
+	public void GoDown() {
 		direction = DOWN;
 	}
-	public void goLeft() {
+	public void GoLeft() {
 		direction = LEFT;
 	}
-	public void goRight() {
+	public void GoRight() {
 		direction = RIGHT;
 	}
 

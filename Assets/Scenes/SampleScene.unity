@@ -161,6 +161,8 @@ MonoBehaviour:
   rfTrigger: {fileID: 173647973}
   lfTrigger: {fileID: 157906292}
   Observe: {fileID: 1184270592}
+  moveScore: []
+  saftyBound: 0.15
 --- !u!1 &119566598 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1057935992094782, guid: e7d8b4d6f2df475489f7c010dca52501,
@@ -448,7 +450,7 @@ Prefab:
     - target: {fileID: 114261346934086582, guid: b38520b73080a4ffdae5992bb4550601,
         type: 2}
       propertyPath: rate
-      value: 495
+      value: 685
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b38520b73080a4ffdae5992bb4550601, type: 2}
@@ -733,7 +735,7 @@ Prefab:
     - target: {fileID: 114261346934086582, guid: b38520b73080a4ffdae5992bb4550601,
         type: 2}
       propertyPath: rate
-      value: 495
+      value: 685
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b38520b73080a4ffdae5992bb4550601, type: 2}
@@ -847,7 +849,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1481222365767142, guid: b38520b73080a4ffdae5992bb4550601, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114261346934086582, guid: b38520b73080a4ffdae5992bb4550601,
         type: 2}
@@ -862,7 +864,7 @@ Prefab:
     - target: {fileID: 114261346934086582, guid: b38520b73080a4ffdae5992bb4550601,
         type: 2}
       propertyPath: rate
-      value: 495
+      value: 685
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b38520b73080a4ffdae5992bb4550601, type: 2}
@@ -991,7 +993,7 @@ Prefab:
     - target: {fileID: 114261346934086582, guid: b38520b73080a4ffdae5992bb4550601,
         type: 2}
       propertyPath: rate
-      value: 495
+      value: 685
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b38520b73080a4ffdae5992bb4550601, type: 2}
@@ -1115,7 +1117,7 @@ Prefab:
     - target: {fileID: 114261346934086582, guid: b38520b73080a4ffdae5992bb4550601,
         type: 2}
       propertyPath: rate
-      value: 495
+      value: 685
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b38520b73080a4ffdae5992bb4550601, type: 2}
@@ -1363,7 +1365,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1481222365767142, guid: b38520b73080a4ffdae5992bb4550601, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114261346934086582, guid: b38520b73080a4ffdae5992bb4550601,
         type: 2}
@@ -1378,7 +1380,7 @@ Prefab:
     - target: {fileID: 114261346934086582, guid: b38520b73080a4ffdae5992bb4550601,
         type: 2}
       propertyPath: rate
-      value: 495
+      value: 685
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b38520b73080a4ffdae5992bb4550601, type: 2}
