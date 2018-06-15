@@ -28,6 +28,7 @@ public class LevelLoader : MonoBehaviour {
 			currentEnemy.GetComponent<BulletSpawner>().setValues(param);
 			text = reader.ReadLine();
 		}
+		reader.Close();
 	}
 	
 	// Update is called once per frame

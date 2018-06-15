@@ -136,7 +136,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 22125326}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.707, y: 0.45, z: -0.09375}
+  m_LocalPosition: {x: -1.51, y: 0.45, z: -0.09375}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1288780820}
@@ -162,7 +162,9 @@ MonoBehaviour:
   lfTrigger: {fileID: 157906292}
   Observe: {fileID: 1184270592}
   moveScore: []
-  saftyBound: 0.15
+  saftyBound: 0.2
+  frameCount: 0
+  decidedMove: 0
 --- !u!1 &119566598 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1057935992094782, guid: e7d8b4d6f2df475489f7c010dca52501,
@@ -178,6 +180,47 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1180944809468006, guid: e7d8b4d6f2df475489f7c010dca52501,
     type: 2}
   m_PrefabInternal: {fileID: 1157650696}
+--- !u!1 &438316575
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 438316577}
+  - component: {fileID: 438316576}
+  m_Layer: 0
+  m_Name: EnvManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &438316576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 438316575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e21d37ff9e26cba458ad5ba15902fb34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1288780814}
+--- !u!4 &438316577
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 438316575}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.0765411, y: 0.29482865, z: -0.1015625}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &487483869
 GameObject:
   m_ObjectHideFlags: 0
@@ -497,7 +540,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4680361074142672, guid: e7d8b4d6f2df475489f7c010dca52501, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 1.74
+      value: -1.76
       objectReference: {fileID: 0}
     - target: {fileID: 4680361074142672, guid: e7d8b4d6f2df475489f7c010dca52501, type: 2}
       propertyPath: m_LocalPosition.y
@@ -551,6 +594,11 @@ Prefab:
         type: 2}
       propertyPath: BoundsOffset
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 65840167399291304, guid: e7d8b4d6f2df475489f7c010dca52501,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 13.17
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7d8b4d6f2df475489f7c010dca52501, type: 2}

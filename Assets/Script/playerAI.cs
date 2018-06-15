@@ -15,7 +15,7 @@ public class playerAI : MonoBehaviour {
 
 	private observeRange observeProp;
 	private playerScript playerCont;
-	private float playerSpeed;
+	public float playerSpeed;
 
 	List<GameObject> bulletClones;
 	List<Vector3> simPos;
@@ -36,10 +36,11 @@ public class playerAI : MonoBehaviour {
 		moveScore = new float[5];
 
 		MOVE[0] = new Vector3(0, 0, 0);
-		MOVE[1] = new Vector3(playerSpeed*Time.fixedDeltaTime, 0, 0);
-		MOVE[2] = new Vector3(-playerSpeed*Time.fixedDeltaTime, 0, 0);
-		MOVE[3] = new Vector3(0, playerSpeed*Time.fixedDeltaTime, 0);
-		MOVE[4] = new Vector3(0, -playerSpeed*Time.fixedDeltaTime, 0);
+		// MOVE[1] = new Vector3(playerSpeed*Time.fixedDeltaTime, 0, 0);
+		// MOVE[2] = new Vector3(-playerSpeed*Time.fixedDeltaTime, 0, 0);
+		// MOVE[3] = new Vector3(0, playerSpeed*Time.fixedDeltaTime, 0);
+		// MOVE[4] = new Vector3(0, -playerSpeed*Time.fixedDeltaTime, 0);
+		// Debug.Log(playerSpeed);
 	}
 	
 	// Update is called once per frame
@@ -47,8 +48,13 @@ public class playerAI : MonoBehaviour {
 	void FixedUpdate () {
 		if (playerCharacter == null) return;
 		playerSpeed = playerCharacter.GetComponent<playerScript>().currentSpeed;
-		simulateAI(1, 5);
-		// AvoidantAI()
+		simulateAI(2, 5);
+		MOVE[1] = new Vector3(playerSpeed*Time.fixedDeltaTime, 0, 0);
+		MOVE[2] = new Vector3(-playerSpeed*Time.fixedDeltaTime, 0, 0);
+		MOVE[3] = new Vector3(0, playerSpeed*Time.fixedDeltaTime, 0);
+		MOVE[4] = new Vector3(0, -playerSpeed*Time.fixedDeltaTime, 0);
+		// AvoidantAI();
+		// Debug.Log(playerSpeed);
 	}
 
 	
@@ -111,7 +117,7 @@ public class playerAI : MonoBehaviour {
 					for (int j = 0; j < bulletClones.Count ; j++) {
 						if (bulletClonesPos[j].x-saftyBound < simPos[k].x && bulletClonesPos[j].x+saftyBound > simPos[k].x &&
 							bulletClonesPos[j].y-saftyBound < simPos[k].y && bulletClonesPos[j].y+saftyBound > simPos[k].y ) {
-								Debug.Log(k + " " + simPos[k].x + ":" + simPos[k].y+ " dead " + Mathf.FloorToInt(k/Mathf.Pow(5, i-1)) + " " + i + " " + r);
+								// Debug.Log(k + " " + simPos[k].x + ":" + simPos[k].y+ " dead " + Mathf.FloorToInt(k/Mathf.Pow(5, i-1)) + " " + i + " " + r);
 								moveScore[Mathf.FloorToInt(k/Mathf.Pow(5, i-1))] -= 10/(i*responseFrame + r);
 								break;
 						}
@@ -121,6 +127,7 @@ public class playerAI : MonoBehaviour {
 
 
 		}
+		observeProp.clear();
 		int maxIndex = 0;
 		for (int i = 1; i<5; i++) {
 			if (moveScore[i] > moveScore[maxIndex]) maxIndex = i;
