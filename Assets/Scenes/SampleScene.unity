@@ -161,6 +161,7 @@ MonoBehaviour:
   rfTrigger: {fileID: 173647973}
   lfTrigger: {fileID: 157906292}
   Observe: {fileID: 1184270592}
+  playerSpeed: 0
   moveScore: []
   saftyBound: 0.2
   frameCount: 0
@@ -180,6 +181,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1180944809468006, guid: e7d8b4d6f2df475489f7c010dca52501,
     type: 2}
   m_PrefabInternal: {fileID: 1157650696}
+--- !u!1 &420131633 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1481222365767142, guid: b38520b73080a4ffdae5992bb4550601,
+    type: 2}
+  m_PrefabInternal: {fileID: 2142308262}
 --- !u!1 &438316575
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,6 +214,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1288780814}
+  Enemy:
+  - {fileID: 1015232655}
+  - {fileID: 1885113998}
+  - {fileID: 1305850547}
+  - {fileID: 1309122247}
+  - {fileID: 420131633}
+  - {fileID: 2092446086}
 --- !u!4 &438316577
 Transform:
   m_ObjectHideFlags: 0
@@ -498,6 +511,11 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b38520b73080a4ffdae5992bb4550601, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1015232655 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1481222365767142, guid: b38520b73080a4ffdae5992bb4550601,
+    type: 2}
+  m_PrefabInternal: {fileID: 2007995678}
 --- !u!1 &1074823786
 GameObject:
   m_ObjectHideFlags: 0
@@ -618,6 +636,16 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4680361074142672, guid: e7d8b4d6f2df475489f7c010dca52501,
     type: 2}
   m_PrefabInternal: {fileID: 1157650696}
+--- !u!1 &1305850547 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1481222365767142, guid: b38520b73080a4ffdae5992bb4550601,
+    type: 2}
+  m_PrefabInternal: {fileID: 1950703066}
+--- !u!1 &1309122247 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1481222365767142, guid: b38520b73080a4ffdae5992bb4550601,
+    type: 2}
+  m_PrefabInternal: {fileID: 1763442451}
 --- !u!1 &1612833045
 GameObject:
   m_ObjectHideFlags: 0
@@ -788,6 +816,11 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b38520b73080a4ffdae5992bb4550601, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1885113998 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1481222365767142, guid: b38520b73080a4ffdae5992bb4550601,
+    type: 2}
+  m_PrefabInternal: {fileID: 1948721737}
 --- !u!1001 &1948721737
 Prefab:
   m_ObjectHideFlags: 0
@@ -1227,6 +1260,11 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!1 &2092446086 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1481222365767142, guid: b38520b73080a4ffdae5992bb4550601,
+    type: 2}
+  m_PrefabInternal: {fileID: 919819118}
 --- !u!1 &2104923978
 GameObject:
   m_ObjectHideFlags: 0
