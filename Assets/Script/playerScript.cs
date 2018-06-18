@@ -18,6 +18,10 @@ public class playerScript : MonoBehaviour {
 	public static readonly Vector3 DOWN = new Vector3(0,-1,0);
 	public static readonly Vector3 RIGHT = new Vector3(1,0,0);
 	public static readonly Vector3 LEFT = new Vector3(-1,0,0);
+	public static readonly Vector3 UPLEFT = new Vector3(-1,1,0);
+	public static readonly Vector3 UPRIGHT = new Vector3(1,1,0);
+	public static readonly Vector3 DOWNLEFT = new Vector3(-1,-1,0);
+	public static readonly Vector3 DOWNRIGHT = new Vector3(1,-1,0);
 
 	public IEnumerator fire;
 	
@@ -99,6 +103,18 @@ public class playerScript : MonoBehaviour {
 	}
 	public void GoRight() {
 		direction = RIGHT;
+	}
+	public void GoDiagUL() {
+		direction = UPLEFT;
+	}
+	public void GoDiagUR() {
+		direction = UPRIGHT;
+	}
+	public void GoDiagDL() {
+		direction = DOWNLEFT;
+	}
+	public void GoDiagDR() {
+		direction = DOWNRIGHT;
 	}
 
 	IEnumerator conShoot(float timer) {
