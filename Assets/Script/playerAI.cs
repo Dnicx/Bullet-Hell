@@ -24,6 +24,7 @@ public class playerAI : MonoBehaviour {
 	public float saftyBound;
 	public int searchDepth;
 	public int delayFrame;
+	public int idleDelayFrame;
 	public int move5Or9;
 	public float[] moveScore;
 
@@ -38,6 +39,7 @@ public class playerAI : MonoBehaviour {
 		simPos = new List<Vector3>();
 		bulletClonesPos = new List<Vector3>();
 		moveScore = new float[9];
+		if (idleDelayFrame > delayFrame) delayFrame = idleDelayFrame;
 
 		MOVE[0] = new Vector3(0, 0, 0);
 		// MOVE[1] = new Vector3(playerSpeed*Time.fixedDeltaTime, 0, 0);
@@ -129,7 +131,8 @@ public class playerAI : MonoBehaviour {
 						if (bulletClonesPos[j].x-saftyBound < simPos[k].x && bulletClonesPos[j].x+saftyBound > simPos[k].x &&
 							bulletClonesPos[j].y-saftyBound < simPos[k].y && bulletClonesPos[j].y+saftyBound > simPos[k].y ) {
 								// Debug.Log(k + " " + simPos[k].x + ":" + simPos[k].y+ " dead " + Mathf.FloorToInt(k/Mathf.Pow(move5Or9, i-1)) + " " + i + " " + r);
-								moveScore[Mathf.FloorToInt(k/Mathf.Pow(move5Or9, i-1))] -= 100/(i*responseFrame + r);
+								// moveScore[Mathf.FloorToInt(k/Mathf.Pow(move5Or9, i-1))] -= 100/(i*responseFrame + r);
+								moveScore[Mathf.FloorToInt(k/Mathf.Pow(move5Or9, i-1))] -= 100/(i);
 								break;
 						}
 					}
@@ -143,7 +146,16 @@ public class playerAI : MonoBehaviour {
 		for (int i = 1; i<move5Or9; i++) {
 			if (moveScore[i] > moveScore[maxIndex]) maxIndex = i;
 		}
-		if (frameCount == responseFrame) decidedMove = maxIndex;
+		if (frameCount == responseFrame) {
+			if (maxIndex == 0) {
+				frameCount = idleDelayFrame;
+			}
+			if (decidedMove != 0 && decidedMove != maxIndex) {
+				maxIndex = 0;
+				frameCount = idleDelayFrame;
+			}
+			decidedMove = maxIndex;
+		}
 		if ( decidedMove == 0) playerCont.Stop();
 		if ( decidedMove == 1) playerCont.GoRight();
 		if ( decidedMove == 2) playerCont.GoLeft();
