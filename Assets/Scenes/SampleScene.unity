@@ -162,8 +162,11 @@ MonoBehaviour:
   lfTrigger: {fileID: 157906292}
   Observe: {fileID: 1184270592}
   playerSpeed: 0
-  moveScore: []
   saftyBound: 0.2
+  searchDepth: 3
+  delayFrame: 2
+  move5Or9: 9
+  moveScore: []
   frameCount: 0
   decidedMove: 0
 --- !u!1 &119566598 stripped
