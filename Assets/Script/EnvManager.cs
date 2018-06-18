@@ -18,8 +18,8 @@ public class EnvManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		reader = new StreamReader("Assets/Level/winrateSimulate.txt");
-		// reader = new StreamReader("Assets/Level/winrateAvoid.txt");
+		reader = new StreamReader(@"C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Level\winrateSimulate.txt");
+		// reader = new StreamReader(@"C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Level\winrateAvoid.txt");
 		text = reader.ReadLine();
 		winCount = int.Parse(text);
 		text = reader.ReadLine();
@@ -40,8 +40,8 @@ public class EnvManager : MonoBehaviour {
 			Ecount += Enemy[i]!=null?1:0;
 		}
 		if (player == null) {
-			writer = new StreamWriter("Assets/Level/winrateSimulate.txt");
-			// writer = new StreamWriter("Assets/Level/winrateAvoid.txt");
+			writer = new StreamWriter(@"C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Level\winrateSimulate.txt");
+			// writer = new StreamWriter(@"C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Level\winrateAvoid.txt");
 			writer.WriteLine(winCount);
 			writer.WriteLine(game+1);
 			writer.Close();
@@ -53,8 +53,8 @@ public class EnvManager : MonoBehaviour {
 			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 		}
 		if (Ecount == 0) {
-			writer = new StreamWriter("Assets/Level/winrateSimulate.txt");
-			// writer = new StreamWriter("Assets/Level/winrateAvoid.txt");
+			writer = new StreamWriter(@"C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Level\winrateSimulate.txt");
+			// writer = new StreamWriter(@"C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Level\winrateAvoid.txt");
 			writer.WriteLine(winCount+1);
 			writer.WriteLine(game+1);
 			writer.Close();
