@@ -8,7 +8,11 @@ public class playerScript : MonoBehaviour {
 	public float slowSpeed;
 	public float currentSpeed;
 	public float frequency;
-	public GameObject pbullet;
+	public GameObject pBulletG;
+	public GameObject pBulletR;
+	public GameObject playerDot;
+	public Material Green;
+	public Material Red;
 	public Vector3 direction;
 	public GameObject bound;
 	public float BoundsOffset;
@@ -24,6 +28,9 @@ public class playerScript : MonoBehaviour {
 	public static readonly Vector3 DOWNRIGHT = new Vector3(1,-1,0);
 
 	public IEnumerator fire;
+
+	//true = G, false = R
+	public bool polar;
 	
 
 	// Use this for initialization
@@ -32,31 +39,39 @@ public class playerScript : MonoBehaviour {
 		fire = conShoot(frequency);
 		mx_bound = bound.GetComponent<Collider>().bounds.max;
 		mn_bound = bound.GetComponent<Collider>().bounds.min;
+		polar = true;
 	}
 
 	void Update() {
-			if (Input.GetButtonDown("slow")) {
+			if (Input.GetButtonDown("Switch")) {
+				polar = !polar;
+				if (polar) playerDot.GetComponent<MeshRenderer>().material = Green;
+				else playerDot.GetComponent<MeshRenderer>().material = Red;
+			}
+			if (Input.GetButtonDown("Slow")) {
 				currentSpeed = slowSpeed;
 			}
-			if (Input.GetButtonUp("slow")) {
+			if (Input.GetButtonUp("Slow")) {
 				currentSpeed = speed;
 			}
 			if (Input.GetButtonDown("Fire")) {
-				Instantiate(pbullet, this.GetComponent<Transform>().position, GetComponent<Transform>().rotation);
+				if (polar) Instantiate(pBulletG, this.GetComponent<Transform>().position, GetComponent<Transform>().rotation);
+				else Instantiate(pBulletR, this.GetComponent<Transform>().position, GetComponent<Transform>().rotation);
 				StartCoroutine(fire);
 			} 
 			if (Input.GetButtonUp("Fire")) {
 				StopCoroutine(fire);
 
 			} 
-			if (Input.GetButtonDown("slowmo")) {
+			if (Input.GetButtonDown("Slowmo")) {
 				Time.timeScale = 0.5f;
 				Time.fixedDeltaTime = 0.0334f;
 			} 
-			if (Input.GetButtonUp("slowmo")) {
+			if (Input.GetButtonUp("Slowmo")) {
 				Time.timeScale = 1.0f;
 				Time.fixedDeltaTime = 0.0167f;
 			} 
+			
 	}
 	
 	// Update is called once per frame
@@ -120,7 +135,8 @@ public class playerScript : MonoBehaviour {
 	IEnumerator conShoot(float timer) {
 		while(true) {
 			yield return new WaitForSeconds(timer);
-			Instantiate(pbullet, this.GetComponent<Transform>().position, GetComponent<Transform>().rotation);
+			if (polar) Instantiate(pBulletG, this.GetComponent<Transform>().position, GetComponent<Transform>().rotation);
+			else Instantiate(pBulletR, this.GetComponent<Transform>().position, GetComponent<Transform>().rotation);
 		}
 	}
 }

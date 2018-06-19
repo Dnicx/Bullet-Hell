@@ -7,6 +7,7 @@ public class playerBullet : MonoBehaviour {
 
 	public float speed = 0;
 	public float damage = 1.0f;
+	public bool polar;
 
 	// Use this for initialization
 	void Start () {
@@ -26,7 +27,9 @@ public class playerBullet : MonoBehaviour {
     }
 	void OnTriggerEnter(Collider other) {
 		if (other.gameObject.tag == "Enemy") {
-			other.GetComponent<BulletSpawner>().Damaged(damage);
+			if(other.GetComponent<BulletSpawner>().polar != polar) other.GetComponent<BulletSpawner>().Damaged(2*damage);
+			else other.GetComponent<BulletSpawner>().Damaged(damage);
+			// other.GetComponent<BulletSpawner>().Damaged(damage);
 		}
 	}
 

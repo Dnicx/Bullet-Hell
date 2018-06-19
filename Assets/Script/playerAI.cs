@@ -39,7 +39,7 @@ public class playerAI : MonoBehaviour {
 		simPos = new List<Vector3>();
 		bulletClonesPos = new List<Vector3>();
 		moveScore = new float[9];
-		if (idleDelayFrame > delayFrame) delayFrame = idleDelayFrame;
+		// if (idleDelayFrame > delayFrame) delayFrame = idleDelayFrame;
 
 		MOVE[0] = new Vector3(0, 0, 0);
 		// MOVE[1] = new Vector3(playerSpeed*Time.fixedDeltaTime, 0, 0);
@@ -82,8 +82,8 @@ public class playerAI : MonoBehaviour {
 	public int frameCount;
 	public int decidedMove;
 	void simulateAI(int iteration, int responseFrame) {
-		if (frameCount <= 0) frameCount = responseFrame;
-		if (frameCount < responseFrame) {
+		playerCont.PressShift();
+		if (frameCount > 0) {
 			frameCount--;
 			if ( decidedMove == 0) playerCont.Stop();
 			if ( decidedMove == 1) playerCont.GoRight();
@@ -146,7 +146,7 @@ public class playerAI : MonoBehaviour {
 		for (int i = 1; i<move5Or9; i++) {
 			if (moveScore[i] > moveScore[maxIndex]) maxIndex = i;
 		}
-		if (frameCount == responseFrame) {
+		if (frameCount == 0) {
 			if (maxIndex == 0) {
 				frameCount = idleDelayFrame;
 			}
@@ -166,6 +166,7 @@ public class playerAI : MonoBehaviour {
 		if ( decidedMove == 7) playerCont.GoDiagDR();
 		if ( decidedMove == 8) playerCont.GoDiagDL();
 		frameCount--;
+		if (frameCount <= 0) frameCount = responseFrame;
 	}
 
 }

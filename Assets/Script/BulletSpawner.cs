@@ -16,6 +16,7 @@ public class BulletSpawner : MonoBehaviour {
 	public float spawnOffset;
 	public float HP;
 	public float moveInOffset;
+	public bool polar;
 
 
 	private IEnumerator shooting;

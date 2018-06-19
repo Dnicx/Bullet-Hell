@@ -6,6 +6,7 @@ using Unity.Entities;
 public class bullet : MonoBehaviour {
 
 	public float speed = 0;
+	public bool polar;
 
 	// Use this for initialization
 	void Start () {
@@ -25,7 +26,7 @@ public class bullet : MonoBehaviour {
     }
 	void OnTriggerEnter(Collider other) {
 		if (other.gameObject.tag == "Player") {
-			Destroy(other.gameObject);
+			if (polar != other.GetComponent<playerScript>().polar) Destroy(other.gameObject);
 		}
 	}
 

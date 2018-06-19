@@ -259,12 +259,17 @@ MonoBehaviour:
   slowSpeed: 4
   currentSpeed: 0
   frequency: 0.05
-  pbullet: {fileID: 1531396586905996, guid: 849df9a20e5fa43e6ac940b641dc4126, type: 2}
+  pBulletG: {fileID: 1531396586905996, guid: 849df9a20e5fa43e6ac940b641dc4126, type: 2}
+  pBulletR: {fileID: 1872141296319416, guid: 109eab795e6665b48a3794b119fb23a8, type: 2}
+  playerDot: {fileID: 1450674081709928}
+  Green: {fileID: 2100000, guid: f92521da44db76c4b93630a775631bfd, type: 2}
+  Red: {fileID: 2100000, guid: 7352e799c8a3940f8b65312ada4a0841, type: 2}
   direction: {x: 0, y: 0, z: 0}
   bound: {fileID: 0}
   BoundsOffset: 0.5
   mx_bound: {x: 0, y: 0, z: 0}
   mn_bound: {x: 0, y: 0, z: 0}
+  polar: 0
 --- !u!135 &135952661365986564
 SphereCollider:
   m_ObjectHideFlags: 1

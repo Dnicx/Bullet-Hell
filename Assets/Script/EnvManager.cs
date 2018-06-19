@@ -11,6 +11,8 @@ public class EnvManager : MonoBehaviour {
 	string text;
 	StreamReader reader;
 	StreamWriter writer;
+	public bool record;
+	public bool autoRestart;
 	
 	int winCount;
 	int game;
@@ -40,26 +42,30 @@ public class EnvManager : MonoBehaviour {
 			Ecount += Enemy[i]!=null?1:0;
 		}
 		if (player == null) {
-			writer = new StreamWriter(@"C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Level\winrateSimulate.txt");
-			// writer = new StreamWriter(@"C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Level\winrateAvoid.txt");
-			writer.WriteLine(winCount);
-			writer.WriteLine(game+1);
-			writer.Close();
-			if (game == 499) Application.Quit();
-			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+			if (record) {
+				writer = new StreamWriter(@"C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Level\winrateSimulate.txt");
+				// writer = new StreamWriter(@"C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Level\winrateAvoid.txt");
+				writer.WriteLine(winCount);
+				writer.WriteLine(game+1);
+				writer.Close();
+			}
+			if (game == 499 ) Application.Quit();
+			if (autoRestart) SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 		}
 		if (Input.GetButtonDown("Restart")) {
 			game++;
-			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+			if (autoRestart) SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 		}
 		if (Ecount == 0) {
-			writer = new StreamWriter(@"C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Level\winrateSimulate.txt");
-			// writer = new StreamWriter(@"C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Level\winrateAvoid.txt");
-			writer.WriteLine(winCount+1);
-			writer.WriteLine(game+1);
-			writer.Close();
+			if (record) {
+				writer = new StreamWriter(@"C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Level\winrateSimulate.txt");
+				// writer = new StreamWriter(@"C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Level\winrateAvoid.txt");
+				writer.WriteLine(winCount+1);
+				writer.WriteLine(game+1);
+				writer.Close();
+			}
 			if (game == 499) Application.Quit();
-			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+			if (autoRestart) SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 		}
 	}
 }
