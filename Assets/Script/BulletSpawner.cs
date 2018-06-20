@@ -21,6 +21,7 @@ public class BulletSpawner : MonoBehaviour {
 
 	private IEnumerator shooting;
 	private IEnumerator fire;
+	private bool isFire;
 	private float temp;
 	public GameObject instance;
 
@@ -31,7 +32,7 @@ public class BulletSpawner : MonoBehaviour {
 		// StartCoroutine(shootTimer(shootPeriod));
 		temp = 1;
 		instance = this.gameObject;
-		
+		isFire = false;
 	}
 	
 	// Update is called once per frame
@@ -46,7 +47,7 @@ public class BulletSpawner : MonoBehaviour {
 		}
 		else {
 			fireTimer = 0;
-			Instantiate(bullet, transform.position, transform.rotation);
+			if (isFire) Instantiate(bullet, transform.position, transform.rotation);
 		}
 
 		// GetComponent<Transform>().Rotate(0,0,currentSpinSpeed);
@@ -87,7 +88,8 @@ public class BulletSpawner : MonoBehaviour {
 	IEnumerator MoveIn() {
 		yield return new WaitForSeconds(moveInOffset);
 		if (temp > 0) {
-			temp -= Time.deltaTime*moveSpeed*Time.timeScale;
+			// temp -= Time.deltaTime*moveSpeed*Time.timeScale;
+			temp -= Time.deltaTime*moveSpeed;
 			if (temp < 0) temp = 0;
 			// transform.position = Vector3.Lerp(startPosition, shootPosition, 1-temp);
 			GetComponent<Transform>().position = Vector3.Lerp(startPosition, shootPosition, 1-temp);
@@ -97,7 +99,8 @@ public class BulletSpawner : MonoBehaviour {
 	IEnumerator MoveOut() {
 		temp = -2;
 		while (temp < -1) {
-			temp += Time.deltaTime*moveSpeed*Time.timeScale	;
+			// temp += Time.deltaTime*moveSpeed*Time.timeScale	;
+			temp += Time.deltaTime*moveSpeed;
 			if (temp > -1) temp = -1;
 			// transform.position = Vector3.Lerp(shootPosition, leavePosition, 2+temp);
 			GetComponent<Transform>().position = Vector3.Lerp(shootPosition, leavePosition, 2+temp);
@@ -116,9 +119,11 @@ public class BulletSpawner : MonoBehaviour {
 	IEnumerator shootTimer(float timer) {
 		yield return new WaitForSeconds(0.5f);
 		// StartCoroutine(shooting);
+		isFire = true;
 		currentSpinSpeed = spinSpeed;
 		yield return new WaitForSeconds(timer);
 		// StopCoroutine(shooting);
+		isFire = false;
 		currentSpinSpeed = 0;
 		yield return new WaitForSeconds(0.5f);
 		StartCoroutine(MoveOut());

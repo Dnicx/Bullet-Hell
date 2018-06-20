@@ -6,6 +6,11 @@ using System.IO;
 
 public class EnvManager : MonoBehaviour {
 
+	public GameObject screen;
+	public GameObject playerPrefab;
+	public GameObject enemyPrefab;
+	public GameObject levelLoader;
+
 	public GameObject player;
 	public List<GameObject> Enemy;
 	string text;
@@ -34,7 +39,8 @@ public class EnvManager : MonoBehaviour {
 		// }
 		reader.Close();
 	}
-	
+	public float count;
+	public float fixedCount;
 	// Update is called once per frame
 	void Update () {
 		Ecount = 0;
@@ -67,5 +73,10 @@ public class EnvManager : MonoBehaviour {
 			if (game == 499) Application.Quit();
 			if (autoRestart) SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 		}
+		
+
+	}
+
+	void OnTriggerEnter(Collider other) {
 	}
 }

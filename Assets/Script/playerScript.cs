@@ -64,20 +64,19 @@ public class playerScript : MonoBehaviour {
 
 			} 
 			if (Input.GetButtonDown("Slowmo")) {
-				Time.timeScale = 0.5f;
-				Time.fixedDeltaTime = 0.0334f;
+				Time.timeScale = .5f;
+				// Time.fixedDeltaTime = 0.0334f;
 			} 
 			if (Input.GetButtonUp("Slowmo")) {
 				Time.timeScale = 1.0f;
-				Time.fixedDeltaTime = 0.0167f;
+				// Time.fixedDeltaTime = 0.0167f;
 			} 
-			
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
             // GetComponent<Transform>().position += new Vector3(currentSpeed*Time.deltaTime*Input.GetAxis("Horizontal"),currentSpeed*Time.deltaTime*Input.GetAxis("Vertical"),0);
-			GetComponent<Transform>().position += new Vector3(currentSpeed*Input.GetAxisRaw("Horizontal")/60,currentSpeed*Input.GetAxisRaw("Vertical")/60,0);
+			GetComponent<Transform>().position += new Vector3(currentSpeed*Input.GetAxisRaw("Horizontal")*Time.fixedDeltaTime,currentSpeed*Input.GetAxisRaw("Vertical")*Time.fixedDeltaTime,0);
 			GetComponent<Transform>().position += (direction.normalized)*Time.fixedDeltaTime*currentSpeed;
 			
 

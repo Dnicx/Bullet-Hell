@@ -6,11 +6,6 @@ using UnityEngine;
 public class playerAI : MonoBehaviour {
 
 	public GameObject playerCharacter;
-	public GameObject mTrigger;
-	public GameObject rTrigger;
-	public GameObject lTrigger;
-	public GameObject rfTrigger;
-	public GameObject lfTrigger;
 	public GameObject Observe;
 
 	private observeRange observeProp;
@@ -54,7 +49,6 @@ public class playerAI : MonoBehaviour {
 	void FixedUpdate () {
 		if (playerCharacter == null) return;
 		playerSpeed = playerCharacter.GetComponent<playerScript>().currentSpeed;
-		simulateAI(searchDepth, delayFrame);
 		float moveUnit = playerSpeed*Time.fixedDeltaTime;
 		MOVE[1] = new Vector3(moveUnit, 0, 0);
 		MOVE[2] = new Vector3(-moveUnit, 0, 0);
@@ -64,6 +58,7 @@ public class playerAI : MonoBehaviour {
 		MOVE[6] = new Vector3(-moveUnit, moveUnit, 0).normalized;
 		MOVE[7] = new Vector3(moveUnit, -moveUnit, 0).normalized;
 		MOVE[8] = new Vector3(-moveUnit, -moveUnit, 0).normalized;
+		simulateAI(searchDepth, delayFrame);
 		// AvoidantAI();
 		// Debug.Log(playerSpeed);
 	}

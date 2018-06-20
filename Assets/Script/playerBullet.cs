@@ -27,8 +27,13 @@ public class playerBullet : MonoBehaviour {
     }
 	void OnTriggerEnter(Collider other) {
 		if (other.gameObject.tag == "Enemy") {
-			if(other.GetComponent<BulletSpawner>().polar != polar) other.GetComponent<BulletSpawner>().Damaged(2*damage);
-			else other.GetComponent<BulletSpawner>().Damaged(damage);
+			if (other.GetComponent<BulletSpawner>() != null ) {
+				if(other.GetComponent<BulletSpawner>().polar != polar) other.GetComponent<BulletSpawner>().Damaged(2*damage);
+				else other.GetComponent<BulletSpawner>().Damaged(damage);
+			} else {
+				if(other.GetComponent<Enemy>().polar != polar) other.GetComponent<Enemy>().Damaged(2*damage);
+				else other.GetComponent<Enemy>().Damaged(damage);
+			}
 			// other.GetComponent<BulletSpawner>().Damaged(damage);
 		}
 	}

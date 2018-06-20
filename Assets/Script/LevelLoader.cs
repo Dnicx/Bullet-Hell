@@ -11,6 +11,15 @@ public class LevelLoader : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		Spawn();
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		
+	}
+
+	public void Spawn() {
 		reader = new StreamReader("Assets/Level/level.txt");
 		text = reader.ReadLine();
 		while (text != null) {
@@ -29,10 +38,5 @@ public class LevelLoader : MonoBehaviour {
 			text = reader.ReadLine();
 		}
 		reader.Close();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 }

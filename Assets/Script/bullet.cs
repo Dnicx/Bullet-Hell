@@ -43,9 +43,9 @@ class Mover : ComponentSystem {
 	protected override void OnUpdate() {
 		
 		float deltatime = Time.deltaTime;
-		
 		foreach (var e in GetEntities<Components>()) {
-			
+
+			// e.transform.position += e.transform.up * e.bull.speed * deltatime * Time.timeScale;
 			e.transform.position += e.transform.up * e.bull.speed * deltatime;
 		}
 	
