@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour {
 
+	public GameObject EnvManager;
 	public float spinSpeed;
 	private float currentSpinSpeed;
 	public float moveSpeed;
@@ -15,9 +16,11 @@ public class Enemy : MonoBehaviour {
 	public float HP;
 	public float moveInOffset;
 	public bool polar;
+	public int movePattern;
 
 	private bool isFire;
 	private float temp;
+	private EnvManager EnvScript;
 	public GameObject instance;
 
 	// Use this for initialization
@@ -28,6 +31,13 @@ public class Enemy : MonoBehaviour {
 		temp = 1;
 		instance = this.gameObject;
 		isFire = false;
+		if (movePattern == 0) {
+			startPosition = transform.position;
+			shootPosition = transform.position;
+			leavePosition = transform.position;
+		}
+
+		EnvScript = EnvManager.GetComponent<EnvManager>();
 	}
 	
 	// Update is called once per frame
@@ -48,6 +58,11 @@ public class Enemy : MonoBehaviour {
 
 		if (HP <= 0) {
 			Destroy(instance);
+		}
+
+		if (movePattern == 2) {
+			if (EnvScript.player == null) return;
+			transform.rotation = Quaternion.LookRotation(transform.forward, (EnvScript.player.transform.position - transform.position));	
 		}
 	}
 

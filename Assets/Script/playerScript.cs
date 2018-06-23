@@ -35,7 +35,7 @@ public class playerScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		currentSpeed = speed;
+		currentSpeed = slowSpeed;
 		fire = conShoot(frequency);
 		mx_bound = bound.GetComponent<Collider>().bounds.max;
 		mn_bound = bound.GetComponent<Collider>().bounds.min;
@@ -48,12 +48,12 @@ public class playerScript : MonoBehaviour {
 				if (polar) playerDot.GetComponent<MeshRenderer>().material = Green;
 				else playerDot.GetComponent<MeshRenderer>().material = Red;
 			}
-			if (Input.GetButtonDown("Slow")) {
-				currentSpeed = slowSpeed;
-			}
-			if (Input.GetButtonUp("Slow")) {
-				currentSpeed = speed;
-			}
+			// if (Input.GetButtonDown("Slow")) {
+			// 	currentSpeed = slowSpeed;
+			// }
+			// if (Input.GetButtonUp("Slow")) {
+			// 	currentSpeed = speed;
+			// }
 			if (Input.GetButtonDown("Fire")) {
 				if (polar) Instantiate(pBulletG, this.GetComponent<Transform>().position, GetComponent<Transform>().rotation);
 				else Instantiate(pBulletR, this.GetComponent<Transform>().position, GetComponent<Transform>().rotation);
@@ -98,10 +98,10 @@ public class playerScript : MonoBehaviour {
     // }
 
 	public void PressShift() {
-		currentSpeed = slowSpeed;
+		// currentSpeed = slowSpeed;
 	}
 	public void LiftShift() {
-		currentSpeed = speed;
+		// currentSpeed = speed;
 	}
 	public void Stop() {
 		direction = new Vector3(0,0,0);

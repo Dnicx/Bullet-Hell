@@ -8,6 +8,9 @@ public class bullet : MonoBehaviour {
 	public float speed = 0;
 	public bool polar;
 
+	public readonly bool GREEN = true;
+	public readonly bool RED = false;
+
 	// Use this for initialization
 	void Start () {
 		// GetComponent<Rigidbody>().velocity = transform.up * speed;
@@ -28,6 +31,10 @@ public class bullet : MonoBehaviour {
 		if (other.gameObject.tag == "Player") {
 			if (polar != other.GetComponent<playerScript>().polar) Destroy(other.gameObject);
 		}
+	}
+
+	public void setPolar(bool polar) {
+		this.polar = polar;
 	}
 
 }

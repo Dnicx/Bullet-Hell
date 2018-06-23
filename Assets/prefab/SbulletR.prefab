@@ -9,46 +9,47 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1481222365767142}
+  m_RootGameObject: {fileID: 1210931982116400}
   m_IsPrefabAsset: 1
---- !u!1 &1481222365767142
+--- !u!1 &1210931982116400
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4341971167015868}
-  - component: {fileID: 33213642290733128}
-  - component: {fileID: 23147116433928040}
-  - component: {fileID: 114261346934086582}
-  - component: {fileID: 65280999695253406}
+  - component: {fileID: 4256738693858682}
+  - component: {fileID: 33118285317124646}
+  - component: {fileID: 23760224837798912}
+  - component: {fileID: 65610477610171160}
+  - component: {fileID: 114623578607028908}
+  - component: {fileID: 114111712087208562}
   m_Layer: 0
-  m_Name: enemy01
-  m_TagString: Enemy
+  m_Name: SbulletR
+  m_TagString: bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4341971167015868
+--- !u!4 &4256738693858682
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1481222365767142}
+  m_GameObject: {fileID: 1210931982116400}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.5633135, y: 2.7073274, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalPosition: {x: -4.2333193, y: 0.1104517, z: -1.8792884}
+  m_LocalScale: {x: 0.06, y: 0.1, z: 0.06}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23147116433928040
+--- !u!23 &23760224837798912
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1481222365767142}
+  m_GameObject: {fileID: 1210931982116400}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -58,7 +59,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: b6ef7b7638f834e769f4d541defaa347, type: 2}
+  - {fileID: 2100000, guid: 453a2ec611b38e94a8d96a29e8b467d8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -78,45 +79,46 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33213642290733128
+--- !u!33 &33118285317124646
 MeshFilter:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1481222365767142}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &65280999695253406
+  m_GameObject: {fileID: 1210931982116400}
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &65610477610171160
 BoxCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1481222365767142}
+  m_GameObject: {fileID: 1210931982116400}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114261346934086582
+--- !u!114 &114111712087208562
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1481222365767142}
+  m_GameObject: {fileID: 1210931982116400}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 694ae3063ce2d8b418a94b89d010ccdf, type: 3}
+  m_Script: {fileID: 11500000, guid: 5bf10cdea1344482e91a4f2b58506b77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 1065912411954278, guid: 0f65b0b1bf4df624483f641eaa149dc6, type: 2}
-  period: 0.1
-  spinSpeed: 1.76
-  moveSpeed: 2
-  startPosition: {x: -1.63, y: 5, z: 0}
-  shootPosition: {x: -1.63, y: 1.26, z: 0}
-  leavePosition: {x: -10, y: 1.26, z: 0}
-  shootPeriod: 5.94
-  spawnOffset: 0
-  HP: 0
-  moveInOffset: 0
-  instance: {fileID: 0}
+--- !u!114 &114623578607028908
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1210931982116400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4be4d516cacfe74b9ac0e47a7e8202a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  polar: 0
