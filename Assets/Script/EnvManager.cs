@@ -78,5 +78,8 @@ public class EnvManager : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
+		if (other.tag == "Enemy") {
+			if (other.GetComponent<Enemy>() != null) other.GetComponent<Enemy>().setEnvManager(this);
+		}
 	}
 }

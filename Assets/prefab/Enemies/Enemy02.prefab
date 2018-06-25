@@ -88,13 +88,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1901381664322982}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: 0.5, y: -0.2, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.5, y: 0.22, z: 0}
   m_LocalScale: {x: 0.3, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 4738100600335400}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4397967581315036
 Transform:
   m_ObjectHideFlags: 1
@@ -114,20 +114,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1734684985727684}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: -0.5, y: -0.2, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.5, y: 0.22, z: 0}
   m_LocalScale: {x: 0.3, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 4738100600335400}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4738100600335400
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1997908673247586}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 0, y: 2.39, z: 0}
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children:
@@ -136,7 +136,7 @@ Transform:
   - {fileID: 4216610778479128}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!23 &23369933796201398
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -337,14 +337,15 @@ MonoBehaviour:
   EnvManager: {fileID: 0}
   spinSpeed: 0
   moveSpeed: 1
-  startPosition: {x: 0, y: 2.39, z: 0}
+  moveOutSpeed: 0.8
+  startPosition: {x: 0, y: 6.2, z: 0}
   shootPosition: {x: 0, y: 2.39, z: 0}
-  leavePosition: {x: 0, y: 2.39, z: 0}
-  shootPeriod: 10
+  leavePosition: {x: 0, y: -6.67, z: 0}
+  shootPeriod: 2
   spawnOffset: 0
   HP: 50
   moveInOffset: 0
   polar: 0
-  movePattern: 0
+  movePattern: 2
   instance: {fileID: 0}
   fireTimer: 0

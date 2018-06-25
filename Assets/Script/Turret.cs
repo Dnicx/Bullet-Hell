@@ -10,14 +10,16 @@ public class Turret : MonoBehaviour {
 	private float currentSpinSpeed;
 	public float shootPeriod;
 	public bool polar;
+	public int spread;
+	public int barrels = 1;
 
 
 	private IEnumerator shooting;
 	private IEnumerator fire;
 	private bool isFire;
 	private float temp;
+	public bool target;
 	public GameObject instance;
-
 	// Use this for initialization
 	void Start () {
 		// shooting = (conShoot(period));
@@ -41,13 +43,24 @@ public class Turret : MonoBehaviour {
 		else {
 			fireTimer = 0;
 			if (isFire) {
-				Instantiate(bullet, transform.position, transform.rotation);
+				if (barrels == 1) Instantiate(bullet, transform.position, transform.rotation);
+				else {
+					Quaternion temp = transform.rotation;
+					temp.eulerAngles += new Vector3(0, 0, -spread/2);
+					for (int i = 0; i<barrels; i++) {
+						Instantiate(bullet, transform.position, temp);
+						temp.eulerAngles += new Vector3(0, 0, spread/(barrels-1));
+					}
+				}
 			}
+			
 		}
-
-		// GetComponent<Transform>().Rotate(0,0,currentSpinSpeed);
-		transform.Rotate(0,0,currentSpinSpeed);
-		// transform.Rotate(0,0,currentSpinSpeed);
+		if (target) {
+			if (transform.parent.gameObject.GetComponent<Enemy>() != null) 
+				transform.rotation = Quaternion.LookRotation(transform.forward, (transform.parent.gameObject.GetComponent<Enemy>().GetPlayerPosition() - transform.position));
+		} else {
+			transform.Rotate(0,0,currentSpinSpeed);
+		}
 		if (temp == 0) {
 			temp = -1;
 			StartCoroutine(shootTimer(shootPeriod));

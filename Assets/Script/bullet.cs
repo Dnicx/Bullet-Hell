@@ -31,6 +31,10 @@ public class bullet : MonoBehaviour {
 		if (other.gameObject.tag == "Player") {
 			if (polar != other.GetComponent<playerScript>().polar) Destroy(other.gameObject);
 		}
+		if (other.tag == "Shield" ) {
+			if (polar != other.transform.parent.GetComponent<playerScript>().polar) return;
+			Destroy(this.gameObject);
+		}
 	}
 
 	public void setPolar(bool polar) {

@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour {
 
-	public GameObject EnvManager;
+	// public GameObject EnvManager;
 	public float spinSpeed;
 	private float currentSpinSpeed;
 	public float moveSpeed;
+	public float moveOutSpeed;
 	public Vector3 startPosition;	
 	public Vector3 shootPosition;
 	public Vector3 leavePosition;
@@ -37,12 +38,7 @@ public class Enemy : MonoBehaviour {
 			leavePosition = transform.position;
 		}
 
-		EnvScript = EnvManager.GetComponent<EnvManager>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+		// EnvScript = EnvManager.GetComponent<EnvManager>();
 	}
 
 	public float fireTimer = 0;
@@ -61,8 +57,15 @@ public class Enemy : MonoBehaviour {
 		}
 
 		if (movePattern == 2) {
-			if (EnvScript.player == null) return;
-			transform.rotation = Quaternion.LookRotation(transform.forward, (EnvScript.player.transform.position - transform.position));	
+			// if (EnvScript.player == null) return;
+			// transform.rotation = Quaternion.LookRotation(transform.forward, (EnvScript.player.transform.position - transform.position));	
+		}
+	}
+
+	void OnCollisionEnter(Collision other) {
+		if (other.gameObject.tag == "Player") {
+			Destroy(instance);
+			Destroy(other.gameObject);
 		}
 	}
 
@@ -83,8 +86,17 @@ public class Enemy : MonoBehaviour {
 
 	}
 
+	public void setEnvManager(EnvManager script) {
+		EnvScript = script.GetComponent<EnvManager>();
+	}
+
 	public void Damaged(float take) {
 		HP -= take;
+	}
+
+	public Vector3 GetPlayerPosition() {
+		if (EnvScript == null) return new Vector3();
+		return EnvScript.player.transform.position;
 	}
 
 	IEnumerator MoveIn() {
@@ -101,11 +113,15 @@ public class Enemy : MonoBehaviour {
 	IEnumerator MoveOut() {
 		temp = -2;
 		while (temp < -1) {
-			// temp += Time.deltaTime*moveSpeed*Time.timeScale	;
-			temp += Time.deltaTime*moveSpeed;
+			temp += Time.deltaTime*moveOutSpeed;
 			if (temp > -1) temp = -1;
-			// transform.position = Vector3.Lerp(shootPosition, leavePosition, 2+temp);
 			GetComponent<Transform>().position = Vector3.Lerp(shootPosition, leavePosition, 2+temp);
+			if (movePattern == 2) {
+				GetComponent<Transform>().position += new Vector3(Mathf.Sin((temp+2)*10), 0, 0);
+			}
+			if (movePattern == 3) {
+				GetComponent<Transform>().position -= new Vector3((shootPosition.y - leavePosition.y) * (1-(Mathf.Cos((temp+2)*1.57f))),0, 0);
+			}
 			yield return null;
 		} 
 		Destroy(instance);

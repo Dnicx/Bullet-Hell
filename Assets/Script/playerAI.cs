@@ -54,10 +54,10 @@ public class playerAI : MonoBehaviour {
 		MOVE[2] = new Vector3(-moveUnit, 0, 0);
 		MOVE[3] = new Vector3(0, moveUnit, 0);
 		MOVE[4] = new Vector3(0, -moveUnit, 0);
-		MOVE[5] = new Vector3(moveUnit, moveUnit, 0).normalized;
-		MOVE[6] = new Vector3(-moveUnit, moveUnit, 0).normalized;
-		MOVE[7] = new Vector3(moveUnit, -moveUnit, 0).normalized;
-		MOVE[8] = new Vector3(-moveUnit, -moveUnit, 0).normalized;
+		MOVE[5] = new Vector3(1, 1, 0).normalized * playerSpeed * Time.fixedDeltaTime;
+		MOVE[6] = new Vector3(-1, 1, 0).normalized * playerSpeed * Time.fixedDeltaTime;
+		MOVE[7] = new Vector3(1, -1, 0).normalized * playerSpeed * Time.fixedDeltaTime;
+		MOVE[8] = new Vector3(-1, -1, 0).normalized * playerSpeed * Time.fixedDeltaTime;
 		simulateAI(searchDepth, delayFrame);
 		// AvoidantAI();
 		// Debug.Log(playerSpeed);

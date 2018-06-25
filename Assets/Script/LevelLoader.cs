@@ -5,6 +5,8 @@ using System.IO;
 
 public class LevelLoader : MonoBehaviour {
 
+	public GameObject[] Enemies;
+
 	string text;
 	public GameObject enemy;
 	StreamReader reader;
