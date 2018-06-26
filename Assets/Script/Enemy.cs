@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour {
 	public Vector3 startPosition;	
 	public Vector3 shootPosition;
 	public Vector3 leavePosition;
-	public float shootPeriod;
+	public float stopPeriod;
 	public float spawnOffset;
 	public float HP;
 	public float moveInOffset;
@@ -28,10 +28,10 @@ public class Enemy : MonoBehaviour {
 	void Start () {
 		// shooting = (conShoot(period));
 		currentSpinSpeed = 0;
-		// StartCoroutine(shootTimer(shootPeriod));
+		// StartCoroutine(shootTimer(stopPeriod));
 		temp = 1;
 		instance = this.gameObject;
-		isFire = false;
+		SetChildFire(false);
 		if (movePattern == 0) {
 			startPosition = transform.position;
 			shootPosition = transform.position;
@@ -41,7 +41,6 @@ public class Enemy : MonoBehaviour {
 		// EnvScript = EnvManager.GetComponent<EnvManager>();
 	}
 
-	public float fireTimer = 0;
 	void FixedUpdate() {
 		
 		transform.Rotate(0,0,currentSpinSpeed);
@@ -49,7 +48,7 @@ public class Enemy : MonoBehaviour {
 		StartCoroutine(MoveIn());
 		if (temp == 0) {
 			temp = -1;
-			StartCoroutine(shootTimer(shootPeriod));
+			StartCoroutine(shootTimer(stopPeriod));
 		}
 
 		if (HP <= 0) {
@@ -79,7 +78,7 @@ public class Enemy : MonoBehaviour {
 		shootPosition.y = param[6];
 		leavePosition.x = param[7];
 		leavePosition.y = param[8];
-		shootPeriod = param[9];
+		stopPeriod = param[9];
 		spawnOffset = param[10];
 		HP = param[11];
 		moveInOffset = param[12];
@@ -129,13 +128,23 @@ public class Enemy : MonoBehaviour {
 
 
 	IEnumerator shootTimer(float timer) {
-		yield return new WaitForSeconds(0.5f);
-		isFire = true;
+		// yield return new WaitForSeconds(0.5f);
+		SetChildFire(true);
 		currentSpinSpeed = spinSpeed;
 		yield return new WaitForSeconds(timer);
-		isFire = false;
+		// SetChildFire(false);
 		currentSpinSpeed = 0;
-		yield return new WaitForSeconds(0.5f);
+		// yield return new WaitForSeconds(0.5f);
 		StartCoroutine(MoveOut());
+	}
+
+	void SetChildFire(bool fire) {
+		Turret turret;
+		foreach (Transform child in transform) {
+			turret = child.gameObject.GetComponent<Turret>();
+			if (turret != null) {
+				turret.SetFire(fire);
+			}
+		}
 	}
 }

@@ -17,7 +17,6 @@ public class Turret : MonoBehaviour {
 	private IEnumerator shooting;
 	private IEnumerator fire;
 	private bool isFire;
-	private float temp;
 	public bool target;
 	public GameObject instance;
 	// Use this for initialization
@@ -25,17 +24,12 @@ public class Turret : MonoBehaviour {
 		// shooting = (conShoot(period));
 		currentSpinSpeed = 0;
 		// StartCoroutine(shootTimer(shootPeriod));
-		temp = 0;
 		instance = this.gameObject;
 		isFire = false;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
-	public float fireTimer = 0;
+
+	private float fireTimer = 0;
 	void FixedUpdate() {
 		if (fireTimer < 60/rate) {
 			fireTimer+=1.0f;
@@ -45,11 +39,11 @@ public class Turret : MonoBehaviour {
 			if (isFire) {
 				if (barrels == 1) Instantiate(bullet, transform.position, transform.rotation);
 				else {
-					Quaternion temp = transform.rotation;
-					temp.eulerAngles += new Vector3(0, 0, -spread/2);
+					Quaternion transformTemp = transform.rotation;
+					transformTemp.eulerAngles += new Vector3(0, 0, -spread/2);
 					for (int i = 0; i<barrels; i++) {
-						Instantiate(bullet, transform.position, temp);
-						temp.eulerAngles += new Vector3(0, 0, spread/(barrels-1));
+						Instantiate(bullet, transform.position, transformTemp);
+						transformTemp.eulerAngles += new Vector3(0, 0, spread/(barrels-1));
 					}
 				}
 			}
@@ -61,8 +55,8 @@ public class Turret : MonoBehaviour {
 		} else {
 			transform.Rotate(0,0,currentSpinSpeed);
 		}
-		if (temp == 0) {
-			temp = -1;
+
+		if (isFire) {
 			StartCoroutine(shootTimer(shootPeriod));
 		}
 	}
@@ -83,24 +77,20 @@ public class Turret : MonoBehaviour {
 	// 	moveInOffset = param[12];
 
 	// }
-	public void StartShoot() {
-		isFire = true;
-	}
-
-	public void HaltShoot() {
-		isFire = false;
+	public void SetFire(bool fire) {
+		isFire = fire;
 	}
 
 	IEnumerator shootTimer(float timer) {
-		yield return new WaitForSeconds(0.5f);
+		// yield return new WaitForSeconds(0.5f);
 		// StartCoroutine(shooting);
-		isFire = true;
+		// isFire = true;
 		currentSpinSpeed = spinSpeed;
 		yield return new WaitForSeconds(timer);
 		// StopCoroutine(shooting);
 		isFire = false;
 		currentSpinSpeed = 0;
-		yield return new WaitForSeconds(0.5f);
+		// yield return new WaitForSeconds(0.5f);
 	}
 
 }

@@ -50,7 +50,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1137817059028830
 GameObject:
   m_ObjectHideFlags: 0
@@ -90,7 +90,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1322092735956980
 GameObject:
   m_ObjectHideFlags: 0
@@ -110,7 +110,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1395557282834288
 GameObject:
   m_ObjectHideFlags: 0
@@ -127,7 +127,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1496524556158818
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,7 +167,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1617557062383350
 GameObject:
   m_ObjectHideFlags: 0
@@ -247,7 +247,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1924073560852540
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,7 +267,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1996499476027880
 GameObject:
   m_ObjectHideFlags: 0
@@ -319,7 +319,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1395557282834288}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalPosition: {x: -5.2, y: 2, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children:
   - {fileID: 4834399655384942}
@@ -1213,8 +1213,10 @@ MonoBehaviour:
   spinSpeed: 1.5
   shootPeriod: 30
   polar: 0
+  spread: 0
+  barrels: 1
+  target: 0
   instance: {fileID: 0}
-  fireTimer: 0
 --- !u!114 &114165107829610198
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1231,8 +1233,10 @@ MonoBehaviour:
   spinSpeed: 0
   shootPeriod: 30
   polar: 1
+  spread: 0
+  barrels: 1
+  target: 0
   instance: {fileID: 0}
-  fireTimer: 0
 --- !u!114 &114177154152053588
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1274,8 +1278,10 @@ MonoBehaviour:
   spinSpeed: 1.5
   shootPeriod: 30
   polar: 0
+  spread: 0
+  barrels: 1
+  target: 0
   instance: {fileID: 0}
-  fireTimer: 0
 --- !u!114 &114217826980725844
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1317,8 +1323,10 @@ MonoBehaviour:
   spinSpeed: 0
   shootPeriod: 30
   polar: 1
+  spread: 0
+  barrels: 1
+  target: 0
   instance: {fileID: 0}
-  fireTimer: 0
 --- !u!114 &114281675397037586
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1360,8 +1368,10 @@ MonoBehaviour:
   spinSpeed: 1.5
   shootPeriod: 30
   polar: 0
+  spread: 0
+  barrels: 1
+  target: 0
   instance: {fileID: 0}
-  fireTimer: 0
 --- !u!114 &114381652044171790
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1403,8 +1413,10 @@ MonoBehaviour:
   spinSpeed: 0
   shootPeriod: 30
   polar: 1
+  spread: 0
+  barrels: 1
+  target: 0
   instance: {fileID: 0}
-  fireTimer: 0
 --- !u!114 &114407478755381108
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1441,20 +1453,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66fd6864549f07546a27423c1a649899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnvManager: {fileID: 0}
   spinSpeed: -0.5
   moveSpeed: 1
-  startPosition: {x: 0, y: 7, z: 0}
-  shootPosition: {x: 0, y: 2, z: 0}
-  leavePosition: {x: 0, y: -7, z: 0}
-  shootPeriod: 30
+  moveOutSpeed: 1
+  startPosition: {x: -5, y: 7, z: 0}
+  shootPosition: {x: -5, y: 2, z: 0}
+  leavePosition: {x: -5, y: -7, z: 0}
+  stopPeriod: 30
   spawnOffset: 0
-  HP: 1000
+  HP: 600
   moveInOffset: 0
   polar: 0
   movePattern: 1
   instance: {fileID: 0}
-  fireTimer: 0
 --- !u!114 &114481551030055358
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1521,8 +1532,10 @@ MonoBehaviour:
   spinSpeed: 0
   shootPeriod: 30
   polar: 1
+  spread: 0
+  barrels: 1
+  target: 0
   instance: {fileID: 0}
-  fireTimer: 0
 --- !u!114 &114606160012540582
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1564,8 +1577,10 @@ MonoBehaviour:
   spinSpeed: 1.5
   shootPeriod: 30
   polar: 0
+  spread: 0
+  barrels: 1
+  target: 0
   instance: {fileID: 0}
-  fireTimer: 0
 --- !u!114 &114674113440081244
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1607,8 +1622,10 @@ MonoBehaviour:
   spinSpeed: 0
   shootPeriod: 30
   polar: 1
+  spread: 0
+  barrels: 1
+  target: 0
   instance: {fileID: 0}
-  fireTimer: 0
 --- !u!114 &114769117438182728
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1625,8 +1642,10 @@ MonoBehaviour:
   spinSpeed: 1.5
   shootPeriod: 30
   polar: 0
+  spread: 0
+  barrels: 1
+  target: 0
   instance: {fileID: 0}
-  fireTimer: 0
 --- !u!114 &114784520350623736
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1693,8 +1712,10 @@ MonoBehaviour:
   spinSpeed: 0
   shootPeriod: 30
   polar: 1
+  spread: 0
+  barrels: 1
+  target: 0
   instance: {fileID: 0}
-  fireTimer: 0
 --- !u!114 &114984959405049318
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1736,5 +1757,7 @@ MonoBehaviour:
   spinSpeed: 1.5
   shootPeriod: 30
   polar: 0
+  spread: 0
+  barrels: 1
+  target: 0
   instance: {fileID: 0}
-  fireTimer: 0

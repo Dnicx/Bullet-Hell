@@ -5,7 +5,8 @@ using System.IO;
 
 public class LevelLoader : MonoBehaviour {
 
-	public GameObject[] Enemies;
+	public GameObject[] enemiesSetGreen;
+	public GameObject[] enemiesSetRed;
 
 	string text;
 	public GameObject enemy;

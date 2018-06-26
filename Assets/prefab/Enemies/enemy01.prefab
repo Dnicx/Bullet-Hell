@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 23147116433928040}
   - component: {fileID: 65280999695253406}
   - component: {fileID: 114644876953097854}
+  - component: {fileID: 54858607685923364}
   m_Layer: 0
   m_Name: Enemy01
   m_TagString: Enemy
@@ -115,6 +116,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1481222365767142}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &54858607685923364
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1481222365767142}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!65 &65280999695253406
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -138,21 +154,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66fd6864549f07546a27423c1a649899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnvManager: {fileID: 0}
-  spinSpeed: 0
-  moveSpeed: 0.3
-  moveOutSpeed: 0.5
+  spinSpeed: 5
+  moveSpeed: 60
+  moveOutSpeed: 0.3
   startPosition: {x: -6.148085, y: 7.42, z: 0}
-  shootPosition: {x: -6.148085, y: 2.098477, z: 0}
+  shootPosition: {x: -6.148085, y: 7.42, z: 0}
   leavePosition: {x: -6.148085, y: -10, z: 0}
-  shootPeriod: 3
+  stopPeriod: 0
   spawnOffset: 0
   HP: 5
   moveInOffset: 0
   polar: 0
   movePattern: 2
   instance: {fileID: 0}
-  fireTimer: 0
 --- !u!114 &114882052019823860
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -165,9 +179,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 1210931982116400, guid: e37ce28fad9c6874f8abb063748f3c78, type: 2}
-  rate: 5
+  rate: 10
   spinSpeed: 0
-  shootPeriod: 10
+  shootPeriod: 6
   polar: 0
+  spread: 40
+  barrels: 1
+  target: 1
   instance: {fileID: 0}
-  fireTimer: 0

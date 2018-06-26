@@ -165,7 +165,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4026481606679036
 Transform:
   m_ObjectHideFlags: 1
@@ -704,12 +704,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 1210931982116400, guid: e37ce28fad9c6874f8abb063748f3c78, type: 2}
-  rate: 15
+  rate: 12
   spinSpeed: 1.5
   shootPeriod: 30
   polar: 0
+  spread: 10
+  barrels: 1
+  target: 0
   instance: {fileID: 0}
-  fireTimer: 0
 --- !u!114 &114097666361060896
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -772,12 +774,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 1210931982116400, guid: e37ce28fad9c6874f8abb063748f3c78, type: 2}
-  rate: 15
+  rate: 12
   spinSpeed: 1.5
   shootPeriod: 30
   polar: 0
+  spread: 10
+  barrels: 1
+  target: 0
   instance: {fileID: 0}
-  fireTimer: 0
 --- !u!114 &114272561957463970
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -790,12 +794,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 1210931982116400, guid: e37ce28fad9c6874f8abb063748f3c78, type: 2}
-  rate: 15
+  rate: 12
   spinSpeed: 1.5
   shootPeriod: 30
   polar: 0
+  spread: 10
+  barrels: 1
+  target: 0
   instance: {fileID: 0}
-  fireTimer: 0
 --- !u!114 &114295545214314634
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -807,21 +813,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66fd6864549f07546a27423c1a649899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnvManager: {fileID: 1145298725552632, guid: 7aaa156495ddb4749b09e61fc137d962, type: 2}
   spinSpeed: -0.5
   moveSpeed: 1
   moveOutSpeed: 1
   startPosition: {x: 0, y: 2, z: 0}
   shootPosition: {x: 0, y: 2, z: 0}
   leavePosition: {x: 0, y: 2, z: 0}
-  shootPeriod: 30
+  stopPeriod: 30
   spawnOffset: 0
   HP: 1000
   moveInOffset: 0
   polar: 0
   movePattern: 0
   instance: {fileID: 0}
-  fireTimer: 0
 --- !u!114 &114450394955852598
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -859,12 +863,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 1210931982116400, guid: e37ce28fad9c6874f8abb063748f3c78, type: 2}
-  rate: 15
+  rate: 12
   spinSpeed: 1.5
   shootPeriod: 30
   polar: 0
+  spread: 10
+  barrels: 1
+  target: 0
   instance: {fileID: 0}
-  fireTimer: 0
 --- !u!114 &114721967898752838
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -927,12 +933,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 1210931982116400, guid: e37ce28fad9c6874f8abb063748f3c78, type: 2}
-  rate: 15
+  rate: 12
   spinSpeed: 1.5
   shootPeriod: 30
   polar: 0
+  spread: 10
+  barrels: 1
+  target: 0
   instance: {fileID: 0}
-  fireTimer: 0
 --- !u!114 &114995828200256588
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -945,9 +953,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 1210931982116400, guid: e37ce28fad9c6874f8abb063748f3c78, type: 2}
-  rate: 15
+  rate: 12
   spinSpeed: 1.5
   shootPeriod: 30
   polar: 0
+  spread: 10
+  barrels: 1
+  target: 0
   instance: {fileID: 0}
-  fireTimer: 0
