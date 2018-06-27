@@ -650,7 +650,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1979302667449822}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.75, y: 1.71, z: 1}
@@ -707,11 +707,14 @@ MonoBehaviour:
   rate: 12
   spinSpeed: 1.5
   shootPeriod: 30
+  cycleOffset: 0
   polar: 0
   spread: 10
   barrels: 1
+  isFire: 0
   target: 0
   instance: {fileID: 0}
+  fireTimer: 0
 --- !u!114 &114097666361060896
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -777,11 +780,14 @@ MonoBehaviour:
   rate: 12
   spinSpeed: 1.5
   shootPeriod: 30
+  cycleOffset: 0
   polar: 0
   spread: 10
   barrels: 1
+  isFire: 0
   target: 0
   instance: {fileID: 0}
+  fireTimer: 0
 --- !u!114 &114272561957463970
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -797,11 +803,14 @@ MonoBehaviour:
   rate: 12
   spinSpeed: 1.5
   shootPeriod: 30
+  cycleOffset: 0
   polar: 0
   spread: 10
   barrels: 1
+  isFire: 0
   target: 0
   instance: {fileID: 0}
+  fireTimer: 0
 --- !u!114 &114295545214314634
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -866,11 +875,14 @@ MonoBehaviour:
   rate: 12
   spinSpeed: 1.5
   shootPeriod: 30
+  cycleOffset: 0
   polar: 0
   spread: 10
   barrels: 1
+  isFire: 0
   target: 0
   instance: {fileID: 0}
+  fireTimer: 0
 --- !u!114 &114721967898752838
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -936,11 +948,14 @@ MonoBehaviour:
   rate: 12
   spinSpeed: 1.5
   shootPeriod: 30
+  cycleOffset: 0
   polar: 0
   spread: 10
   barrels: 1
+  isFire: 0
   target: 0
   instance: {fileID: 0}
+  fireTimer: 0
 --- !u!114 &114995828200256588
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -956,8 +971,11 @@ MonoBehaviour:
   rate: 12
   spinSpeed: 1.5
   shootPeriod: 30
+  cycleOffset: 0
   polar: 0
   spread: 10
   barrels: 1
+  isFire: 0
   target: 0
   instance: {fileID: 0}
+  fireTimer: 0

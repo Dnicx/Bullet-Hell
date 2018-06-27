@@ -270,7 +270,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1997908673247586}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1.2810268, z: 1}
@@ -302,11 +302,14 @@ MonoBehaviour:
   rate: 10
   spinSpeed: 1
   shootPeriod: 2
+  cycleOffset: 0
   polar: 1
   spread: 0
   barrels: 1
+  isFire: 0
   target: 0
   instance: {fileID: 0}
+  fireTimer: 0
 --- !u!114 &114144938495811100
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -322,11 +325,14 @@ MonoBehaviour:
   rate: 10
   spinSpeed: -1
   shootPeriod: 2
+  cycleOffset: 0
   polar: 0
   spread: 0
   barrels: 1
+  isFire: 0
   target: 0
   instance: {fileID: 0}
+  fireTimer: 0
 --- !u!114 &114781861799774342
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -346,7 +352,7 @@ MonoBehaviour:
   leavePosition: {x: 0, y: -6.67, z: 0}
   stopPeriod: 2
   spawnOffset: 0
-  HP: 50
+  HP: 20
   moveInOffset: 0
   polar: 0
   movePattern: 3

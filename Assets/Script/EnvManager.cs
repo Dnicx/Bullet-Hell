@@ -60,7 +60,7 @@ public class EnvManager : MonoBehaviour {
 		}
 		if (Input.GetButtonDown("Restart")) {
 			game++;
-			if (autoRestart) SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 		}
 		if (Ecount == 0) {
 			if (record) {

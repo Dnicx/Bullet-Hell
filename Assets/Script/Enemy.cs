@@ -61,10 +61,17 @@ public class Enemy : MonoBehaviour {
 		}
 	}
 
-	void OnCollisionEnter(Collision other) {
+	void OnTriggerEnter(Collider other) {
 		if (other.gameObject.tag == "Player") {
 			Destroy(instance);
 			Destroy(other.gameObject);
+		}
+	}
+
+	void OnTriggerExit(Collider other) {
+			Debug.Log(other.gameObject.tag);
+		if (other.gameObject.tag == "screen") {
+			SetChildFire(false);
 		}
 	}
 
@@ -119,7 +126,8 @@ public class Enemy : MonoBehaviour {
 				GetComponent<Transform>().position += new Vector3(Mathf.Sin((temp+2)*10), 0, 0);
 			}
 			if (movePattern == 3) {
-				GetComponent<Transform>().position -= new Vector3((shootPosition.y - leavePosition.y) * (1-(Mathf.Cos((temp+2)*1.57f))),0, 0);
+				if (shootPosition.x > leavePosition.x) GetComponent<Transform>().position -= new Vector3((shootPosition.y - leavePosition.y) * (1-(Mathf.Cos((temp+2)*1.57f))),0, 0);
+				else GetComponent<Transform>().position += new Vector3((shootPosition.y - leavePosition.y) * (1-(Mathf.Cos((temp+2)*1.57f))),0, 0);
 			}
 			yield return null;
 		} 
@@ -133,7 +141,7 @@ public class Enemy : MonoBehaviour {
 		currentSpinSpeed = spinSpeed;
 		yield return new WaitForSeconds(timer);
 		// SetChildFire(false);
-		currentSpinSpeed = 0;
+		// currentSpinSpeed = 0;
 		// yield return new WaitForSeconds(0.5f);
 		StartCoroutine(MoveOut());
 	}

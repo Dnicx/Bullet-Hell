@@ -9,6 +9,7 @@ public class Turret : MonoBehaviour {
 	public float spinSpeed;
 	private float currentSpinSpeed;
 	public float shootPeriod;
+	public float cycleOffset;
 	public bool polar;
 	public int spread;
 	public int barrels = 1;
@@ -16,7 +17,7 @@ public class Turret : MonoBehaviour {
 
 	private IEnumerator shooting;
 	private IEnumerator fire;
-	private bool isFire;
+	public bool isFire;
 	public bool target;
 	public GameObject instance;
 	// Use this for initialization
@@ -29,14 +30,15 @@ public class Turret : MonoBehaviour {
 	}
 
 
-	private float fireTimer = 0;
+	public float fireTimer = 0;
 	void FixedUpdate() {
-		if (fireTimer < 60/rate) {
-			fireTimer+=1.0f;
-		}
-		else {
-			fireTimer = 0;
-			if (isFire) {
+		if (isFire && rate > 0) {
+			if (fireTimer < 60/rate) {
+				fireTimer+=1.0f;
+			}
+			else {
+				fireTimer = 0;
+				
 				if (barrels == 1) Instantiate(bullet, transform.position, transform.rotation);
 				else {
 					Quaternion transformTemp = transform.rotation;
@@ -46,8 +48,8 @@ public class Turret : MonoBehaviour {
 						transformTemp.eulerAngles += new Vector3(0, 0, spread/(barrels-1));
 					}
 				}
+				
 			}
-			
 		}
 		if (target) {
 			if (transform.parent.gameObject.GetComponent<Enemy>() != null) 
@@ -78,11 +80,17 @@ public class Turret : MonoBehaviour {
 
 	// }
 	public void SetFire(bool fire) {
-		isFire = fire;
+		if (fire) StartCoroutine(shootDelay());
+		else isFire = false;
+	}
+
+	IEnumerator shootDelay() {
+		yield return new WaitForSeconds(cycleOffset);
+		isFire = true;
 	}
 
 	IEnumerator shootTimer(float timer) {
-		// yield return new WaitForSeconds(0.5f);
+		// yield return new WaitForSeconds(delay);
 		// StartCoroutine(shooting);
 		// isFire = true;
 		currentSpinSpeed = spinSpeed;

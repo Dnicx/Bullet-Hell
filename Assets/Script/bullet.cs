@@ -14,6 +14,7 @@ public class bullet : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		// GetComponent<Rigidbody>().velocity = transform.up * speed;
+		StartCoroutine(TimeToLive());
 	}
 	
 	// Update is called once per frame
@@ -39,6 +40,12 @@ public class bullet : MonoBehaviour {
 
 	public void setPolar(bool polar) {
 		this.polar = polar;
+	}
+
+	
+	IEnumerator TimeToLive() {
+		yield return new WaitForSeconds(20);
+		Destroy(this.gameObject);
 	}
 
 }
