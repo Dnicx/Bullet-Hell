@@ -75,7 +75,6 @@ GameObject:
   - component: {fileID: 4020290732378650}
   - component: {fileID: 65840167399291304}
   - component: {fileID: 114089906833188358}
-  - component: {fileID: 65539425863707998}
   m_Layer: 0
   m_Name: observe
   m_TagString: Untagged
@@ -311,18 +310,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 2
---- !u!65 &65539425863707998
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1815995942783680}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 28.08, y: 17.8, z: 1}
-  m_Center: {x: 0.0531606, y: 0.03006912, z: 0}
 --- !u!65 &65767299344459404
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -345,7 +332,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 13.17, y: 7.531543, z: 1}
+  m_Size: {x: 20.57, y: 13.4, z: 1}
   m_Center: {x: 0.0531606, y: 0.03006912, z: 0}
 --- !u!114 &114089906833188358
 MonoBehaviour:
@@ -361,6 +348,7 @@ MonoBehaviour:
   weight: {x: 0, y: 0, z: 0}
   danger: 0
   bullets: []
+  enemies: []
 --- !u!114 &114138597905510018
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -375,7 +363,7 @@ MonoBehaviour:
   speed: 8
   slowSpeed: 4
   currentSpeed: 0
-  frequency: 0.05
+  frequency: 57
   pBulletG: {fileID: 1531396586905996, guid: 849df9a20e5fa43e6ac940b641dc4126, type: 2}
   pBulletR: {fileID: 1872141296319416, guid: 109eab795e6665b48a3794b119fb23a8, type: 2}
   playerDot: {fileID: 1450674081709928}
@@ -400,13 +388,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCharacter: {fileID: 1517658773034342}
   Observe: {fileID: 1815995942783680}
+  EnvManager: {fileID: 0}
   playerSpeed: 0
   saftyBound: 0.1
   searchDepth: 2
-  delayFrame: 8
+  delayFrame: 5
   idleDelayFrame: 3
   move5Or9: 9
   moveScore: []
+  mx_bound: {x: 0, y: 0, z: 0}
+  mn_bound: {x: 0, y: 0, z: 0}
   frameCount: 0
   decidedMove: 0
 --- !u!135 &135952661365986564
@@ -416,7 +407,7 @@ SphereCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1517658773034342}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.15

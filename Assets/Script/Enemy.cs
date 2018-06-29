@@ -24,6 +24,11 @@ public class Enemy : MonoBehaviour {
 	private EnvManager EnvScript;
 	public GameObject instance;
 
+	public Vector3 velocity;
+	public Vector3 lastD;
+	public Vector3 deltaV;
+	public Vector3 lastV;
+
 	// Use this for initialization
 	void Start () {
 		// shooting = (conShoot(period));
@@ -39,6 +44,10 @@ public class Enemy : MonoBehaviour {
 		}
 
 		// EnvScript = EnvManager.GetComponent<EnvManager>();
+		velocity = new Vector3(0, 0, 0);
+		lastD = transform.position;
+		deltaV = new Vector3(0, 0, 0);
+		lastV = new Vector3(0, 0, 0);
 	}
 
 	void FixedUpdate() {
@@ -59,6 +68,13 @@ public class Enemy : MonoBehaviour {
 			// if (EnvScript.player == null) return;
 			// transform.rotation = Quaternion.LookRotation(transform.forward, (EnvScript.player.transform.position - transform.position));	
 		}
+
+		velocity = (transform.position - lastD)/Time.deltaTime;
+		deltaV = (velocity - lastV)/Time.deltaTime;
+		lastD = transform.position;
+		lastV = velocity;
+
+
 	}
 
 	void OnTriggerEnter(Collider other) {
@@ -69,7 +85,6 @@ public class Enemy : MonoBehaviour {
 	}
 
 	void OnTriggerExit(Collider other) {
-			Debug.Log(other.gameObject.tag);
 		if (other.gameObject.tag == "screen") {
 			SetChildFire(false);
 		}
@@ -92,7 +107,7 @@ public class Enemy : MonoBehaviour {
 
 	}
 
-	public void setEnvManager(EnvManager script) {
+	public void SetEnvManager(EnvManager script) {
 		EnvScript = script.GetComponent<EnvManager>();
 	}
 

@@ -7,11 +7,13 @@ public class observeRange : MonoBehaviour {
 	public Vector3 weight;
 	public bool danger;
 	public List<GameObject> bullets;
+	public List<GameObject> enemies;
 
 	// Use this for initialization
 	void Start () {
 		weight = new Vector3(0, 0, 0);
 		bullets = new List<GameObject>();
+		enemies = new List<GameObject>();
 	}
 	
 	// Update is called once per frame
@@ -23,7 +25,10 @@ public class observeRange : MonoBehaviour {
 			// Debug.Log(Vector3.Distance(other.transform.position, transform.position));
 			weight += (1/Vector3.Distance(other.transform.position, transform.position))*(transform.position - other.transform.position);
 			danger = true;
-			bullets.Add(other.gameObject);
+			if (!bullets.Contains(other.gameObject)) bullets.Add(other.gameObject);
+		}
+		if (other.tag == "Enemy") {
+			if (!enemies.Contains(other.gameObject)) enemies.Add(other.gameObject);
 		}
 	}
 
@@ -31,5 +36,6 @@ public class observeRange : MonoBehaviour {
 		danger = false;
 		weight = new Vector3(0, 0, 0);
 		bullets.Clear();
+		enemies.Clear();
 	}
 }

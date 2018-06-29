@@ -7,7 +7,7 @@ public class playerScript : MonoBehaviour {
 	public float speed;
 	public float slowSpeed;
 	public float currentSpeed;
-	public float frequency;
+	public int frequency;
 	public GameObject pBulletG;
 	public GameObject pBulletR;
 	public GameObject playerDot;
@@ -32,14 +32,18 @@ public class playerScript : MonoBehaviour {
 	//true = G, false = R
 	public bool polar;
 	
+	private EnvManager EnvScript;
+	private bool isFire;
 
 	// Use this for initialization
 	void Start () {
 		currentSpeed = slowSpeed;
-		fire = conShoot(frequency);
 		mx_bound = bound.GetComponent<Collider>().bounds.max;
 		mn_bound = bound.GetComponent<Collider>().bounds.min;
 		polar = true;
+		isFire = false;
+
+		EnvScript = bound.GetComponent<EnvManager>();
 	}
 
 	void Update() {
@@ -55,13 +59,12 @@ public class playerScript : MonoBehaviour {
 			// 	currentSpeed = speed;
 			// }
 			if (Input.GetButtonDown("Fire")) {
-				if (polar) Instantiate(pBulletG, this.GetComponent<Transform>().position, GetComponent<Transform>().rotation);
-				else Instantiate(pBulletR, this.GetComponent<Transform>().position, GetComponent<Transform>().rotation);
-				StartCoroutine(fire);
+				// if (polar) Instantiate(pBulletG, this.GetComponent<Transform>().position, GetComponent<Transform>().rotation);
+				// else Instantiate(pBulletR, this.GetComponent<Transform>().position, GetComponent<Transform>().rotation);
+				isFire = true;
 			} 
 			if (Input.GetButtonUp("Fire")) {
-				StopCoroutine(fire);
-
+				isFire = false;
 			} 
 			if (Input.GetButtonDown("Slowmo")) {
 				Time.timeScale = .5f;
@@ -73,29 +76,28 @@ public class playerScript : MonoBehaviour {
 			} 
 	}
 	
+	private int fireDelay;
 	// Update is called once per frame
 	void FixedUpdate () {
-            // GetComponent<Transform>().position += new Vector3(currentSpeed*Time.deltaTime*Input.GetAxis("Horizontal"),currentSpeed*Time.deltaTime*Input.GetAxis("Vertical"),0);
-			GetComponent<Transform>().position += new Vector3(currentSpeed*Input.GetAxisRaw("Horizontal")*Time.fixedDeltaTime,currentSpeed*Input.GetAxisRaw("Vertical")*Time.fixedDeltaTime,0);
-			GetComponent<Transform>().position += (direction.normalized)*Time.fixedDeltaTime*currentSpeed;
-			
+		// GetComponent<Transform>().position += new Vector3(currentSpeed*Time.deltaTime*Input.GetAxis("Horizontal"),currentSpeed*Time.deltaTime*Input.GetAxis("Vertical"),0);
+		GetComponent<Transform>().position += new Vector3(currentSpeed*Input.GetAxisRaw("Horizontal")*Time.fixedDeltaTime,currentSpeed*Input.GetAxisRaw("Vertical")*Time.fixedDeltaTime,0);
+		GetComponent<Transform>().position += (direction.normalized)*Time.fixedDeltaTime*currentSpeed;
+		
 
 
-			if (GetComponent<Transform>().position.x <= mn_bound.x+BoundsOffset) GetComponent<Transform>().position = new Vector3(mn_bound.x+BoundsOffset, GetComponent<Transform>().position.y, 0);
-			if (GetComponent<Transform>().position.x >= mx_bound.x-BoundsOffset) GetComponent<Transform>().position = new Vector3(mx_bound.x-BoundsOffset, GetComponent<Transform>().position.y, 0);
-			if (GetComponent<Transform>().position.y <= mn_bound.y+BoundsOffset) GetComponent<Transform>().position = new Vector3(GetComponent<Transform>().position.x,mn_bound.y+BoundsOffset, 0);
-			if (GetComponent<Transform>().position.y >= mx_bound.y-BoundsOffset) GetComponent<Transform>().position = new Vector3(GetComponent<Transform>().position.x,mx_bound.y-BoundsOffset, 0);
+		if (GetComponent<Transform>().position.x <= mn_bound.x+BoundsOffset) GetComponent<Transform>().position = new Vector3(mn_bound.x+BoundsOffset, GetComponent<Transform>().position.y, 0);
+		if (GetComponent<Transform>().position.x >= mx_bound.x-BoundsOffset) GetComponent<Transform>().position = new Vector3(mx_bound.x-BoundsOffset, GetComponent<Transform>().position.y, 0);
+		if (GetComponent<Transform>().position.y <= mn_bound.y+BoundsOffset) GetComponent<Transform>().position = new Vector3(GetComponent<Transform>().position.x,mn_bound.y+BoundsOffset, 0);
+		if (GetComponent<Transform>().position.y >= mx_bound.y-BoundsOffset) GetComponent<Transform>().position = new Vector3(GetComponent<Transform>().position.x,mx_bound.y-BoundsOffset, 0);
+
+		if (isFire && fireDelay >= 60-frequency) {
+			fireDelay = 0;
+			if (polar) Instantiate(pBulletG, this.GetComponent<Transform>().position, GetComponent<Transform>().rotation);
+			else Instantiate(pBulletR, this.GetComponent<Transform>().position, GetComponent<Transform>().rotation);
+		}
+		fireDelay +=1;
 	}
 
-	// void OnTriggerEnter(Collider other)
-    // {
-	// 	if (other.gameObject.tag == "screen") {
-	// 		return;
-	// 	}
-		
-	// 	Debug.Log("Hit");
-	//         Destroy(this.gameObject);
-    // }
 
 	public void PressShift() {
 		// currentSpeed = slowSpeed;
@@ -130,12 +132,18 @@ public class playerScript : MonoBehaviour {
 	public void GoDiagDR() {
 		direction = DOWNRIGHT;
 	}
+	public void Fire() {
+		isFire = true;
+	}
+	public void Hault() {
+		isFire = false;
+	}
 
-	IEnumerator conShoot(float timer) {
-		while(true) {
-			yield return new WaitForSeconds(timer);
-			if (polar) Instantiate(pBulletG, this.GetComponent<Transform>().position, GetComponent<Transform>().rotation);
-			else Instantiate(pBulletR, this.GetComponent<Transform>().position, GetComponent<Transform>().rotation);
-		}
+	public void SetEnvManager(EnvManager script) {
+		EnvScript = script;
+	}
+
+	public EnvManager GetEnvManager() {
+		return EnvScript;
 	}
 }

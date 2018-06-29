@@ -87,9 +87,10 @@ MonoBehaviour:
     type: 2}
   levelLoader: {fileID: 0}
   player: {fileID: 0}
-  Enemy:
-  - {fileID: 0}
-  record: 0
-  autoRestart: 0
+  enemies: []
+  record: 1
+  autoRestart: 1
+  endTime: 25
+  timeCount: 0
   count: 0
   fixedCount: 0
