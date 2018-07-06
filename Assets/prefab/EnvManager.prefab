@@ -67,7 +67,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 18.36, y: 10.56, z: 6.85}
+  m_Size: {x: 17.828644, y: 10.187487, z: 6.85}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114027293364791390
 MonoBehaviour:
@@ -88,8 +88,8 @@ MonoBehaviour:
   levelLoader: {fileID: 0}
   player: {fileID: 0}
   enemies: []
-  record: 1
-  autoRestart: 1
+  record: 0
+  autoRestart: 0
   endTime: 25
   timeCount: 0
   count: 0

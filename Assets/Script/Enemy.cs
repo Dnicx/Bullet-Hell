@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour {
 	public float HP;
 	public float moveInOffset;
 	public bool polar;
+	public bool target;
 	public int movePattern;
 
 	private bool isFire;
@@ -141,8 +142,22 @@ public class Enemy : MonoBehaviour {
 				GetComponent<Transform>().position += new Vector3(Mathf.Sin((temp+2)*10), 0, 0);
 			}
 			if (movePattern == 3) {
-				if (shootPosition.x > leavePosition.x) GetComponent<Transform>().position -= new Vector3((shootPosition.y - leavePosition.y) * (1-(Mathf.Cos((temp+2)*1.57f))),0, 0);
-				else GetComponent<Transform>().position += new Vector3((shootPosition.y - leavePosition.y) * (1-(Mathf.Cos((temp+2)*1.57f))),0, 0);
+				float radius = (shootPosition.y - leavePosition.y);
+				Vector3 circularOffset = new Vector3(radius * (1-(Mathf.Cos((temp+2)*1.57f))),0, 0);
+				if (shootPosition.x > leavePosition.x) {
+					GetComponent<Transform>().position -= circularOffset;
+					if (EnvScript != null) 
+						if (leavePosition.x - radius > EnvScript.minBound.x) {
+							leavePosition = new Vector3(EnvScript.minBound.x + radius, leavePosition.y, leavePosition.z);
+						}
+				}
+				else {
+					GetComponent<Transform>().position += circularOffset;
+					if (EnvScript != null) 
+						if (leavePosition.x + radius < EnvScript.maxBound.x) {
+							leavePosition = new Vector3(EnvScript.maxBound.x - radius, leavePosition.y, leavePosition.z);
+						}
+				}
 			}
 			yield return null;
 		} 
@@ -153,6 +168,10 @@ public class Enemy : MonoBehaviour {
 	IEnumerator shootTimer(float timer) {
 		// yield return new WaitForSeconds(0.5f);
 		SetChildFire(true);
+		if (target) {
+			spinSpeed = 0;
+			transform.rotation = Quaternion.LookRotation(transform.forward, (GetPlayerPosition() - transform.position));
+		}
 		currentSpinSpeed = spinSpeed;
 		yield return new WaitForSeconds(timer);
 		// SetChildFire(false);
@@ -169,5 +188,15 @@ public class Enemy : MonoBehaviour {
 				turret.SetFire(fire);
 			}
 		}
+	}
+
+	public void SetOffset(Vector3 offset) {
+		startPosition += offset;
+		shootPosition += offset;
+		leavePosition += offset;
+	}
+
+	public void SetMoveInOffset(float offset) {
+		moveInOffset = offset;
 	}
 }

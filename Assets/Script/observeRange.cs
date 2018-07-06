@@ -15,10 +15,6 @@ public class observeRange : MonoBehaviour {
 		bullets = new List<GameObject>();
 		enemies = new List<GameObject>();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	}
 
 	void OnTriggerStay(Collider other) {
 		if (other.tag == "bullet") {

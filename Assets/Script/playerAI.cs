@@ -24,6 +24,7 @@ public class playerAI : MonoBehaviour {
 	public int delayFrame;
 	public int idleDelayFrame;
 	public int move5Or9;
+	public bool fireMode;
 	public float[] moveScore;
 
 	private Vector3[] MOVE = new Vector3[9];
@@ -71,7 +72,7 @@ public class playerAI : MonoBehaviour {
 		MOVE[7] = new Vector3(1, -1, 0).normalized * playerSpeed * Time.fixedDeltaTime;
 		MOVE[8] = new Vector3(-1, -1, 0).normalized * playerSpeed * Time.fixedDeltaTime;
 		simulateAI(searchDepth, delayFrame);
-		playerCont.Fire();
+		if (fireMode) playerCont.Fire();
 		// AvoidantAI();
 		// Debug.Log(playerSpeed);
 	}
@@ -142,7 +143,7 @@ public class playerAI : MonoBehaviour {
 					bulletClonesPos[j] += bulletClones[j].transform.up * bulletClones[j].GetComponent<bullet>().speed * fixedTime;
 				}
 				for (int j = 0; j < enemiesClone.Count ; j++) {
-					Debug.Log(enemiesClone[j].GetComponent<Enemy>().velocity);
+					// Debug.Log(enemiesClone[j].GetComponent<Enemy>().velocity);
 					enemiesClone[j].transform.position += enemiesClone[j].GetComponent<Enemy>().velocity;
 				}
 				for (int k = 0; k < simPos.Count; k++) {
@@ -183,7 +184,7 @@ public class playerAI : MonoBehaviour {
 		observeProp.clear();
 		int maxIndex = 0;
 		for (int i = 1; i<move5Or9; i++) {
-			if (moveScore[i] == moveScore[maxIndex]) {
+			if (moveScore[i] == moveScore[maxIndex] && fireMode) {
 				if (EnvScript == null) SetEnvManager(playerCharacter.GetComponent<playerScript>().GetEnvManager());
 				float dis1 = 100f; 
 				float dis2 = 101f;

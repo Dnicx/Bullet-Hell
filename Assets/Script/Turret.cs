@@ -13,18 +13,21 @@ public class Turret : MonoBehaviour {
 	public bool polar;
 	public int spread;
 	public int barrels = 1;
+	public Vector2 hiccup;	
 
 
 	private IEnumerator shooting;
 	private IEnumerator fire;
+	public float counter;
 	public bool isFire;
 	public bool target;
+	public bool stationary;
+	public bool laser;
 	public GameObject instance;
+
 	// Use this for initialization
 	void Start () {
-		// shooting = (conShoot(period));
 		currentSpinSpeed = 0;
-		// StartCoroutine(shootTimer(shootPeriod));
 		instance = this.gameObject;
 		isFire = false;
 	}
@@ -34,22 +37,34 @@ public class Turret : MonoBehaviour {
 	void FixedUpdate() {
 		if (isFire && rate > 0) {
 			if (fireTimer < 60/rate) {
-				fireTimer+=1.0f;
+				if (counter >= 0) fireTimer+=1.0f;
 			}
 			else {
 				fireTimer = 0;
+
+				GameObject temp = null;
 				
-				if (barrels == 1) Instantiate(bullet, transform.position, transform.rotation);
+				if (barrels == 1) temp = Instantiate(bullet, transform.position, transform.rotation);
 				else {
 					Quaternion transformTemp = transform.rotation;
 					transformTemp.eulerAngles += new Vector3(0, 0, -spread/2);
 					for (int i = 0; i<barrels; i++) {
-						Instantiate(bullet, transform.position, transformTemp);
+						temp = Instantiate(bullet, transform.position, transformTemp);
 						transformTemp.eulerAngles += new Vector3(0, 0, spread/(barrels-1));
 					}
 				}
 				
+				if (laser) {
+					temp.transform.SetParent(transform.parent);
+				}
+				if (stationary) {
+					temp.GetComponent<bullet>().SetInertia(EnvManager.INERTIA);
+				}
+				
 			}
+			counter += Time.deltaTime;
+			if (counter > hiccup.y) 
+					if (counter >= hiccup.y) counter = -hiccup.x;
 		}
 		if (target) {
 			if (transform.parent.gameObject.GetComponent<Enemy>() != null) 
@@ -63,22 +78,6 @@ public class Turret : MonoBehaviour {
 		}
 	}
 
-	// public void setValues(float[] param) {
-	// 	// rate = param[0];
-	// 	spinSpeed = param[1];
-	// 	moveSpeed = param[2];
-	// 	startPosition.x = param[3];
-	// 	startPosition.y = param[4];
-	// 	shootPosition.x = param[5];
-	// 	shootPosition.y = param[6];
-	// 	leavePosition.x = param[7];
-	// 	leavePosition.y = param[8];
-	// 	shootPeriod = param[9];
-	// 	spawnOffset = param[10];
-	// 	HP = param[11];
-	// 	moveInOffset = param[12];
-
-	// }
 	public void SetFire(bool fire) {
 		if (fire) StartCoroutine(shootDelay());
 		else isFire = false;
@@ -90,15 +89,10 @@ public class Turret : MonoBehaviour {
 	}
 
 	IEnumerator shootTimer(float timer) {
-		// yield return new WaitForSeconds(delay);
-		// StartCoroutine(shooting);
-		// isFire = true;
 		currentSpinSpeed = spinSpeed;
 		yield return new WaitForSeconds(timer);
-		// StopCoroutine(shooting);
 		isFire = false;
 		currentSpinSpeed = 0;
-		// yield return new WaitForSeconds(0.5f);
 	}
 
 }

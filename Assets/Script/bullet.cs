@@ -11,6 +11,8 @@ public class bullet : MonoBehaviour {
 	public readonly bool GREEN = true;
 	public readonly bool RED = false;
 
+	public Vector3 inertia = new Vector3(0, 0, 0);
+
 	// Use this for initialization
 	void Start () {
 		// GetComponent<Rigidbody>().velocity = transform.up * speed;
@@ -48,6 +50,10 @@ public class bullet : MonoBehaviour {
 		Destroy(this.gameObject);
 	}
 
+	public void SetInertia(float inert) {
+		inertia = new Vector3(0, inert, 0);
+	}
+
 }
 
 class Mover : ComponentSystem {
@@ -62,9 +68,9 @@ class Mover : ComponentSystem {
 		
 		float deltatime = Time.deltaTime;
 		foreach (var e in GetEntities<Components>()) {
+			Debug.Log(e.bull.inertia);
+			e.transform.position += ((e.transform.up * e.bull.speed) + e.bull.inertia) * deltatime;
 
-			// e.transform.position += e.transform.up * e.bull.speed * deltatime * Time.timeScale;
-			e.transform.position += e.transform.up * e.bull.speed * deltatime;
 		}
 	
 	}

@@ -20,6 +20,11 @@ public class EnvManager : MonoBehaviour {
 	public bool autoRestart;
 	public int endTime;
 	public float timeCount;
+
+	public Vector3 minBound;
+	public Vector3 maxBound;
+
+	public static float INERTIA = -2;
 	
 	int winCount;
 	int game;
@@ -42,6 +47,9 @@ public class EnvManager : MonoBehaviour {
 		// }
 		reader.Close();
 		timeCount = 0;
+
+		minBound = GetComponent<Collider>().bounds.min;
+		maxBound = GetComponent<Collider>().bounds.max;
 	}
 	public float count;
 	public float fixedCount;
@@ -87,7 +95,7 @@ public class EnvManager : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 		if (other.tag == "Enemy") {
 			if (other.GetComponent<Enemy>() != null) other.GetComponent<Enemy>().SetEnvManager(this);
-			enemies.Add(other.gameObject);
+			if (!enemies.Contains(other.gameObject)) enemies.Add(other.gameObject);
 		}
 		// if (other.tag == "Player") {
 		// 	other.GetComponent<playerScript>().SetEnvManager(this);
