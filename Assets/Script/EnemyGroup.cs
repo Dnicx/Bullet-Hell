@@ -11,6 +11,7 @@ public class EnemyGroup : MonoBehaviour {
 
 	// public GameObject[] group;
 	private List<Enemy> memberScript;
+	public Vector3 averagePosition;
 
 	// Use this for initialization
 	void Start () {
@@ -21,9 +22,24 @@ public class EnemyGroup : MonoBehaviour {
 			member.gameObject.GetComponent<Enemy>().SetMoveInOffset(moveInOffset);
 			moveInOffset += memberSpacing;
 		}
+		averagePosition = new Vector3();
+	}
+
+	void FixedUpdate() {
+		averagePosition = Vector3.zero;
+		foreach (Transform member in transform) {
+			averagePosition += member.position;
+		}
+		averagePosition /= transform.childCount;
 	}
 
 	public void SetStartOffset(Vector3 offset) {
 		startPositionOffset = offset;
+	}
+
+	public void setParam(float[] param) {
+		moveInOffset = param[0];
+		startPositionOffset = new Vector3(param[1], startPositionOffset.y, startPositionOffset.z);
+
 	}
 }

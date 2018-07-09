@@ -21,8 +21,8 @@ public class EnvManager : MonoBehaviour {
 	public int endTime;
 	public float timeCount;
 
-	public Vector3 minBound;
-	public Vector3 maxBound;
+	public static Vector3 minBound;
+	public static Vector3 maxBound;
 
 	public static float INERTIA = -2;
 	

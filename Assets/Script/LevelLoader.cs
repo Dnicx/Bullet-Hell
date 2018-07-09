@@ -5,12 +5,13 @@ using System.IO;
 
 public class LevelLoader : MonoBehaviour {
 
-	public GameObject[] enemiesSetGreen;
-	public GameObject[] enemiesSetRed;
+	public GameObject[] RedEnemies;
 
 	string text;
 	public GameObject enemy;
 	StreamReader reader;
+
+	public Vector2 density;
 
 	// Use this for initialization
 	void Start () {
@@ -22,22 +23,28 @@ public class LevelLoader : MonoBehaviour {
 		
 	}
 
+	public string[] texts;
 	public void Spawn() {
 		reader = new StreamReader("Assets/Level/level.txt");
+		text = reader.ReadLine();		// ignore marker line
 		text = reader.ReadLine();
+		float[] param = new float[2];
 		while (text != null) {
-			// foreach (string line in text) {
-				// Debug.Log(text);
-			// }
 			string delim = ",";
-			string[] texts = text.Split(delim.ToCharArray());
-			float[] param = new float[13];
-			for (int i = 0; i < texts.Length; i++) {
-				Debug.Log(i);
-				param[i] = (float.Parse(texts[i]));
+			texts = text.Split(delim.ToCharArray());
+			param[0] = float.Parse(texts[0]);
+			
+			for (int i = 0; i<density.x; i++) {
+				char group = texts[1][i];
+				if (group == ' ') continue;
+				GameObject currentGroup = Instantiate(RedEnemies[group - 'A']);
+				param[1] = (i*2+1) * (EnvManager.maxBound.x - EnvManager.minBound.x)/(density.x*2);
+				param[1] -= (EnvManager.maxBound.x - EnvManager.minBound.x)/2;
+				// Debug.Log(param[1]);
+				currentGroup.GetComponent<EnemyGroup>().setParam(param);
 			}
-			GameObject currentEnemy = Instantiate(enemy);
-			currentEnemy.GetComponent<BulletSpawner>().setValues(param);
+
+			
 			text = reader.ReadLine();
 		}
 		reader.Close();

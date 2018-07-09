@@ -9,7 +9,7 @@ public class PatternDetector : MonoBehaviour {
 	public Vector2Int density;
 	public GameObject EnvManager;
 	public List<string>[] screen;
-	public List<GameObject>[] groupScreen;
+	public List<GameObject> groupScreen;
 	
 	private Vector3 boundMin;
 	private Vector3 boundMax;
@@ -47,16 +47,16 @@ public class PatternDetector : MonoBehaviour {
 		Vector3 temp;
 		counter2++;
 		screen = new List<string>[density.x];
-		groupScreen = new List<GameObject>[density.x];
+		groupScreen = new List<GameObject>();
 		for (int i = 0 ; i < density.x ; i++)  {
-			groupScreen[i] = new List<GameObject>();
 			screen[i] = new List<string>();
 		}
 		foreach (GameObject enemy in EnvManager.GetComponent<EnvManager>().enemies) {
 			if (enemy == null) continue;
 			if (enemy.transform.parent == null) continue;
 			
-			temp = enemy.GetComponent<Transform>().position;
+			// temp = enemy.GetComponent<Transform>().position;
+			temp = enemy.transform.parent.GetComponent<EnemyGroup>().averagePosition;
 			temp += new Vector3(offset.x, 0, 0);
 			
 			int slot = Mathf.FloorToInt(temp.x*density.x/(boundMax-boundMin).x);
@@ -66,35 +66,28 @@ public class PatternDetector : MonoBehaviour {
 			// Debug.Log(slot);
 			GameObject group = enemy.GetComponent<Transform>().parent.gameObject;
 			if (group.GetComponent<EnemyGroup>() != null) 
-			if (!groupScreen[slot].Contains(group)) {
-				groupScreen[slot].Add(group);
+			if (!groupScreen.Contains(group)) {
+				groupScreen.Add(group);
 				screen[slot].Add(group.GetComponent<EnemyGroup>().groupId);
 			}
 		}
 
-		if (counter2 > 10) {
-			// writer = new StreamWriter(@"C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Level\output.txt");
-			// writer.Write(buffer);
-			// writer.Close();
-		}
-		else {
-			for (int i = 0 ; i < density.x ; i++) {
-				if (screen[i].Count > 0) {
-					buffer += screen[i][0];
-					// writer.Write(screen[i][0]);
-				}
-				else {
-					buffer += "-";
-					// writer.Write("-");
-				}
+		for (int i = 0 ; i < density.x ; i++) {
+			if (screen[i].Count > 0) {
+				buffer += screen[i][0];
+				// writer.Write(screen[i][0]);
 			}
-			buffer += "\n";
-			// writer.Write("\n");
-
-			writer = new StreamWriter(@"C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Level\output.txt",true);
-			writer.Write(buffer);
-			writer.Close();
+			else {
+				buffer += "-";
+				// writer.Write("-");
+			}
 		}
+		// buffer += "\n";
+		// writer.Write("\n");
+
+		writer = new StreamWriter(@"C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Level\output.txt",true);
+		writer.WriteLine(buffer);
+		writer.Close();
 	}
 
 }

@@ -221,7 +221,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1959108421718276}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: 3.29, y: 2.39, z: 0}
+  m_LocalPosition: {x: -5.937433, y: 12.142763, z: 0}
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children:
   - {fileID: 4098555160926684}
@@ -495,7 +495,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.2810268, z: 1}
+  m_Size: {x: 0.58, y: 0.97, z: 1}
   m_Center: {x: 0, y: -0.0036029816, z: 0}
 --- !u!65 &65546618220221274
 BoxCollider:
@@ -528,8 +528,12 @@ MonoBehaviour:
   polar: 0
   spread: 0
   barrels: 1
+  hiccup: {x: 0, y: 0}
+  counter: 0
   isFire: 0
   target: 0
+  stationary: 0
+  laser: 0
   instance: {fileID: 0}
   fireTimer: 0
 --- !u!114 &114290317864487746
@@ -554,8 +558,13 @@ MonoBehaviour:
   HP: 50
   moveInOffset: 0
   polar: 0
+  target: 0
   movePattern: 3
   instance: {fileID: 0}
+  velocity: {x: 0, y: 0, z: 0}
+  lastD: {x: 0, y: 0, z: 0}
+  deltaV: {x: 0, y: 0, z: 0}
+  lastV: {x: 0, y: 0, z: 0}
 --- !u!114 &114340701261913000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -575,8 +584,12 @@ MonoBehaviour:
   polar: 0
   spread: 0
   barrels: 1
+  hiccup: {x: 0, y: 0}
+  counter: 0
   isFire: 0
   target: 0
+  stationary: 0
+  laser: 0
   instance: {fileID: 0}
   fireTimer: 0
 --- !u!114 &114476115858045008
@@ -598,8 +611,12 @@ MonoBehaviour:
   polar: 0
   spread: 0
   barrels: 1
+  hiccup: {x: 0, y: 0}
+  counter: 0
   isFire: 0
   target: 0
+  stationary: 0
+  laser: 0
   instance: {fileID: 0}
   fireTimer: 0
 --- !u!114 &114560504695034560
@@ -621,8 +638,12 @@ MonoBehaviour:
   polar: 0
   spread: 0
   barrels: 1
+  hiccup: {x: 0, y: 0}
+  counter: 0
   isFire: 0
   target: 0
+  stationary: 0
+  laser: 0
   instance: {fileID: 0}
   fireTimer: 0
 --- !u!114 &114902447299473688
@@ -644,7 +665,11 @@ MonoBehaviour:
   polar: 0
   spread: 0
   barrels: 1
+  hiccup: {x: 0, y: 0}
+  counter: 0
   isFire: 0
   target: 0
+  stationary: 0
+  laser: 0
   instance: {fileID: 0}
   fireTimer: 0

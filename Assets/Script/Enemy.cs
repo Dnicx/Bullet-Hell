@@ -61,6 +61,13 @@ public class Enemy : MonoBehaviour {
 			StartCoroutine(shootTimer(stopPeriod));
 		}
 
+		if (temp == -1) {
+			if (target) {
+				spinSpeed = 0;
+				transform.rotation = Quaternion.LookRotation(transform.forward, (GetPlayerPosition() - transform.position));
+			}
+		}
+
 		if (HP <= 0) {
 			Destroy(instance);
 		}
@@ -118,6 +125,7 @@ public class Enemy : MonoBehaviour {
 
 	public Vector3 GetPlayerPosition() {
 		if (EnvScript == null) return new Vector3();
+		if (EnvScript.player == null) return new Vector3();
 		return EnvScript.player.transform.position;
 	}
 
@@ -147,15 +155,15 @@ public class Enemy : MonoBehaviour {
 				if (shootPosition.x > leavePosition.x) {
 					GetComponent<Transform>().position -= circularOffset;
 					if (EnvScript != null) 
-						if (leavePosition.x - radius > EnvScript.minBound.x) {
-							leavePosition = new Vector3(EnvScript.minBound.x + radius, leavePosition.y, leavePosition.z);
+						if (leavePosition.x - radius > EnvManager.minBound.x) {
+							leavePosition = new Vector3(EnvManager.minBound.x + radius, leavePosition.y, leavePosition.z);
 						}
 				}
 				else {
 					GetComponent<Transform>().position += circularOffset;
 					if (EnvScript != null) 
-						if (leavePosition.x + radius < EnvScript.maxBound.x) {
-							leavePosition = new Vector3(EnvScript.maxBound.x - radius, leavePosition.y, leavePosition.z);
+						if (leavePosition.x + radius < EnvManager.maxBound.x) {
+							leavePosition = new Vector3(EnvManager.maxBound.x - radius, leavePosition.y, leavePosition.z);
 						}
 				}
 			}
@@ -166,17 +174,9 @@ public class Enemy : MonoBehaviour {
 
 
 	IEnumerator shootTimer(float timer) {
-		// yield return new WaitForSeconds(0.5f);
 		SetChildFire(true);
-		if (target) {
-			spinSpeed = 0;
-			transform.rotation = Quaternion.LookRotation(transform.forward, (GetPlayerPosition() - transform.position));
-		}
 		currentSpinSpeed = spinSpeed;
 		yield return new WaitForSeconds(timer);
-		// SetChildFire(false);
-		// currentSpinSpeed = 0;
-		// yield return new WaitForSeconds(0.5f);
 		StartCoroutine(MoveOut());
 	}
 

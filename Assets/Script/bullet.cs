@@ -68,7 +68,6 @@ class Mover : ComponentSystem {
 		
 		float deltatime = Time.deltaTime;
 		foreach (var e in GetEntities<Components>()) {
-			Debug.Log(e.bull.inertia);
 			e.transform.position += ((e.transform.up * e.bull.speed) + e.bull.inertia) * deltatime;
 
 		}
