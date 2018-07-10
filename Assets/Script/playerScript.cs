@@ -98,6 +98,10 @@ public class playerScript : MonoBehaviour {
 		fireDelay +=1;
 	}
 
+	public void Hit() {
+		EnvScript.SpawnPlayer();
+		Destroy(this.gameObject);
+	}
 
 	public void PressShift() {
 		// currentSpeed = slowSpeed;
@@ -139,11 +143,11 @@ public class playerScript : MonoBehaviour {
 		isFire = false;
 	}
 
-	public void SetEnvManager(EnvManager script) {
-		EnvScript = script;
+	public void SetEnvManager(GameObject manager) {
+		bound = manager;
 	}
 
-	public EnvManager GetEnvManager() {
-		return EnvScript;
+	public GameObject GetEnvManager() {
+		return bound;
 	}
 }

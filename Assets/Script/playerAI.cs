@@ -37,6 +37,7 @@ public class playerAI : MonoBehaviour {
 	void Start () {
 		observeProp = Observe.GetComponent<observeRange>();
 		playerCont = playerCharacter.GetComponent<playerScript>();
+		EnvManager = playerCont.GetEnvManager();
 		playerSpeed = playerCharacter.GetComponent<playerScript>().currentSpeed;
 		bulletClones = new List<GameObject>();
 		simPos = new List<Vector3>();
@@ -223,8 +224,8 @@ public class playerAI : MonoBehaviour {
 		if (frameCount <= 0) frameCount = responseFrame;
 	}
 
-	public void SetEnvManager(EnvManager script) {
-		EnvScript = script;
+	public void SetEnvManager(GameObject manager) {
+		EnvScript = manager.GetComponent<EnvManager>();
 	}
 
 }

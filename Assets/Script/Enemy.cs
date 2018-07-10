@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour {
 	public int movePattern;
 
 	private bool isFire;
-	private float temp;
+	public float temp;
 	private EnvManager EnvScript;
 	public GameObject instance;
 
@@ -49,6 +49,7 @@ public class Enemy : MonoBehaviour {
 		lastD = transform.position;
 		deltaV = new Vector3(0, 0, 0);
 		lastV = new Vector3(0, 0, 0);
+		moveInOffset -= EnvScript.GetGameTime();
 	}
 
 	void FixedUpdate() {
@@ -88,7 +89,7 @@ public class Enemy : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 		if (other.gameObject.tag == "Player") {
 			Destroy(instance);
-			Destroy(other.gameObject);
+			other.GetComponent<playerScript>().Hit();
 		}
 	}
 
@@ -133,7 +134,8 @@ public class Enemy : MonoBehaviour {
 		yield return new WaitForSeconds(moveInOffset);
 		if (temp > 0) {
 			// temp -= Time.deltaTime*moveSpeed*Time.timeScale;
-			temp -= Time.deltaTime*moveSpeed;
+			temp -= Time.fixedDeltaTime*moveSpeed;
+			Debug.Log(temp);
 			if (temp < 0) temp = 0;
 			// transform.position = Vector3.Lerp(startPosition, shootPosition, 1-temp);
 			GetComponent<Transform>().position = Vector3.Lerp(startPosition, shootPosition, 1-temp);
@@ -143,7 +145,7 @@ public class Enemy : MonoBehaviour {
 	IEnumerator MoveOut() {
 		temp = -2;
 		while (temp < -1) {
-			temp += Time.deltaTime*moveOutSpeed;
+			temp += Time.fixedDeltaTime*moveOutSpeed;
 			if (temp > -1) temp = -1;
 			GetComponent<Transform>().position = Vector3.Lerp(shootPosition, leavePosition, 2+temp);
 			if (movePattern == 2) {

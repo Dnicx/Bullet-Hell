@@ -32,7 +32,7 @@ public class bullet : MonoBehaviour {
     }
 	void OnTriggerEnter(Collider other) {
 		if (other.gameObject.tag == "Player") {
-			if (polar != other.GetComponent<playerScript>().polar) Destroy(other.gameObject);
+			if (polar != other.GetComponent<playerScript>().polar) other.GetComponent<playerScript>().Hit();
 		}
 		if (other.tag == "Shield" ) {
 			if (polar != other.transform.parent.GetComponent<playerScript>().polar) return;

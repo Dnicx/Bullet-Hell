@@ -512,6 +512,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11db9d2179ada4ce8b18d108155d4aef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelName: level01
   RedEnemies:
   - {fileID: 1526953676893578, guid: fc8fcfbcb6482434dbb94e0cfb529018, type: 2}
   - {fileID: 1951199163112134, guid: f894b469b99f56745b5a058367217ba6, type: 2}
@@ -522,8 +523,9 @@ MonoBehaviour:
   - {fileID: 1948426062876250, guid: 3f28556707c335e489e390920a751be3, type: 2}
   - {fileID: 1544654832763328, guid: 97089b9996a48834ea08d87775743347, type: 2}
   - {fileID: 1844241372651828, guid: 8b83f70e6e080e948a117f87afbaa52c, type: 2}
-  enemy: {fileID: 0}
+  spawnAhead: 5
   density: {x: 11, y: 0}
+  timeCounter: 0
   texts: []
 --- !u!4 &848655817
 Transform:
@@ -700,38 +702,22 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 114138597905510018, guid: e7d8b4d6f2df475489f7c010dca52501,
-        type: 2}
-      propertyPath: bound
-      value: 
-      objectReference: {fileID: 440779457}
-    - target: {fileID: 135952661365986564, guid: e7d8b4d6f2df475489f7c010dca52501,
-        type: 2}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114378358982352004, guid: e7d8b4d6f2df475489f7c010dca52501,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 114378358982352004, guid: e7d8b4d6f2df475489f7c010dca52501,
         type: 2}
       propertyPath: EnvManager
       value: 
       objectReference: {fileID: 440779457}
-    - target: {fileID: 65840167399291304, guid: e7d8b4d6f2df475489f7c010dca52501,
+    - target: {fileID: 114138597905510018, guid: e7d8b4d6f2df475489f7c010dca52501,
         type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: bound
+      value: 
+      objectReference: {fileID: 440779457}
     - target: {fileID: 114378358982352004, guid: e7d8b4d6f2df475489f7c010dca52501,
         type: 2}
-      propertyPath: fireMode
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 65539425863707998, guid: e7d8b4d6f2df475489f7c010dca52501, type: 2}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7d8b4d6f2df475489f7c010dca52501, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1001 &1216152562
@@ -999,36 +985,6 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 1538271219}
-    - target: {fileID: 65895398854252936, guid: 7aaa156495ddb4749b09e61fc137d962,
-        type: 2}
-      propertyPath: m_Size.y
-      value: 10.276002
-      objectReference: {fileID: 0}
-    - target: {fileID: 65895398854252936, guid: 7aaa156495ddb4749b09e61fc137d962,
-        type: 2}
-      propertyPath: m_Center.y
-      value: -0.14199877
-      objectReference: {fileID: 0}
-    - target: {fileID: 114027293364791390, guid: 7aaa156495ddb4749b09e61fc137d962,
-        type: 2}
-      propertyPath: autoRestart
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114027293364791390, guid: 7aaa156495ddb4749b09e61fc137d962,
-        type: 2}
-      propertyPath: record
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 65895398854252936, guid: 7aaa156495ddb4749b09e61fc137d962,
-        type: 2}
-      propertyPath: m_Size.x
-      value: 8.035074
-      objectReference: {fileID: 0}
-    - target: {fileID: 65895398854252936, guid: 7aaa156495ddb4749b09e61fc137d962,
-        type: 2}
-      propertyPath: m_Center.x
-      value: -0.03627515
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7aaa156495ddb4749b09e61fc137d962, type: 2}
   m_IsPrefabAsset: 0

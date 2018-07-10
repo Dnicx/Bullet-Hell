@@ -9,9 +9,9 @@ public class EnvManager : MonoBehaviour {
 	public GameObject screen;
 	public GameObject playerPrefab;
 	public GameObject enemyPrefab;
-	public GameObject levelLoader;
 
 	public GameObject player;
+	public int life;
 	public List<GameObject> enemies;
 	string text;
 	StreamReader reader;
@@ -23,6 +23,7 @@ public class EnvManager : MonoBehaviour {
 
 	public static Vector3 minBound;
 	public static Vector3 maxBound;
+	private int playerInvinsible;
 
 	public static float INERTIA = -2;
 	
@@ -50,6 +51,8 @@ public class EnvManager : MonoBehaviour {
 
 		minBound = GetComponent<Collider>().bounds.min;
 		maxBound = GetComponent<Collider>().bounds.max;
+
+		playerInvinsible = 0;
 	}
 	public float count;
 	public float fixedCount;
@@ -57,9 +60,10 @@ public class EnvManager : MonoBehaviour {
 	void Update () {
 		Ecount = 0;
 		for (int i = 0; i < enemies.Count; i++) {
-			Ecount += enemies[i]!=null?1:0;
+			if(enemies[i]==null) enemies.RemoveAt(i);
 		}
 		if (player == null) {
+			if (life > 0) return;
 			if (record) {
 				writer = new StreamWriter(@"C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Level\winrateSimulateFire.txt");
 				// writer = new StreamWriter(@"C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Level\winrateAvoid.txt");
@@ -90,6 +94,14 @@ public class EnvManager : MonoBehaviour {
 		}
 		timeCount += Time.deltaTime;
 
+		if (playerInvinsible > 0) {
+			playerInvinsible--;
+		}
+		if (playerInvinsible == 0) {
+			playerInvinsible = -1;
+			player.GetComponent<Collider>().enabled = true;
+		}
+
 	}
 
 	void OnTriggerEnter(Collider other) {
@@ -100,5 +112,19 @@ public class EnvManager : MonoBehaviour {
 		// if (other.tag == "Player") {
 		// 	other.GetComponent<playerScript>().SetEnvManager(this);
 		// }
+	}
+
+	public void SpawnPlayer() {
+		if (life <= 0) return;
+		if (life > 0) 
+			life--;
+		playerInvinsible = 120;
+		player = Instantiate(playerPrefab, new Vector3(0, -3, 0), GetComponent<Transform>().rotation);
+		player.GetComponent<Collider>().enabled = false;
+		player.GetComponent<playerScript>().SetEnvManager(this.gameObject);
+	}
+
+	public float GetGameTime() {
+		return timeCount;
 	}
 }
