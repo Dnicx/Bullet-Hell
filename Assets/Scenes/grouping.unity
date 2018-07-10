@@ -215,6 +215,32 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1145298725552632, guid: 7aaa156495ddb4749b09e61fc137d962,
     type: 2}
   m_PrefabInternal: {fileID: 1715487895}
+--- !u!114 &440779462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 440779457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11db9d2179ada4ce8b18d108155d4aef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: level01
+  RedEnemies:
+  - {fileID: 1526953676893578, guid: fc8fcfbcb6482434dbb94e0cfb529018, type: 2}
+  - {fileID: 1951199163112134, guid: f894b469b99f56745b5a058367217ba6, type: 2}
+  - {fileID: 1758014109256284, guid: cf40dbc143c05bc4a88c7dbd0f961fdb, type: 2}
+  - {fileID: 1405055995361280, guid: 01ee5985dd4e18245b2c752b94f61d1e, type: 2}
+  - {fileID: 1701323507673524, guid: a3bdd46606e36d848bdb52a89ecc4ab6, type: 2}
+  - {fileID: 1312331914177622, guid: e4a15278495e56841b68e2c86d79fd99, type: 2}
+  - {fileID: 1948426062876250, guid: 3f28556707c335e489e390920a751be3, type: 2}
+  - {fileID: 1544654832763328, guid: 97089b9996a48834ea08d87775743347, type: 2}
+  - {fileID: 1844241372651828, guid: 8b83f70e6e080e948a117f87afbaa52c, type: 2}
+  spawnAhead: 5
+  density: {x: 7, y: 0}
+  timeCounter: 0
+  texts: []
 --- !u!1 &535664113
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,7 +269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dimension: 0
-  density: {x: 11, y: 0}
+  density: {x: 7, y: 0}
   EnvManager: {fileID: 440779457}
   groupScreen: []
   buffer: 
@@ -500,7 +526,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &848655816
 MonoBehaviour:
   m_ObjectHideFlags: 0
