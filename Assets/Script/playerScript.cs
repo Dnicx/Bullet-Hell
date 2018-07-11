@@ -67,7 +67,7 @@ public class playerScript : MonoBehaviour {
 				isFire = false;
 			} 
 			if (Input.GetButtonDown("Slowmo")) {
-				Time.timeScale = .5f;
+				Time.timeScale = 3.0f;
 				// Time.fixedDeltaTime = 0.0334f;
 			} 
 			if (Input.GetButtonUp("Slowmo")) {

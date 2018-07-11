@@ -49,7 +49,8 @@ public class Enemy : MonoBehaviour {
 		lastD = transform.position;
 		deltaV = new Vector3(0, 0, 0);
 		lastV = new Vector3(0, 0, 0);
-		moveInOffset -= EnvScript.GetGameTime();
+		if (EnvScript != null)
+			moveInOffset -= EnvScript.GetGameTime();
 	}
 
 	void FixedUpdate() {
@@ -135,7 +136,6 @@ public class Enemy : MonoBehaviour {
 		if (temp > 0) {
 			// temp -= Time.deltaTime*moveSpeed*Time.timeScale;
 			temp -= Time.fixedDeltaTime*moveSpeed;
-			Debug.Log(temp);
 			if (temp < 0) temp = 0;
 			// transform.position = Vector3.Lerp(startPosition, shootPosition, 1-temp);
 			GetComponent<Transform>().position = Vector3.Lerp(startPosition, shootPosition, 1-temp);

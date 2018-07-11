@@ -394,6 +394,11 @@ Prefab:
       propertyPath: bound
       value: 
       objectReference: {fileID: 438316575}
+    - target: {fileID: 114378358982352004, guid: e7d8b4d6f2df475489f7c010dca52501,
+        type: 2}
+      propertyPath: fireMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7d8b4d6f2df475489f7c010dca52501, type: 2}
   m_IsPrefabAsset: 0
@@ -585,6 +590,66 @@ Prefab:
       propertyPath: HP
       value: 600
       objectReference: {fileID: 0}
+    - target: {fileID: 114660793923491310, guid: 29f2f9cdda7edbd4ba7211cffe00574f,
+        type: 2}
+      propertyPath: hiccup.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114079128218937698, guid: 29f2f9cdda7edbd4ba7211cffe00574f,
+        type: 2}
+      propertyPath: hiccup.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114970429290342378, guid: 29f2f9cdda7edbd4ba7211cffe00574f,
+        type: 2}
+      propertyPath: hiccup.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114272561957463970, guid: 29f2f9cdda7edbd4ba7211cffe00574f,
+        type: 2}
+      propertyPath: hiccup.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114237608985214704, guid: 29f2f9cdda7edbd4ba7211cffe00574f,
+        type: 2}
+      propertyPath: hiccup.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114995828200256588, guid: 29f2f9cdda7edbd4ba7211cffe00574f,
+        type: 2}
+      propertyPath: hiccup.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114079128218937698, guid: 29f2f9cdda7edbd4ba7211cffe00574f,
+        type: 2}
+      propertyPath: hiccup.y
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114660793923491310, guid: 29f2f9cdda7edbd4ba7211cffe00574f,
+        type: 2}
+      propertyPath: hiccup.y
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114970429290342378, guid: 29f2f9cdda7edbd4ba7211cffe00574f,
+        type: 2}
+      propertyPath: hiccup.y
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114272561957463970, guid: 29f2f9cdda7edbd4ba7211cffe00574f,
+        type: 2}
+      propertyPath: hiccup.y
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114237608985214704, guid: 29f2f9cdda7edbd4ba7211cffe00574f,
+        type: 2}
+      propertyPath: hiccup.y
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114995828200256588, guid: 29f2f9cdda7edbd4ba7211cffe00574f,
+        type: 2}
+      propertyPath: hiccup.y
+      value: 0.6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29f2f9cdda7edbd4ba7211cffe00574f, type: 2}
   m_IsPrefabAsset: 0
@@ -636,6 +701,16 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114882052019823860, guid: b38520b73080a4ffdae5992bb4550601,
+        type: 2}
+      propertyPath: hiccup.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114882052019823860, guid: b38520b73080a4ffdae5992bb4550601,
+        type: 2}
+      propertyPath: hiccup.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b38520b73080a4ffdae5992bb4550601, type: 2}
   m_IsPrefabAsset: 0
@@ -666,17 +741,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11db9d2179ada4ce8b18d108155d4aef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemiesSetGreen:
-  - {fileID: 1481222365767142, guid: b38520b73080a4ffdae5992bb4550601, type: 2}
-  - {fileID: 1997908673247586, guid: 9594e3bfa34b50b4ea8d995cba040c8c, type: 2}
-  - {fileID: 1979302667449822, guid: 29f2f9cdda7edbd4ba7211cffe00574f, type: 2}
-  - {fileID: 1395557282834288, guid: 5aad743b1b784f14fb562250573f8f86, type: 2}
-  enemiesSetRed:
-  - {fileID: 1677527542498548, guid: 24b3d56ac6869764297059a1d4069089, type: 2}
-  - {fileID: 1046706248443004, guid: e1eec5931625816478081f01ee11cafc, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  enemy: {fileID: 1481222365767142, guid: b38520b73080a4ffdae5992bb4550601, type: 2}
+  levelName: 
+  RedEnemies: []
+  spawnAhead: 0
+  density: {x: 0, y: 0}
+  timeCounter: 0
+  texts: []
 --- !u!4 &1612833047
 Transform:
   m_ObjectHideFlags: 0
@@ -744,6 +814,16 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 1288780814}
+    - target: {fileID: 65895398854252936, guid: 7aaa156495ddb4749b09e61fc137d962,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 17.438335
+      objectReference: {fileID: 0}
+    - target: {fileID: 65895398854252936, guid: 7aaa156495ddb4749b09e61fc137d962,
+        type: 2}
+      propertyPath: m_Center.x
+      value: -0.13222885
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7aaa156495ddb4749b09e61fc137d962, type: 2}
   m_IsPrefabAsset: 0

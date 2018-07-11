@@ -21,7 +21,7 @@ public class EnemyGroup : MonoBehaviour {
 			// memberScript.Add(member.gameObject.GetComponent<Enemy>());
 			member.gameObject.GetComponent<Enemy>().SetOffset(startPositionOffset);
 			member.gameObject.GetComponent<Enemy>().SetMoveInOffset(moveInOffset);
-			member.gameObject.GetComponent<Enemy>().SetEnvManager(envScript);
+			if (envScript != null) member.gameObject.GetComponent<Enemy>().SetEnvManager(envScript);
 			moveInOffset += memberSpacing;
 		}
 		averagePosition = new Vector3();
