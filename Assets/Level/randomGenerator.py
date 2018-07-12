@@ -11,9 +11,11 @@ density = 7
 
 time = 1.0
 
-level = open("level01.txt", "w+")
+level_name = "level10"
+
+level = open(level_name + ".txt", "w+")
 level.write("   ,123456789ab\n")
-level = open("level01.txt", "a")
+level = open(level_name + ".txt", "a")
 
 pool = ""
 for j in range(0, len(groups)):

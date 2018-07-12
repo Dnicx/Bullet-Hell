@@ -15,14 +15,15 @@ public class PatternDetector : MonoBehaviour {
 	private Vector3 boundMax;
 	private Vector3 boundCenter;
 	StreamWriter writer;
-	public string buffer;
+	private string buffer;
+	public string patternName;
 
 	// Use this for initialization
 	void Start () {
 		boundMax = EnvManager.GetComponent<Collider>().bounds.max;
 		boundMin = EnvManager.GetComponent<Collider>().bounds.min;
 		boundCenter = EnvManager.GetComponent<Collider>().bounds.center;
-		writer = new StreamWriter(@"C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Level\output.txt");
+		writer = new StreamWriter(@"C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Level\" + patternName + ".txt");
 		writer.Write("");
 		writer.Close();
 	}
@@ -85,7 +86,7 @@ public class PatternDetector : MonoBehaviour {
 		// buffer += "\n";
 		// writer.Write("\n");
 
-		writer = new StreamWriter(@"C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Level\output.txt",true);
+		writer = new StreamWriter(@"C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Level\" + patternName + ".txt",true);
 		writer.WriteLine(buffer);
 		writer.Close();
 	}
