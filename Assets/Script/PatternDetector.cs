@@ -40,7 +40,7 @@ public class PatternDetector : MonoBehaviour {
 
 	public void SetPatternName(string patName) {
 		patternName = patName;
-		writer = new StreamWriter(@"C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Level\" + patternName + ".txt");
+		writer = new StreamWriter(Application.dataPath + "/Level/" + patternName + ".txt");
 		writer.Write("");
 		writer.Close();
 	}
@@ -91,7 +91,7 @@ public class PatternDetector : MonoBehaviour {
 		// buffer += "\n";
 		// writer.Write("\n");
 
-		writer = new StreamWriter(@"C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Level\" + patternName + ".txt",true);
+		writer = new StreamWriter(Application.dataPath + "/Level/" + patternName + ".txt",true);
 		writer.WriteLine(buffer);
 		writer.Close();
 	}

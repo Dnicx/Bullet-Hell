@@ -33,7 +33,7 @@ public class EnvManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		reader = new StreamReader(@"C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Level\winrateSimulateFire.txt");
+		reader = new StreamReader(Application.dataPath + "/Level/winrateSimulateFire.txt");
 		// reader = new StreamReader(@"C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Level\winrateAvoid.txt");
 		// reader = new StreamReader(@"C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Level\winrateSimulate.txt");
 		text = reader.ReadLine();
@@ -76,7 +76,7 @@ public class EnvManager : MonoBehaviour {
 		
 		if (timeCount > endTime) {
 			if (record) {
-				writer = new StreamWriter(@"C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Level\winrateSimulateFire.txt");
+				writer = new StreamWriter(Application.dataPath + "/Level/winrateSimulateFire.txt");
 				// writer = new StreamWriter(@"C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Level\winrateAvoid.txt");
 				// writer = new StreamWriter(@"C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Level\winrateSimulate.txt");
 				writer.WriteLine(winCount+1);

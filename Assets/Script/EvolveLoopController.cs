@@ -13,7 +13,7 @@ public class EvolveLoopController : MonoBehaviour {
 	public struct GenerationMember {
 		public int status;
 		public string levelName;	//
-		public float score;		//0-free, 1-working, 2-finish, -1-evolving
+		public float score;		//0-free, 1-working, 2-finish, 3-evolving
 		public string resultFile;
 	}
 
@@ -37,15 +37,25 @@ public class EvolveLoopController : MonoBehaviour {
 	}
 
 	public void GetStatus() {
-		StreamReader reader = new StreamReader(@"C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Level\" + managerFileName + ".txt");
+		StreamReader reader = new StreamReader(Application.dataPath + "/Level/" + managerFileName + ".txt");
 		string delim = ",";
 		string text = reader.ReadLine();
 		string writeBackBuffer = "";
+		int mcounter = 0;
 
-		if (text.Split(delim.ToCharArray())[0] != "-1") 
+		if (text.Split(delim.ToCharArray())[0] == "-2") {
+			reader.Close();
+			return;
+		} else 
 			for (int i = 0; i<populationSize ; i++) {
 				string[] param;
 				param = text.Split(delim.ToCharArray());
+
+				member[mcounter].status = int.Parse(param[0]);
+				member[mcounter].levelName = param[1];
+				member[mcounter].score = float.Parse(param[2]);
+				member[mcounter].resultFile = param[3];
+				mcounter++;
 
 				if (currentMember.score == -1.0f && param[0] == "0") {
 					currentMember.status = int.Parse(param[0]);
@@ -67,15 +77,17 @@ public class EvolveLoopController : MonoBehaviour {
 		reader.Close();
 
 		if (currentMember.score != -1.0f) {
-			writer = new StreamWriter(@"C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Level\" + managerFileName + ".txt");
+			writer = new StreamWriter(Application.dataPath + "/Level/" + managerFileName + ".txt");
 			writer.Write(writeBackBuffer);
 			writer.Close();
 		} else {
-			writeBackBuffer[0] = -1;
-			writer = new StreamWriter(@"C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Level\" + managerFileName + ".txt");
+			writeBackBuffer = "-" + writeBackBuffer;
+			writer = new StreamWriter(Application.dataPath + "/Level/" + managerFileName + ".txt");
 			writer.Write(writeBackBuffer);
 			writer.Close();
 			envManager.GetComponent<EnvManager>().GeneticPause();
+			Evolve();
+			envManager.GetComponent<EnvManager>().GeneticContinue();
 		}
 	}
 
@@ -139,6 +151,26 @@ public class EvolveLoopController : MonoBehaviour {
 		return counter;
 	}
 
+	private void Evolve() {
+		SortLevel();
+		
+	}
 
+	public void SortLevel() {
+		// Debug.Log("in");
+		System.Array.Sort<GenerationMember>(member, (x, y) => y.score.CompareTo(x.score));
+		for (int i = 0; i < populationSize; i++) {
+			// int select = i;
+			// for (int j = i+1; j < populationSize ; j++) {
+			// 	if (member[select].score > member[j].score)
+			// 		select = j;
+			// }
+			// GenerationMember temp = member[select];
+			// member[select] = member[i];
+			// member[i] = temp;
+			Debug.Log(member[i].levelName);
+			
+		}
+	}
 	
 }

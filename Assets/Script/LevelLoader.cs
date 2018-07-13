@@ -71,7 +71,7 @@ public class LevelLoader : MonoBehaviour {
 	}
 
 	private void readFile() {
-		reader = new StreamReader(@"C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets/Level/"+levelName+".txt");
+		reader = new StreamReader(Application.dataPath + "/Level/"+levelName+".txt");
 		reader.ReadLine();		// ignore marker line
 		text = reader.ReadLine();
 		float[] param = new float[2];
