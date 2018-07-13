@@ -22,9 +22,12 @@ public class LevelLoader : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		levelText = new List<string>();
+		EvolveLoopController.instance.GetStatus();
+		levelName = EvolveLoopController.instance.currentMember.levelName;
 		timeSpawn = 1;
 		readFile();
 		Spawn(1 + spawnAhead);
+
 	}
 	
 	public float timeCounter;
