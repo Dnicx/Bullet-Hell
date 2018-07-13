@@ -24,10 +24,11 @@ public class LevelLoader : MonoBehaviour {
 		levelText = new List<string>();
 		EvolveLoopController.instance.GetStatus();
 		levelName = EvolveLoopController.instance.currentMember.levelName;
-		timeSpawn = 1;
-		readFile();
-		Spawn(1 + spawnAhead);
-
+		if (levelName != null) {
+			timeSpawn = 1;
+			readFile();
+			Spawn(1 + spawnAhead);
+		}
 	}
 	
 	public float timeCounter;

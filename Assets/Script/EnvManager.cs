@@ -6,7 +6,6 @@ using System.IO;
 
 public class EnvManager : MonoBehaviour {
 
-	public GameObject screen;
 	public GameObject playerPrefab;
 	public GameObject enemyPrefab;
 
@@ -24,6 +23,7 @@ public class EnvManager : MonoBehaviour {
 	public static Vector3 minBound;
 	public static Vector3 maxBound;
 	private int playerInvinsible;
+	private bool pause;
 
 	public static float INERTIA = -2;
 	
@@ -56,24 +56,24 @@ public class EnvManager : MonoBehaviour {
 		for (int i = 0; i < enemies.Count; i++) {
 			if(enemies[i]==null) enemies.RemoveAt(i);
 		}
-		if (player == null) {
-			if (life > 0) return;
-			if (record) {
-				writer = new StreamWriter(@"C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Level\winrateSimulateFire.txt");
-				// writer = new StreamWriter(@"C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Level\winrateAvoid.txt");
-				// writer = new StreamWriter(@"C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Level\winrateSimulate.txt");
-				writer.WriteLine(winCount);
-				writer.WriteLine(game+1);
-				writer.Close();
-			}
-			if (game == 499 ) Application.Quit();
-			if (autoRestart) SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-		}
+		// if (player == null) {
+		// 	if (life > 0) return;
+		// 	if (record) {
+		// 		writer = new StreamWriter(@"C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Level\winrateSimulateFire.txt");
+		// 		// writer = new StreamWriter(@"C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Level\winrateAvoid.txt");
+		// 		// writer = new StreamWriter(@"C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Level\winrateSimulate.txt");
+		// 		writer.WriteLine(winCount);
+		// 		writer.WriteLine(game+1);
+		// 		writer.Close();
+		// 	}
+		// 	if (game == 499 ) Application.Quit();
+		// 	if (autoRestart) SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+		// }
 		if (Input.GetButtonDown("Restart")) {
 			game++;
 			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 		}
-		// if (Ecount == 0) {
+		
 		if (timeCount > endTime) {
 			if (record) {
 				writer = new StreamWriter(@"C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Level\winrateSimulateFire.txt");
@@ -83,10 +83,12 @@ public class EnvManager : MonoBehaviour {
 				writer.WriteLine(game+1);
 				writer.Close();
 			}
-			if (game == 499) Application.Quit();
-			if (autoRestart) SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+			// if (game == 499) Application.Quit();
+			EvolveLoopController.instance.WriteStatus();
+			if (autoRestart && !pause) SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+		} else {
+			timeCount += Time.deltaTime;
 		}
-		timeCount += Time.deltaTime;
 
 		if (playerInvinsible > 0) {
 			playerInvinsible--;
@@ -120,5 +122,13 @@ public class EnvManager : MonoBehaviour {
 
 	public float GetGameTime() {
 		return timeCount;
+	}
+
+	public void GeneticPause() {
+		pause = true;
+	}
+
+	public void GeneticContinue() {
+		pause = false;
 	}
 }

@@ -395,7 +395,7 @@ MonoBehaviour:
   delayFrame: 5
   idleDelayFrame: 3
   move5Or9: 9
-  fireMode: 1
+  fireMode: 0
   moveScore: []
   mx_bound: {x: 0, y: 0, z: 0}
   mn_bound: {x: 0, y: 0, z: 0}

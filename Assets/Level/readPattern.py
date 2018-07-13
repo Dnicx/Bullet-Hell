@@ -1,4 +1,4 @@
-pattern_name = "Pattern_level03"
+pattern_name = "Pattern_level04"
 
 f = open(pattern_name + ".txt", "r")
 

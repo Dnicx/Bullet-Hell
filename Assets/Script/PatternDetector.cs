@@ -23,9 +23,7 @@ public class PatternDetector : MonoBehaviour {
 		boundMax = EnvManager.GetComponent<Collider>().bounds.max;
 		boundMin = EnvManager.GetComponent<Collider>().bounds.min;
 		boundCenter = EnvManager.GetComponent<Collider>().bounds.center;
-		writer = new StreamWriter(@"C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Level\" + patternName + ".txt");
-		writer.Write("");
-		writer.Close();
+		
 	}
 	
 	private float counter;
@@ -38,6 +36,13 @@ public class PatternDetector : MonoBehaviour {
 			UpdatePattern();
 
 		}
+	}
+
+	public void SetPatternName(string patName) {
+		patternName = patName;
+		writer = new StreamWriter(@"C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Level\" + patternName + ".txt");
+		writer.Write("");
+		writer.Close();
 	}
 
 	private int counter2;

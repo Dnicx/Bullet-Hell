@@ -488,6 +488,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   managerFileName: evolve
+  envManager: {fileID: 440779457}
+  patternDetector: {fileID: 535664113}
   populationSize: 20
 --- !u!4 &668567950
 Transform:
@@ -816,11 +818,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
-    - target: {fileID: 114378358982352004, guid: e7d8b4d6f2df475489f7c010dca52501,
-        type: 2}
-      propertyPath: EnvManager
-      value: 
-      objectReference: {fileID: 440779457}
     - target: {fileID: 114138597905510018, guid: e7d8b4d6f2df475489f7c010dca52501,
         type: 2}
       propertyPath: bound
@@ -828,14 +825,9 @@ Prefab:
       objectReference: {fileID: 440779457}
     - target: {fileID: 114378358982352004, guid: e7d8b4d6f2df475489f7c010dca52501,
         type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114378358982352004, guid: e7d8b4d6f2df475489f7c010dca52501,
-        type: 2}
-      propertyPath: fireMode
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: EnvManager
+      value: 
+      objectReference: {fileID: 440779457}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7d8b4d6f2df475489f7c010dca52501, type: 2}
   m_IsPrefabAsset: 0
@@ -1092,6 +1084,33 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 1538271219}
+    - target: {fileID: 114027293364791390, guid: 7aaa156495ddb4749b09e61fc137d962,
+        type: 2}
+      propertyPath: playerPrefab
+      value: 
+      objectReference: {fileID: 1517658773034342, guid: e7d8b4d6f2df475489f7c010dca52501,
+        type: 2}
+    - target: {fileID: 114027293364791390, guid: 7aaa156495ddb4749b09e61fc137d962,
+        type: 2}
+      propertyPath: enemyPrefab
+      value: 
+      objectReference: {fileID: 1481222365767142, guid: b38520b73080a4ffdae5992bb4550601,
+        type: 2}
+    - target: {fileID: 114027293364791390, guid: 7aaa156495ddb4749b09e61fc137d962,
+        type: 2}
+      propertyPath: life
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114027293364791390, guid: 7aaa156495ddb4749b09e61fc137d962,
+        type: 2}
+      propertyPath: autoRestart
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114027293364791390, guid: 7aaa156495ddb4749b09e61fc137d962,
+        type: 2}
+      propertyPath: endTime
+      value: 70
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7aaa156495ddb4749b09e61fc137d962, type: 2}
   m_IsPrefabAsset: 0

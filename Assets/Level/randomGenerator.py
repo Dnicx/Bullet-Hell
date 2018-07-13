@@ -11,7 +11,7 @@ density = 7
 
 time = 1.0
 
-level_name = "level10"
+level_name = "level20"
 
 level = open(level_name + ".txt", "w+")
 level.write("   ,123456789ab\n")
