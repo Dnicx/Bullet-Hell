@@ -521,7 +521,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 1210931982116400, guid: e37ce28fad9c6874f8abb063748f3c78, type: 2}
-  rate: 4
+  rate: 2
   spinSpeed: 0
   shootPeriod: 1
   cycleOffset: 0.2
@@ -560,6 +560,7 @@ MonoBehaviour:
   polar: 0
   target: 0
   movePattern: 3
+  temp: 0
   instance: {fileID: 0}
   velocity: {x: 0, y: 0, z: 0}
   lastD: {x: 0, y: 0, z: 0}
@@ -577,7 +578,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 1210931982116400, guid: e37ce28fad9c6874f8abb063748f3c78, type: 2}
-  rate: 4
+  rate: 2
   spinSpeed: 0
   shootPeriod: 1
   cycleOffset: 0.6
@@ -604,7 +605,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 1210931982116400, guid: e37ce28fad9c6874f8abb063748f3c78, type: 2}
-  rate: 4
+  rate: 2
   spinSpeed: 0
   shootPeriod: 1
   cycleOffset: 0.1
@@ -631,7 +632,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 1210931982116400, guid: e37ce28fad9c6874f8abb063748f3c78, type: 2}
-  rate: 4
+  rate: 2
   spinSpeed: 0
   shootPeriod: 1
   cycleOffset: 0.2

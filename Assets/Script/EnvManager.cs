@@ -40,12 +40,6 @@ public class EnvManager : MonoBehaviour {
 		winCount = int.Parse(text);
 		text = reader.ReadLine();
 		game = int.Parse(text);
-		// while (text != null) {
-		// 	string delim = ",";
-		// 	string[] texts = text.Split(delim.ToCharArray());
-		// 	param[0] = (float.Parse(texts[0]));
-		// 	text = reader.ReadLine();
-		// }
 		reader.Close();
 		timeCount = 0;
 

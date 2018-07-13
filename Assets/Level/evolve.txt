@@ -1,6 +1,6 @@
-1,level01,0,pattern_level01
-1,level02,0,pattern_level02
-1,level03,0,pattern_level03
+0,level01,0,pattern_level01
+0,level02,0,pattern_level02
+0,level03,0,pattern_level03
 0,level04,0,pattern_level04
 0,level05,0,pattern_level05
 0,level06,0,pattern_level06

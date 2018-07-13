@@ -35,9 +35,6 @@ public class EvolveLoopController : MonoBehaviour {
 	}
 
 	public void GetStatus() {
-
-		
-
 		reader = new StreamReader(@"C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Level\" + managerFileName + ".txt");
 		string delim = ",";
 		string text = reader.ReadLine();
@@ -70,7 +67,41 @@ public class EvolveLoopController : MonoBehaviour {
 		writer = new StreamWriter(@"C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Level\" + managerFileName + ".txt");
 		writer.Write(writeBackBuffer);
 		writer.Close();
+	}
 
+	public void WriteStatus() {
+		reader = new StreamReader(@"C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Level\" + managerFileName + ".txt");
+		string delim = ",";
+		string text = reader.ReadLine();
+		int counter = 0;
+		string writeBackBuffer = "";
+		float score;
+		for (int i = 0; i<populationSize ; i++) {
+			string[] param;
+			param = text.Split(delim.ToCharArray());
+
+			if (currentMember.levelNmae == param[1]) {
+				writeBackBuffer += 2+",";
+				writeBackBuffer += currentMember.levelName+",";
+				score = CalScore(currentMember.resultFile);
+				writeBackBuffer += score+",";
+				writeBackBuffer += currentMember.resultFile;
+			} else {
+				writeBackBuffer += text;
+			}
+			writeBackBuffer += "\n";
+			counter++;
+			text = reader.ReadLine();
+		}
+		reader.Close();
+
+		writer = new StreamWriter(@"C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Level\" + managerFileName + ".txt");
+		writer.Write(writeBackBuffer);
+		writer.Close();
+	}
+
+	public CalScore(string resultFileName) {
+		
 	}
 	
 }

@@ -19,9 +19,10 @@ public class bullet : MonoBehaviour {
 		StartCoroutine(TimeToLive());
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		// GetComponent<Transform>().position += GetComponent<Transform>().up*speed*Time.deltaTime;
+
+
+	void FixedUpdate() {
+		transform.position += ((transform.up * speed) + inertia) * Time.deltaTime;
 	}
 
 	void OnTriggerExit(Collider other)
@@ -56,22 +57,22 @@ public class bullet : MonoBehaviour {
 
 }
 
-class Mover : ComponentSystem {
+// class Mover : ComponentSystem {
 	
-	struct Components
-	{
-		public bullet bull;
-		public Transform transform;
-	}
+// 	struct Components
+// 	{
+// 		public bullet bull;
+// 		public Transform transform;
+// 	}
 
-	protected override void OnUpdate() {
+// 	protected override void OnUpdate() {
 		
-		float deltatime = Time.deltaTime;
-		foreach (var e in GetEntities<Components>()) {
-			e.transform.position += ((e.transform.up * e.bull.speed) + e.bull.inertia) * deltatime;
+// 		float deltatime = Time.deltaTime;
+// 		foreach (var e in GetEntities<Components>()) {
+// 			e.transform.position += ((e.transform.up * e.bull.speed) + e.bull.inertia) * deltatime;
 
-		}
+// 		}
 	
-	}
+// 	}
 
-}
+// }

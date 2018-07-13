@@ -19,6 +19,10 @@ public class playerBullet : MonoBehaviour {
 		// GetComponent<Transform>().position += GetComponent<Transform>().up*speed;
 	}
 
+	void FixedUpdate() {
+		transform.position += transform.up * speed * Time.deltaTime;
+	}
+
 	void OnTriggerExit(Collider other)
     {
 		if (other.gameObject.tag == "screen") {
@@ -41,23 +45,23 @@ public class playerBullet : MonoBehaviour {
 
 }
 
-class pMover : ComponentSystem {
+// class pMover : ComponentSystem {
 	
-	struct Components
-	{
-		public playerBullet bull;
-		public Transform transform;
-	}
+// 	struct Components
+// 	{
+// 		public playerBullet bull;
+// 		public Transform transform;
+// 	}
 
-	protected override void OnUpdate() {
+// 	protected override void OnUpdate() {
 		
-		float deltatime = Time.deltaTime;
+// 		float deltatime = Time.deltaTime;
 		
-		foreach (var e in GetEntities<Components>()) {
+// 		foreach (var e in GetEntities<Components>()) {
 				
-			e.transform.position += e.transform.up * e.bull.speed * deltatime;
-		}
+// 			e.transform.position += e.transform.up * e.bull.speed * deltatime;
+// 		}
 	
-	}
+// 	}
 
-}
+// }
