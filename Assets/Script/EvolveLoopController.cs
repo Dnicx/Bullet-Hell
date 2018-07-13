@@ -13,7 +13,7 @@ public class EvolveLoopController : MonoBehaviour {
 	public struct GenerationMember {
 		public int status;
 		public string levelName;	//
-		public float score;		//0-free, 1-working, 2-finish
+		public float score;		//0-free, 1-working, 2-finish, -1-evolving
 		public string resultFile;
 	}
 
@@ -41,27 +41,29 @@ public class EvolveLoopController : MonoBehaviour {
 		string delim = ",";
 		string text = reader.ReadLine();
 		string writeBackBuffer = "";
-		for (int i = 0; i<populationSize ; i++) {
-			string[] param;
-			param = text.Split(delim.ToCharArray());
 
-			if (currentMember.score == -1.0f && param[0] == "0") {
-				currentMember.status = int.Parse(param[0]);
-				currentMember.levelName = param[1];
-				currentMember.score = float.Parse(param[2]);
-				currentMember.resultFile = param[3];
-				writeBackBuffer += 1+",";
-				writeBackBuffer += currentMember.levelName+",";
-				writeBackBuffer += 0+",";
-				writeBackBuffer += currentMember.resultFile;
-				patternDetector.GetComponent<PatternDetector>().SetPatternName(param[3]);
-			} else {
-				writeBackBuffer += text;
+		if (text.Split(delim.ToCharArray())[0] != "-1") 
+			for (int i = 0; i<populationSize ; i++) {
+				string[] param;
+				param = text.Split(delim.ToCharArray());
+
+				if (currentMember.score == -1.0f && param[0] == "0") {
+					currentMember.status = int.Parse(param[0]);
+					currentMember.levelName = param[1];
+					currentMember.score = float.Parse(param[2]);
+					currentMember.resultFile = param[3];
+					writeBackBuffer += 1+",";
+					writeBackBuffer += currentMember.levelName+",";
+					writeBackBuffer += 0+",";
+					writeBackBuffer += currentMember.resultFile;
+					patternDetector.GetComponent<PatternDetector>().SetPatternName(param[3]);
+				} else {
+					writeBackBuffer += text;
+				}
+				writeBackBuffer += "\n";
+
+				text = reader.ReadLine();
 			}
-			writeBackBuffer += "\n";
-
-			text = reader.ReadLine();
-		}
 		reader.Close();
 
 		if (currentMember.score != -1.0f) {
@@ -69,6 +71,10 @@ public class EvolveLoopController : MonoBehaviour {
 			writer.Write(writeBackBuffer);
 			writer.Close();
 		} else {
+			writeBackBuffer[0] = -1;
+			writer = new StreamWriter(@"C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Level\" + managerFileName + ".txt");
+			writer.Write(writeBackBuffer);
+			writer.Close();
 			envManager.GetComponent<EnvManager>().GeneticPause();
 		}
 	}
@@ -132,5 +138,7 @@ public class EvolveLoopController : MonoBehaviour {
 		}
 		return counter;
 	}
+
+
 	
 }
