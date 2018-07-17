@@ -47,6 +47,7 @@ public class EnvManager : MonoBehaviour {
 		maxBound = GetComponent<Collider>().bounds.max;
 
 		playerInvinsible = 0;
+		pause = false;
 	}
 	public float count;
 	public float fixedCount;
@@ -56,19 +57,6 @@ public class EnvManager : MonoBehaviour {
 		for (int i = 0; i < enemies.Count; i++) {
 			if(enemies[i]==null) enemies.RemoveAt(i);
 		}
-		// if (player == null) {
-		// 	if (life > 0) return;
-		// 	if (record) {
-		// 		writer = new StreamWriter(@"C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Level\winrateSimulateFire.txt");
-		// 		// writer = new StreamWriter(@"C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Level\winrateAvoid.txt");
-		// 		// writer = new StreamWriter(@"C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Level\winrateSimulate.txt");
-		// 		writer.WriteLine(winCount);
-		// 		writer.WriteLine(game+1);
-		// 		writer.Close();
-		// 	}
-		// 	if (game == 499 ) Application.Quit();
-		// 	if (autoRestart) SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-		// }
 		if (Input.GetButtonDown("Restart")) {
 			game++;
 			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -96,6 +84,10 @@ public class EnvManager : MonoBehaviour {
 		if (playerInvinsible == 0) {
 			playerInvinsible = -1;
 			player.GetComponent<Collider>().enabled = true;
+		}
+
+		if (pause) {
+			StartCoroutine(reload());
 		}
 
 	}
@@ -130,5 +122,11 @@ public class EnvManager : MonoBehaviour {
 
 	public void GeneticContinue() {
 		pause = false;
+		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+	}
+
+	IEnumerator reload() {
+		yield return new WaitForSeconds(5);
+		 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 }

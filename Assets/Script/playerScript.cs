@@ -66,14 +66,14 @@ public class playerScript : MonoBehaviour {
 			if (Input.GetButtonUp("Fire")) {
 				isFire = false;
 			} 
-			if (Input.GetButtonDown("Slowmo")) {
-				Time.timeScale = 5.0f;
-				// Time.fixedDeltaTime = 0.0334f;
-			} 
-			if (Input.GetButtonUp("Slowmo")) {
-				Time.timeScale = 1.0f;
-				// Time.fixedDeltaTime = 0.0167f;
-			} 
+			// if (Input.GetButtonDown("Slowmo")) {
+			// 	Time.timeScale = 5.0f;
+			// 	// Time.fixedDeltaTime = 0.0334f;
+			// } 
+			// if (Input.GetButtonUp("Slowmo")) {
+			// 	Time.timeScale = 1.0f;
+			// 	// Time.fixedDeltaTime = 0.0167f;
+			// } 
 	}
 	
 	private int fireDelay;

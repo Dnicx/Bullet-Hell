@@ -1,4 +1,5 @@
-1,level01,0,pattern_level01
+0
+0,level01,0,pattern_level01
 0,level02,0,pattern_level02
 0,level03,0,pattern_level03
 0,level04,0,pattern_level04

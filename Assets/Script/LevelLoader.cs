@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System.IO;
 
 public class LevelLoader : MonoBehaviour {
@@ -9,7 +10,7 @@ public class LevelLoader : MonoBehaviour {
 	public GameObject[] RedEnemies;
 
 	public float spawnAhead;
-	
+	public Text levelUI;
 
 	string text;
 	StreamReader reader;
@@ -24,6 +25,7 @@ public class LevelLoader : MonoBehaviour {
 		levelText = new List<string>();
 		EvolveLoopController.instance.GetStatus();
 		levelName = EvolveLoopController.instance.currentMember.levelName;
+		levelUI.text = levelName;
 		if (levelName != null) {
 			timeSpawn = 1;
 			readFile();
@@ -57,6 +59,7 @@ public class LevelLoader : MonoBehaviour {
 			for (int i = 0; i<density.x; i++) {
 				char group = texts[1][i];
 				if (group == '-') continue;
+				if (group > 'I') Debug.Log(group);
 				GameObject currentGroup = Instantiate(RedEnemies[group - 'A']);
 				param[1] = (i*2+1) * (EnvManager.maxBound.x - EnvManager.minBound.x)/(density.x*2);
 				param[1] -= (EnvManager.maxBound.x - EnvManager.minBound.x)/2;
