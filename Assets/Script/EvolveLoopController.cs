@@ -10,6 +10,9 @@ public class EvolveLoopController : MonoBehaviour {
 	public GameObject envManager;
 	public GameObject patternDetector;
 
+	public int gen;
+	private int nextgen;
+
 	public struct GenerationMember {
 		public int status;
 		public string levelName;	//
@@ -34,6 +37,7 @@ public class EvolveLoopController : MonoBehaviour {
 		member = new GenerationMember[populationSize];
 		currentMember = new GenerationMember();
 		currentMember.score = -1.0f;
+		nextgen = gen+1;
 	}
 
 	public void GetStatus() {
@@ -153,23 +157,45 @@ public class EvolveLoopController : MonoBehaviour {
 
 	private void Evolve() {
 		SortLevel();
-		
+		RecordBestMem(member[0].levelName);
+		Reproduction();
 	}
 
 	public void SortLevel() {
-		// Debug.Log("in");
 		System.Array.Sort<GenerationMember>(member, (x, y) => y.score.CompareTo(x.score));
-		for (int i = 0; i < populationSize; i++) {
-			// int select = i;
-			// for (int j = i+1; j < populationSize ; j++) {
-			// 	if (member[select].score > member[j].score)
-			// 		select = j;
-			// }
-			// GenerationMember temp = member[select];
-			// member[select] = member[i];
-			// member[i] = temp;
-			Debug.Log(member[i].levelName);
+	}
+
+	public void RecordBestMem(string file) {
+		string best = "bestInGen"+gen;
+		if (gen%10 == 0) {
+		
+			StreamReader 	reader = new StreamReader(@"C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Level\" + best + ".txt");
+			string text = reader.ReadLine();
+			string writeBackBuffer = "best is " + file;
+			for (int i = 0; i<populationSize ; i++) {
+				writeBackBuffer += text;
+				writeBackBuffer += "\n";
+				text = reader.ReadLine();
+			}
+			reader.Close();
+
+			writer = new StreamWriter(@"C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Level\" + best + ".txt");
+			writer.Write(writeBackBuffer);
+			writer.Close();
+		}
+	}
+
+	public void Reproduction() {
+
+		for (int i = 10; i<populationSize; i++) {
+			int parent1 = Random.Range(0, 9);
+			int parent2 = Random.Range(0, 9);
+			while (parent2 == parent1) {
+				parent2 = Random.Range(0, 9);
+			}
 			
+
+
 		}
 	}
 	

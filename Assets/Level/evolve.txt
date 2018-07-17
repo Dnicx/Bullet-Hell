@@ -1,7 +1,7 @@
-2,level01,0,pattern_level01
+-2,level01,0,pattern_level01
 2,level02,2,pattern_level02
 2,level03,1,pattern_level03
-2,level04,0,pattern_level04
+2,level04,1,pattern_level04
 2,level05,0,pattern_level05
 2,level06,1,pattern_level06
 2,level07,0,pattern_level07
