@@ -1,0 +1,10 @@
+level14 + level18 = level09
+level13 + level18 = level08
+level18 + level15 = level07
+level11 + level01 = level06
+level01 + level16 = level05
+level13 + level14 = level04
+level17 + level13 = level03
+level01 + level11 = level02
+level11 + level18 = level19
+level13 + level17 = level20

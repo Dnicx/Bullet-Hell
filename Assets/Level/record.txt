@@ -1,0 +1,11 @@
+gen 0 best 0 average 0
+gen 0 best 0 average 0
+gen 0 best 0 average 0
+gen 0 best 0 average 0
+gen 0 best 0 average 0
+gen 1 best 0 average 0
+gen 2 best 0 average 0
+gen 3 best 0 average 0
+gen 4 best 0 average 0
+gen 5 best 0 average 0
+gen 6 best 0 average 0

@@ -40,9 +40,15 @@ public class PatternDetector : MonoBehaviour {
 
 	public void SetPatternName(string patName) {
 		patternName = patName;
-		writer = new StreamWriter(Application.dataPath + "/Level/" + patternName + ".txt");
-		writer.Write("");
-		writer.Close();
+		try {
+			writer = new StreamWriter(Application.dataPath + "/Level/" + patternName + ".txt");
+			writer.Write("");
+			writer.Close();
+		} catch (System.Exception e) {
+			writer.Close();
+			patternName = "";
+			EnvManager.GetComponent<EnvManager>().GeneticContinue();
+		}
 	}
 
 	private int counter2;

@@ -47,6 +47,12 @@ public class EvolveLoopController : MonoBehaviour {
 
 	public void GetStatus() {
 		StreamReader reader = new StreamReader(Application.dataPath + "/Level/" + managerFileName + ".txt");
+		if (reader == null) {
+			statusText.text = "file occupy";
+			System.Threading.Thread.Sleep(500);
+			envManager.GetComponent<EnvManager>().GeneticContinue();
+			return;
+		}
 		string delim = ",";
 		gen = int.Parse(reader.ReadLine());
 		generationText.text = "" + gen;
@@ -57,71 +63,114 @@ public class EvolveLoopController : MonoBehaviour {
 	
 		if (text.Split(delim.ToCharArray())[0] == "-2") {
 			reader.Close();
-			envManager.GetComponent<EnvManager>().GeneticPause();
 			statusText.text = "[o] evolving";
+			System.Threading.Thread.Sleep(500);
+			envManager.GetComponent<EnvManager>().GeneticContinue();
 			return;
-		} else 
-		for (int i = 0; i<populationSize ; i++) {
-			string[] param;
-			param = text.Split(delim.ToCharArray());
+		} else {
+			statusText.text = "iterating member";
+			try {
+				for (int i = 0; i<populationSize ; i++) {
+					string[] param;
+					param = text.Split(delim.ToCharArray());
 
-			member[mcounter].status = int.Parse(param[0]);
-			member[mcounter].levelName = param[1];
-			member[mcounter].score = float.Parse(param[2]);
-			member[mcounter].resultFile = param[3];
-			mcounter++;
+					member[mcounter].status = int.Parse(param[0]);
+					member[mcounter].levelName = param[1];
+					member[mcounter].score = float.Parse(param[2]);
+					member[mcounter].resultFile = param[3];
+					mcounter++;
 
-			if (currentMember.score == -1.0f && param[0] == "0") {
-				currentMember.status = int.Parse(param[0]);
-				currentMember.levelName = param[1];
-				currentMember.score = float.Parse(param[2]);
-				currentMember.resultFile = param[3];
-				writeBackBuffer += 1+",";
-				writeBackBuffer += currentMember.levelName+",";
-				writeBackBuffer += 0+",";
-				writeBackBuffer += currentMember.resultFile;
-				patternDetector.GetComponent<PatternDetector>().SetPatternName(param[3]);
-			} else {
-				writeBackBuffer += text;
+					if (currentMember.score == -1.0f && param[0] == "0") {
+						currentMember.status = int.Parse(param[0]);
+						currentMember.levelName = param[1];
+						currentMember.score = float.Parse(param[2]);
+						currentMember.resultFile = param[3];
+						writeBackBuffer += 1+",";
+						writeBackBuffer += currentMember.levelName+",";
+						writeBackBuffer += 0+",";
+						writeBackBuffer += currentMember.resultFile;
+						patternDetector.GetComponent<PatternDetector>().SetPatternName(param[3]);
+					} else {
+						writeBackBuffer += text;
+					}
+					writeBackBuffer += "\n";
+
+					text = reader.ReadLine();
+				}
+			} catch (System.Exception e) {
+				statusText.text = "read member error" + e.Message;
+				writeErrorLog("read member error at " + gen + "-" + currentMember.levelName + " : " + e);
+				reader.Close();
+				envManager.GetComponent<EnvManager>().GeneticContinue();
+				return;
 			}
-			writeBackBuffer += "\n";
-
-			text = reader.ReadLine();
 		}
 		reader.Close();
 
+		statusText.text = currentMember.score + "to play or to wait";
 		if (currentMember.score != -1.0f) {
-			writer = new StreamWriter(Application.dataPath + "/Level/" + managerFileName + ".txt");
-			writer.Write(writeBackBuffer);
-			writer.Close();
-			statusText.text = "playing";
-		} else {
-			for (int i = 0; i<populationSize; i++) {
-				if (member[i].status == 1) {
-					envManager.GetComponent<EnvManager>().GeneticPause();
-					statusText.text = "[o] finishing";
-					return;
-				}
+			try {
+				writer = new StreamWriter(Application.dataPath + "/Level/" + managerFileName + ".txt");
+				writer.Write(writeBackBuffer);
+				writer.Close();
+				statusText.text = "playing";
+			} catch (System.Exception e) {
+				writer.Close();
+				statusText.text = "write error:" + e.Message;
+				writeErrorLog("write 1 error at " + gen + "-" + currentMember.levelName + " : " + e);
+				System.Threading.Thread.Sleep(500);
+				envManager.GetComponent<EnvManager>().GeneticContinue();
+				return;
 			}
-			writeBackBuffer = new string(writeBackBuffer.ToCharArray(), 0, 2) + "-" + new string(writeBackBuffer.ToCharArray(), 2, writeBackBuffer.Length-2);
-			writer = new StreamWriter(Application.dataPath + "/Level/" + managerFileName + ".txt");
-			writer.Write(writeBackBuffer);
-			writer.Close();
-			statusText.text = "Evolve";
-			Evolve();
-			envManager.GetComponent<EnvManager>().GeneticContinue();
+		} else {
+			try {
+				for (int i = 0; i<populationSize; i++) {
+					if (member[i].status == 1) {
+						statusText.text = "[o] finishing";
+						System.Threading.Thread.Sleep(2000);
+						envManager.GetComponent<EnvManager>().GeneticContinue();
+						return;
+					}
+				}
+				statusText.text = "Write before evolve";
+				writeBackBuffer = new string(writeBackBuffer.ToCharArray(), 0, 2) + "-" + new string(writeBackBuffer.ToCharArray(), 2, writeBackBuffer.Length-2);
+			} catch (System.Exception e) {
+				writeErrorLog("error before play at for " + gen + "-" + currentMember.levelName + " : " + e);
+				envManager.GetComponent<EnvManager>().GeneticContinue();
+			}
+
+			try {
+				writer = new StreamWriter(Application.dataPath + "/Level/" + managerFileName + ".txt");
+				writer.Write(writeBackBuffer);
+				writer.Close();
+			} catch (System.Exception e) {
+				writer.Close();
+				writeErrorLog("write befor evolve " + gen + "-" + currentMember.levelName + " : " + e);
+				envManager.GetComponent<EnvManager>().GeneticContinue();
+				return;
+			}
+			
+			try {
+				statusText.text = "Evolve";
+				Evolve();
+				envManager.GetComponent<EnvManager>().GeneticContinue();
+			} catch (System.Exception e) {
+				writeErrorLog("error before play at evolve " + gen + "-" + currentMember.levelName + " : " + e);
+				envManager.GetComponent<EnvManager>().GeneticContinue();
+			}
 		}
 
 		Time.timeScale = playSpeed;
 	}
 
 	public void WriteStatus() {
-		StreamReader reader = new StreamReader(Application.dataPath + "/Level/" + managerFileName + ".txt");
+		string writeBackBuffer = gen + "\n";
 		string delim = ",";
+		float score = CalScore(currentMember.resultFile);
+
+		StreamReader reader = new StreamReader(Application.dataPath + "/Level/" + managerFileName + ".txt");
 		reader.ReadLine();
 		string text = reader.ReadLine();
-		string writeBackBuffer = gen + "\n";
-		float score;
 		for (int i = 0; i<populationSize ; i++) {
 			string[] param;
 			param = text.Split(delim.ToCharArray());
@@ -129,21 +178,40 @@ public class EvolveLoopController : MonoBehaviour {
 			if (currentMember.levelName == param[1]) {
 				writeBackBuffer += 2+",";
 				writeBackBuffer += currentMember.levelName+",";
-				score = CalScore(currentMember.resultFile);
 				writeBackBuffer += score+",";
-				Debug.Log(score);
 				writeBackBuffer += currentMember.resultFile;
 			} else {
 				writeBackBuffer += text;
 			}
 			writeBackBuffer += "\n";
-			text = reader.ReadLine();
+
+			try {
+				text = reader.ReadLine();
+			} catch (System.Exception e) {
+				writeErrorLog("error read finish at " + gen + "-" + currentMember.levelName + " : " + e);
+				bool error = true;
+				i = 0;
+				reader.Close();
+				reader = new StreamReader(Application.dataPath + "/Level/" + managerFileName + ".txt");
+				reader.ReadLine();
+				text = reader.ReadLine();
+				writeBackBuffer = gen + "\n";
+			}
 		}
 		reader.Close();
 
-		writer = new StreamWriter(Application.dataPath + "/Level/" + managerFileName + ".txt");
-		writer.Write(writeBackBuffer);
-		writer.Close();
+		try {
+			writer = new StreamWriter(Application.dataPath + "/Level/" + managerFileName + ".txt");
+			writer.Write(writeBackBuffer);
+			writer.Close();
+		} catch (System.Exception e) {
+			statusText.text = "[w]　finish write error";
+			writeErrorLog("Error Write Finish at " + gen + "-" + currentMember.levelName + " : " + e);
+			writer.Close();
+			System.Threading.Thread.Sleep(500);
+			WriteStatus();
+			writeErrorLog("out of loop");
+		}
 	}
 
 	public float CalScore(string resultFileName) {
@@ -177,10 +245,10 @@ public class EvolveLoopController : MonoBehaviour {
 	}
 
 	private void Evolve() {
-
 		SortLevel();
 		RecordBestMem(member[0].levelName, member[0].score);
-		Reproduction();
+		RecordMem();
+		Reproduction(5);
 	}
 
 	public void SortLevel() {
@@ -189,7 +257,7 @@ public class EvolveLoopController : MonoBehaviour {
 
 	public void RecordBestMem(string file, float score) {
 		string best = "bestInGen"+gen;
-		if (gen%10 == 0) {
+		if (gen%5 == 0) {
 		
 			StreamReader reader = new StreamReader(Application.dataPath + "/Level/" + file + ".txt");
 			string text = reader.ReadLine();
@@ -207,7 +275,18 @@ public class EvolveLoopController : MonoBehaviour {
 		}
 	}
 
-	public void Reproduction() {
+	public void RecordMem() {
+		float scoreSum = 0;
+		for (int i = 0; i<populationSize; i++) {
+			scoreSum += member[i].score;
+		}
+		string writeBackBuffer = "gen " + gen + " best " + member[0].score + " average " + scoreSum/populationSize;
+		writer = new StreamWriter(Application.dataPath + "/Level/record.txt",true);
+		writer.WriteLine(writeBackBuffer);
+		writer.Close();
+	}
+
+	public void Reproduction(int nCrossPoint) {
 
 		StreamReader p1reader;
 		StreamReader p2reader;
@@ -223,25 +302,34 @@ public class EvolveLoopController : MonoBehaviour {
 			p1reader = new StreamReader(Application.dataPath + "/Level/" + member[parent1].levelName + ".txt");
 			p2reader = new StreamReader(Application.dataPath + "/Level/" + member[parent2].levelName + ".txt");
 
-			parentWrite += parent1 + " + " + parent2 + "\n";
+			parentWrite += member[parent1].levelName + " + " + member[parent2].levelName;
 
-			float cross1 = Random.Range(0.0f, 60.0f);
-			float cross2 = Random.Range(0.0f, 60.0f);
-
-			while (cross2 > cross1 ) cross2 = Random.Range(0.0f, 60.0f);
+			float[] crossPoint = new float[nCrossPoint];
+			for (int cp = 0; cp < nCrossPoint; cp++) crossPoint[cp] = Random.Range(0.0f, 60.0f);
+			System.Array.Sort<float>(crossPoint, (x, y) => x.CompareTo(y));
+			
 			string p1line = p1reader.ReadLine();
 			string p2line = p2reader.ReadLine();
 			string child = "";
 			string delim = ",";
 			bool isMutate = false;
+			int pointPass = 0;
 			while (p1line != null) {
 				
 				string[] param;
 				string currentLine = "";
+				string[] timeParam = p1line.Split(delim.ToCharArray());
 				param = p1line.Split(delim.ToCharArray());
-				if (float.Parse(param[0]) > cross2)  currentLine += p1line;
-				else if (float.Parse(param[0]) > cross1) currentLine += p2line;
-				else currentLine += p1line;
+				
+				if (pointPass % 2 == 0) {
+					 currentLine += p1line;
+				}
+				else {
+					currentLine += p2line;
+					param = p2line.Split(delim.ToCharArray());
+				}
+
+				if (float.Parse(timeParam[0]) > crossPoint[pointPass] && pointPass < nCrossPoint-1) pointPass++; 
 
 				if(!isMutate && Random.Range(0,1000) == 348) {
 					isMutate = true;
@@ -267,12 +355,19 @@ public class EvolveLoopController : MonoBehaviour {
 			writer = new StreamWriter(Application.dataPath + "/Level/" + member[i].levelName + ".txt");
 			writer.Write(child);
 			writer.Close();
+			parentWrite += " = " + member[i].levelName + "\n";
 			
 		}
 		writer = new StreamWriter(Application.dataPath + "/Level/parentIn" + gen + ".txt");
 		writer.Write(parentWrite);
 		writer.Close();
 
+
+		StepNextGen();
+	}
+
+
+	public void StepNextGen() {
 		StreamReader reader = new StreamReader(Application.dataPath + "/Level/" + managerFileName + ".txt");
 		reader.ReadLine();
 		string text = reader.ReadLine();
@@ -286,12 +381,39 @@ public class EvolveLoopController : MonoBehaviour {
 			writeBackBuffer += 0+",";
 			writeBackBuffer += param[3];
 			writeBackBuffer += "\n";
-			text = reader.ReadLine();
+			try {
+				text = reader.ReadLine();
+			} catch (System.Exception e) {
+				reader.Close();
+				reader = new StreamReader(Application.dataPath + "/Level/" + managerFileName + ".txt");
+				reader.ReadLine();
+				text = reader.ReadLine();
+				writeBackBuffer = nextgen + "\n";
+				i = 0;
+			}
 		}
 		reader.Close();
+		
 
 		writer = new StreamWriter(Application.dataPath + "/Level/" + managerFileName + ".txt");
-		writer.Write(writeBackBuffer);
+		bool error = true;
+		try {
+			writer.Write(writeBackBuffer);
+		} catch (System.Exception e) {
+			while (error) {
+				writer.Close();
+				System.Threading.Thread.Sleep(500);
+				writer = new StreamWriter(Application.dataPath + "/Level/" + managerFileName + ".txt");
+				writer.Write(writeBackBuffer);
+			}
+		}
+		writer.Close();
+	}
+
+
+	public void writeErrorLog(string message) {
+		writer = new StreamWriter(Application.dataPath + "/ErrorLog.txt", true);
+		writer.WriteLine(Time.time + " Error : " + message);
 		writer.Close();
 	}
 }

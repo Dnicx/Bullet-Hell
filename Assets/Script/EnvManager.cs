@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.IO;
+using UnityEngine.UI;
 
 public class EnvManager : MonoBehaviour {
 
@@ -24,12 +25,12 @@ public class EnvManager : MonoBehaviour {
 	public static Vector3 maxBound;
 	private int playerInvinsible;
 	private bool pause;
+	public Text restartSignal;
 
 	public static float INERTIA = -2;
 	
 	int winCount;
 	int game;
-	int Ecount;
 
 	// Use this for initialization
 	void Start () {
@@ -48,12 +49,13 @@ public class EnvManager : MonoBehaviour {
 
 		playerInvinsible = 0;
 		pause = false;
+
+		restartSignal.text = " ";
 	}
 	public float count;
 	public float fixedCount;
 	// Update is called once per frame
 	void Update () {
-		Ecount = 0;
 		for (int i = 0; i < enemies.Count; i++) {
 			if(enemies[i]==null) enemies.RemoveAt(i);
 		}
@@ -126,6 +128,7 @@ public class EnvManager : MonoBehaviour {
 	}
 
 	IEnumerator reload() {
+		restartSignal.text = "will restart";
 		yield return new WaitForSeconds(5);
 		 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}

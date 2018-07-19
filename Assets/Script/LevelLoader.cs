@@ -77,7 +77,6 @@ public class LevelLoader : MonoBehaviour {
 		reader = new StreamReader(Application.dataPath + "/Level/"+levelName+".txt");
 		reader.ReadLine();		// ignore marker line
 		text = reader.ReadLine();
-		float[] param = new float[2];
 		while (text != null) {
 			levelText.Add(text);
 			text = reader.ReadLine();
