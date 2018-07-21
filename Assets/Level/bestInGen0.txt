@@ -1,4 +1,4 @@
-best is level01 : score 0
+best is level01 : score 5
 1.0,-------
 1.2,-------
 1.5,-------

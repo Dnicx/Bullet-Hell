@@ -18,13 +18,13 @@ while (True):
         else :
             if (i[0] == '1'):
                 writeback = writeback + "0" + i[1:len(i)]
-                fix = " fixed"
             else:
                 writeback = writeback + i
     f.close() 
     if (getGen == gen):
         counter = counter+1
         if (counter>3):
+            fix = " fixed"
             w = open(pattern_name, "w") 
             w.write(writeback)
             w.close()
