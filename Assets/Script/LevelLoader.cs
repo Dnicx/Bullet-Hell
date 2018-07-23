@@ -26,7 +26,7 @@ public class LevelLoader : MonoBehaviour {
 		EvolveLoopController.instance.GetStatus();
 		levelName = EvolveLoopController.instance.currentMember.levelName;
 		levelUI.text = levelName;
-		if (levelName != null) {
+		if (levelName != null && levelName != "") {
 			timeSpawn = 1;
 			readFile();
 			Spawn(1 + spawnAhead);

@@ -1,0 +1,383 @@
+0 Error : error before play at evolve 0- : System.IO.FileNotFoundException: Could not find file "C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Level\patternCount.txt"
+File name: 'C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Level\patternCount.txt'
+  at System.IO.FileStream..ctor (System.String path, System.IO.FileMode mode, System.IO.FileAccess access, System.IO.FileShare share, System.Int32 bufferSize, System.Boolean anonymous, System.IO.FileOptions options) [0x0019e] in <e1a80661d61443feb3dbdaac88eeb776>:0 
+  at System.IO.FileStream..ctor (System.String path, System.IO.FileMode mode, System.IO.FileAccess access, System.IO.FileShare share, System.Int32 bufferSize, System.IO.FileOptions options, System.String msgPath, System.Boolean bFromProxy, System.Boolean useLongPath, System.Boolean checkHost) [0x00000] in <e1a80661d61443feb3dbdaac88eeb776>:0 
+  at (wrapper remoting-invoke-with-check) System.IO.FileStream..ctor(string,System.IO.FileMode,System.IO.FileAccess,System.IO.FileShare,int,System.IO.FileOptions,string,bool,bool,bool)
+  at System.IO.StreamReader..ctor (System.String path, System.Text.Encoding encoding, System.Boolean detectEncodingFromByteOrderMarks, System.Int32 bufferSize, System.Boolean checkHost) [0x00067] in <e1a80661d61443feb3dbdaac88eeb776>:0 
+  at System.IO.StreamReader..ctor (System.String path, System.Text.Encoding encoding, System.Boolean detectEncodingFromByteOrderMarks, System.Int32 bufferSize) [0x00000] in <e1a80661d61443feb3dbdaac88eeb776>:0 
+  at System.IO.StreamReader..ctor (System.String path, System.Boolean detectEncodingFromByteOrderMarks) [0x0000d] in <e1a80661d61443feb3dbdaac88eeb776>:0 
+  at System.IO.StreamReader..ctor (System.String path) [0x00000] in <e1a80661d61443feb3dbdaac88eeb776>:0 
+  at (wrapper remoting-invoke-with-check) System.IO.StreamReader..ctor(string)
+  at EvolveLoopController.RecordPatternCount () [0x00031] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:384 
+  at EvolveLoopController.Evolve () [0x0001a] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:319 
+  at EvolveLoopController.GetStatus () [0x00883] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:200 
+0 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.04 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.04 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.04 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.04 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.04 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.04 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.04 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.04 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.04 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.04 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.04 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.04 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.04 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.04 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.04 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.0367 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.0534 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.07009999 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.08679999 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.1035 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.1202 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.1369 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.1536 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.1703 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.187 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.2037 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.2204 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.2371 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.2538 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.2705 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.2872 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.3039 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 
+0.02 Error : read member error at 0-level01 : System.NullReferenceException: Object reference not set to an instance of an object
+  at EvolveLoopController.GetStatus () [0x00131] in C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Script\EvolveLoopController.cs:78 

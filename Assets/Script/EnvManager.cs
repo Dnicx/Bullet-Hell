@@ -34,14 +34,14 @@ public class EnvManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		reader = new StreamReader(Application.dataPath + "/Level/winrateSimulateFire.txt");
+		// reader = new StreamReader(Application.dataPath + "/Level/winrateSimulateFire.txt");
 		// reader = new StreamReader(@"C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Level\winrateAvoid.txt");
 		// reader = new StreamReader(@"C:\Users\IkedaLab\Desktop\internship\2dGame\BH\Assets\Level\winrateSimulate.txt");
-		text = reader.ReadLine();
-		winCount = int.Parse(text);
-		text = reader.ReadLine();
-		game = int.Parse(text);
-		reader.Close();
+		// text = reader.ReadLine();
+		// winCount = int.Parse(text);
+		// text = reader.ReadLine();
+		// game = int.Parse(text);
+		// reader.Close();
 		timeCount = 0;
 
 		minBound = GetComponent<Collider>().bounds.min;

@@ -24,7 +24,6 @@ GameObject:
   - component: {fileID: 65940984484092952}
   - component: {fileID: 54236005563810862}
   - component: {fileID: 114652484538907982}
-  - component: {fileID: 114392636186730088}
   m_Layer: 0
   m_Name: player bullet R
   m_TagString: Untagged
@@ -114,17 +113,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114392636186730088
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1872141296319416}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5bf10cdea1344482e91a4f2b58506b77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114652484538907982
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -138,3 +126,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 15
   damage: 1
+  polar: 0

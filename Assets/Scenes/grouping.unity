@@ -567,10 +567,12 @@ MonoBehaviour:
   envManager: {fileID: 440779457}
   patternDetector: {fileID: 535664113}
   gen: 0
+  generationChild: 5
+  generationMutation: 3
   playSpeed: 3
   statusText: {fileID: 816702169}
   generationText: {fileID: 502842217}
-  populationSize: 20
+  populationSize: 40
 --- !u!4 &668567950
 Transform:
   m_ObjectHideFlags: 0

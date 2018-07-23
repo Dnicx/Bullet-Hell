@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "com.unity.entities": "0.0.12-preview.4",
     "com.unity.render-pipelines.lightweight": "2.0.3-preview"
   },
   "registry": "https://packages.unity.com",

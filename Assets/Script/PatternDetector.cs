@@ -96,10 +96,14 @@ public class PatternDetector : MonoBehaviour {
 		}
 		// buffer += "\n";
 		// writer.Write("\n");
-
-		writer = new StreamWriter(Application.dataPath + "/Level/" + patternName + ".txt",true);
-		writer.WriteLine(buffer);
-		writer.Close();
+		try {
+			writer = new StreamWriter(Application.dataPath + "/Level/" + patternName + ".txt",true);
+			writer.WriteLine(buffer);
+			writer.Close();
+		} catch (System.Exception e) {
+			writer.Close();
+			EnvManager.GetComponent<EnvManager>().GeneticContinue();
+		}
 	}
 
 }
